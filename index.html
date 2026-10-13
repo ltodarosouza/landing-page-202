@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>English Interview Agent — entrevista em inglês em duas semanas</title>
+<title>English Interview Agent — treine sua entrevista em inglês</title>
 <meta name="description" content="Tem entrevista em inglês para vaga gringa? Treine falando com um agente de voz, receba o relatório do seu inglês sob pressão e treine só o que você errou.">
 <meta name="theme-color" content="#f3f4ee">
 <link rel="icon" href="assets/tucano-mark.webp" type="image/webp">
@@ -66,7 +66,7 @@ section{padding:clamp(44px,6vw,80px) 0}
 .hero h1 em{color:var(--green);font-style:italic}
 .hero .lead{margin:0 auto 1.8rem;max-width:30ch;color:var(--ink);text-wrap:balance}
 .cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
-@media(max-width:640px){.hero{padding-top:36px}.hero-inner{padding-bottom:130px}.hero-art img{object-position:center 4%}}
+@media(max-width:640px){.hero{padding-top:32px}.hero-inner{padding-bottom:260px}.hero-art{inset:auto 0 0 0;height:250px}.hero-art img{object-position:center 22%}.hero h1{font-size:2.5rem}}
 
 /* ===== windows (shared by demo + Treinar) ===== */
 .win{background:var(--surface);border-radius:24px;box-shadow:var(--shadow),0 30px 60px -34px rgba(14,42,31,.35);overflow:hidden;position:relative}
@@ -117,21 +117,22 @@ section{padding:clamp(44px,6vw,80px) 0}
 .pf .v{background:var(--field);border-radius:12px;padding:.5rem .8rem;font-size:.84rem;line-height:1.45;margin-top:.3rem;white-space:pre-line}
 .cta{display:inline-flex;margin-top:1.2rem;background:var(--green);color:var(--cream);font-weight:600;padding:.8rem 1.6rem;border-radius:99px;font-size:.92rem;transition:transform .12s}
 /* room (mirrors the product call surface) */
-.room{padding:clamp(10px,2vw,18px) clamp(10px,2vw,20px) 0;display:grid;grid-template-rows:auto minmax(0,1fr);row-gap:10px}
+.room{padding:clamp(10px,2vw,18px) clamp(10px,2vw,20px) 0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;row-gap:10px}
 .mt-top{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 4px 12px}
 .mt-title{font-weight:600;font-size:.94rem;display:block}
-.mt-sub{font-size:.74rem;color:var(--text2)}
+.mt-sub{display:block;font-size:.74rem;color:var(--text2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:52vw}
+.mt-top>div:first-child{min-width:0}
 .mt-meta{display:flex;align-items:center;gap:10px}
 .live{display:inline-flex;align-items:center;gap:5px;font-size:.74rem;color:var(--green);opacity:0;transition:opacity .25s}
 .live.on{opacity:1}
 .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 1.2s infinite}
 @keyframes pulse{50%{opacity:.3}}
-.timer{background:rgba(14,42,31,.07);border-radius:99px;padding:5px 12px;font-size:.8rem;font-variant-numeric:tabular-nums;color:var(--text2)}
+.timer{white-space:nowrap;background:rgba(14,42,31,.07);border-radius:99px;padding:5px 12px;font-size:.8rem;font-variant-numeric:tabular-nums;color:var(--text2)}
 .timer b{color:var(--ink);font-weight:600}
 .hair{position:absolute;left:4px;right:4px;bottom:0;height:2px;background:rgba(14,42,31,.07)}
 .hair i{display:block;height:100%;width:0;background:var(--green)}
-.stage{display:grid;grid-template-columns:1fr 1fr;gap:12px;min-height:0;padding-bottom:84px}
-@media(max-width:700px){.stage{grid-template-columns:1fr}.tile.me{position:absolute;right:10px;top:62px;width:96px;aspect-ratio:3/4;z-index:6}}
+.stage{display:grid;grid-template-columns:1fr 1fr;gap:12px;min-height:0}
+@media(max-width:700px){.stage{grid-template-columns:1fr;grid-template-rows:1fr 1fr;gap:8px}.avwall img{height:34%}.av-you{width:54px;height:54px}.cap{font-size:.76rem;padding:7px 10px;bottom:34px;left:8px;right:8px}.mt-top{padding-bottom:8px}.rb{width:40px;height:40px}.rb.end{padding:0 12px}.bar{gap:6px}}
 .tile{position:relative;border-radius:20px;background:var(--surface);overflow:hidden;box-shadow:0 0 0 1px rgba(14,42,31,.08),var(--shadow);display:flex;flex-direction:column;min-height:0;isolation:isolate}
 .tile::after{content:"";position:absolute;inset:0;border-radius:inherit;border:3px solid var(--green);opacity:0;pointer-events:none;z-index:3}
 .tile.int.talk::after{animation:ringp 1.3s var(--ease-io) infinite alternate}
@@ -153,7 +154,7 @@ section{padding:clamp(44px,6vw,80px) 0}
 .you-w{flex:1;display:grid;place-items:center;background:var(--field)}
 .av-you{width:78px;height:78px;border-radius:50%;background:#dde5d6;display:grid;place-items:center;color:var(--ink);transform:scale(calc(1 + var(--lvl) * .05))}
 .mglow{position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 100%,var(--green),transparent 70%);opacity:calc(var(--lvl) * .3);z-index:1;pointer-events:none}
-.dock{position:absolute;left:0;right:0;bottom:12px;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:8}
+  .dock{display:flex;justify-content:center;padding:2px 0 12px;position:relative;z-index:8}
 .toast{background:var(--surface);border-radius:14px;padding:8px 14px;font-size:.82rem;box-shadow:0 0 0 1px rgba(14,42,31,.1),var(--shadow);opacity:0;transform:translateY(6px);transition:.3s var(--ease);max-width:min(92%,520px);text-align:center}
 .toast.on{opacity:1;transform:none}
 .bar{display:flex;gap:8px;background:var(--surface);padding:8px;border-radius:99px;box-shadow:0 0 0 1px rgba(14,42,31,.1),var(--shadow)}
@@ -198,6 +199,10 @@ section{padding:clamp(44px,6vw,80px) 0}
 .cmp .fx q{color:var(--green-deep)}
 .cmp span{font-size:.64rem;font-weight:700;letter-spacing:.12em;color:var(--text2)}
 /* cursor */
+.scenes{cursor:pointer}
+.pbadge{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(14,42,31,.78);color:#fff;display:grid;place-items:center;z-index:40;opacity:0;transform:scale(.8);pointer-events:none}
+.pbadge.show{animation:pb .7s var(--ease) forwards}
+@keyframes pb{0%{opacity:0;transform:scale(.8)}25%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.15)}}
 .cur{position:absolute;left:0;top:0;width:22px;height:22px;z-index:30;pointer-events:none;opacity:0;filter:drop-shadow(0 2px 3px rgba(0,0,0,.3))}
 .cur path{transition:transform .12s;transform-origin:3px 2px}
 .cur.press path{transform:scale(.8)}
@@ -213,6 +218,8 @@ section{padding:clamp(44px,6vw,80px) 0}
 .chap{display:flex;gap:3px;margin-top:.1rem;padding:0 8px}
 .chap button{border:0;background:none;padding:.2rem 0;text-align:left;font-size:.86rem;font-weight:600;color:var(--text2);min-height:36px}
 .chap button.act{color:var(--ink)}
+.chap .sh{display:none}
+@media(max-width:560px){.chap .lg{display:none}.chap .sh{display:inline}.chap button{font-size:.8rem}}
 .chap b{color:var(--green);margin-right:.3rem}
 .dctl{display:flex;align-items:center;gap:.8rem;margin-top:.6rem;flex-wrap:wrap}
 .dctl p{flex:1;min-width:200px;color:var(--text2);font-size:1rem}
@@ -221,6 +228,16 @@ section{padding:clamp(44px,6vw,80px) 0}
 .fine{font-size:.8rem;color:var(--text2);margin-top:.6rem}
 
 
+/* ===== mobile ===== */
+@media(max-width:640px){
+  section{padding:36px 0}h2{margin-bottom:.4rem}
+  .scenes{height:560px}
+  .sg span{font-size:.72rem;padding:.5rem .1rem}.a-card h4{font-size:1.4rem}
+  .hm,.vcol li:nth-child(2){display:none}
+  .vcol{padding:1.1rem 1.2rem}.compact .vcol{padding:1.1rem 1.2rem}
+  .dctl p{display:none}
+  .rcard,.rp{font-size:.95rem}
+}
 /* ===== cursinho ===== */
 .compact{padding:clamp(32px,4.5vw,56px) 0}
 .compact .stat{margin-bottom:.9rem}
@@ -414,8 +431,7 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
   <div class="wrap">
     <div class="rv">
       <span class="eyebrow">Como funciona</span>
-      <h2>Veja uma entrevista do começo ao fim, antes de criar conta.</h2>
-      <p class="lead">Cole a descrição da vaga e a IA monta a entrevista. Você responde falando e recebe o relatório. Arraste a barra para ir a qualquer ponto.</p>
+      <h2>Veja uma entrevista do começo ao fim.</h2>
     </div>
 
     <div class="d-wrap rv">
@@ -529,6 +545,7 @@ AWS e observabilidade</div></div>
             </div>
           </div></div>
 
+          <div class="pbadge" id="pbadge" aria-hidden="true"></div>
           <svg class="cur" id="cur" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 2l15 7-6.5 2L9 18z" fill="#0e2a1f" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
         </div>
       </div>
@@ -539,9 +556,9 @@ AWS e observabilidade</div></div>
           <div class="kz"><span class="knob" id="knob" style="left:0"></span></div>
         </div>
         <div class="chap" id="chap">
-          <button data-t="0" style="flex:25.5"><b>1</b>Escolha a vaga</button>
-          <button data-t="25.5" style="flex:38"><b>2</b>Responda por voz</button>
-          <button data-t="63.5" style="flex:16.5"><b>3</b>Receba o relatório</button>
+          <button data-t="0" style="flex:25.5"><b>1</b><span class="lg">Escolha a vaga</span><span class="sh">Vaga</span></button>
+          <button data-t="25.5" style="flex:38"><b>2</b><span class="lg">Responda por voz</span><span class="sh">Voz</span></button>
+          <button data-t="63.5" style="flex:16.5"><b>3</b><span class="lg">Receba o relatório</span><span class="sh">Relatório</span></button>
         </div>
       </div>
       <div class="dctl">
@@ -549,7 +566,7 @@ AWS e observabilidade</div></div>
         <p id="dCap" aria-live="off"></p>
         <a class="btn sm" href="https://englishinterview.vercel.app/signup" data-cta>Fazer a minha</a>
       </div>
-      <p class="fine">Animação com um exemplo, montada a partir das telas do produto. Na entrevista de verdade o entrevistador fala em voz alta (com áudio) e a legenda acompanha; aqui você vê só as legendas. Os valores do relatório são ilustrativos.</p>
+      <p class="fine">Exemplo ilustrativo. Na entrevista real o entrevistador fala em voz alta, com áudio.</p>
     </div>
   </div>
 </section>
@@ -560,7 +577,7 @@ AWS e observabilidade</div></div>
     <div class="rv">
       <span class="eyebrow">Cursinho ou agente?</span>
       <h2>Cursinho é, em boa parte, escuta.</h2>
-      <p class="lead">Numa aula em grupo, o tempo de fala é dividido entre todo mundo. Com prazo curto, o que falta é falar muito, no contexto da vaga. Mexa no número de alunos e veja a conta.</p>
+      <p class="lead">Em grupo, o tempo de fala é dividido. Mexa no número de alunos e veja a conta.</p>
     </div>
     <div class="vs rv">
       <div class="vs-top">
@@ -598,7 +615,7 @@ AWS e observabilidade</div></div>
     <div class="rv">
       <span class="eyebrow">Treinar</span>
       <h2>Seu treino nasce dos seus erros.</h2>
-      <p class="lead">Cada erro do relatório vira uma aula e exercícios. O Treinar mostra onde você mais erra e monta um treino só com isso. É assim por dentro:</p>
+      <p class="lead">Cada erro do relatório vira aula e exercício.</p>
     </div>
 
     <div class="win rv" id="homeWin">
@@ -617,7 +634,7 @@ AWS e observabilidade</div></div>
             <div class="erow" style="--w:33%"><span>Falsos cognatos</span><div class="b"><i></i></div><em>1 erro</em></div>
           </div>
           <div class="acard tplan">
-            <div><h5 style="margin-bottom:.4rem">Treino com os seus erros</h5><b style="font-size:1.05rem">10 exercícios · cerca de 3 minutos</b><p class="sm" style="margin-top:.4rem">Um treino montado só com o que você errou nas suas entrevistas.</p></div>
+            <div><h5 style="margin-bottom:.4rem">Treino com os seus erros</h5><b style="font-size:1.05rem">10 exercícios · cerca de 3 minutos</b></div>
             <button class="btn" id="goTrain">Treinar meus erros</button>
           </div>
         </div>
@@ -634,7 +651,7 @@ AWS e observabilidade</div></div>
           <p class="sm" style="margin-top:.2rem">at, on, in, for, to, by</p>
           <div class="lgrid">
             <div>
-              <div class="ls" style="margin-top:.8rem"><h5>Por que o brasileiro tropeça aqui</h5><p>Preposições quase nunca se traduzem ao pé da letra: “em” pode virar at, on ou in. Ninguém deixa de entender você, mas a frase soa traduzida e isso tira um pouco da sua credibilidade.</p></div>
+              <div class="ls" style="margin-top:.8rem"><h5>Por que o brasileiro tropeça aqui</h5><p>Preposições quase nunca se traduzem ao pé da letra: “em” pode virar at, on ou in.</p></div>
               <div class="ls"><h5>A ideia central</h5><p>Pense em formas. Toque em cada uma:</p>
                 <div class="chips" id="prepTabs">
                   <button class="chip" aria-pressed="true" data-p="at">at</button>
@@ -650,7 +667,7 @@ AWS e observabilidade</div></div>
             <div class="rule" id="rule">
               <div><div class="lb" style="margin:0">A fórmula</div><div class="formula" id="rF"></div></div>
               <div><div class="lb" style="margin:0">Quando usar</div><p id="rW"></p></div>
-              <div><div class="lb" style="margin:0">Como usar</div><p id="rX" class="sm" style="font-size:.9rem"></p></div>
+              <div class="hm"><div class="lb" style="margin:0">Como usar</div><p id="rX" class="sm" style="font-size:.9rem"></p></div>
               <div><div class="lb" style="margin:0 0 .3rem">Na sua entrevista</div>
                 <div class="vs2" lang="en"><div class="ev"><span>EVITE</span><i id="rEv" style="font-style:normal"></i></div><div class="pr"><span>PREFIRA</span><i id="rPr" style="font-style:normal"></i></div></div>
                 <p class="sm" id="rN" style="margin-top:.4rem"></p></div>
@@ -696,11 +713,11 @@ AWS e observabilidade</div></div>
       <h2>Antes de começar.</h2>
     </div>
     <div class="faq rv" id="faq">
-      <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a1" id="b1">Preciso falar inglês perfeito?</button><div class="a" id="a1" role="region" aria-labelledby="b1"><div><p>Não. O objetivo é que sua competência técnica seja entendida com clareza e confiança. O produto não trata sotaque brasileiro como defeito e não promete inglês de nativo.</p></div></div></div>
-      <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a2" id="b2">O que o relatório mostra?</button><div class="a" id="a2" role="region" aria-labelledby="b2"><div><p>Os principais erros de inglês com a frase corrigida e a regra explicada, a pontuação da fala (fluência e precisão) e o que estudar primeiro. Você também acompanha seus erros mais comuns ao longo das sessões.</p></div></div></div>
-      <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a3" id="b3">Quanto custa?</button><div class="a" id="a3" role="region" aria-labelledby="b3"><div><p>Por enquanto, você pode experimentar de graça. O produto ainda está em desenvolvimento e não existe plano pago.</p></div></div></div>
-      <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a4" id="b4">É só para quem trabalha com tecnologia?</button><div class="a" id="a4" role="region" aria-labelledby="b4"><div><p>O produto foi construído para dev brasileiro mirando vaga na gringa, e é para esse público que as perguntas e as regras foram pensadas.</p></div></div></div>
-      <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a5" id="b5">Preciso de microfone?</button><div class="a" id="a5" role="region" aria-labelledby="b5"><div><p>Sim, você responde falando. A sessão tem um teste de microfone para você confirmar que tudo está funcionando antes de começar.</p></div></div></div>
+      <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a1" id="b1">Preciso falar inglês perfeito?</button><div class="a" id="a1" role="region" aria-labelledby="b1"><div><p>Não. O objetivo é ser entendido com clareza e confiança. Sotaque brasileiro não é defeito.</p></div></div></div>
+      <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a2" id="b2">O que o relatório mostra?</button><div class="a" id="a2" role="region" aria-labelledby="b2"><div><p>Seus principais erros com a frase corrigida e a regra, a pontuação da fala e o que estudar primeiro.</p></div></div></div>
+      <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a3" id="b3">Quanto custa?</button><div class="a" id="a3" role="region" aria-labelledby="b3"><div><p>Por enquanto é grátis. Ainda não existe plano pago.</p></div></div></div>
+      <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a4" id="b4">É só para quem trabalha com tecnologia?</button><div class="a" id="a4" role="region" aria-labelledby="b4"><div><p>É feito para dev brasileiro mirando vaga na gringa.</p></div></div></div>
+      <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a5" id="b5">Preciso de microfone?</button><div class="a" id="a5" role="region" aria-labelledby="b5"><div><p>Sim, você responde falando. Há um teste de microfone antes de começar.</p></div></div></div>
     </div>
   </div>
 </section>
@@ -709,7 +726,7 @@ AWS e observabilidade</div></div>
 <section class="final">
   <div class="wrap final-in">
     <h2 class="rv">Descubra como seu inglês soa para quem vai te contratar.</h2>
-    <p class="rv">Faça uma entrevista agora. Em poucos minutos você sabe o que treinar nos próximos dias.</p>
+    <p class="rv">Em poucos minutos você sabe o que treinar.</p>
     <a class="btn rv" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
   <div class="final-art" aria-hidden="true"><img src="assets/footer-mata.png" alt="" width="2172" height="724" loading="lazy"></div>
@@ -734,7 +751,7 @@ AWS e observabilidade</div></div>
   const LINE2="Got it. You mentioned payment APIs. How did you keep a payment from being charged twice?";
   const ANS="I have five years experience on backend and I am working with Go since 2021. I built payment APIs and I worked on distributed systems.";
   const CPS=16, T1=27.0, T2=54.0;
-  const CAPTXT=['Cole a descrição da vaga: a IA identifica cargo, senioridade e foco e resume as prioridades.','O entrevistador fala em inglês, com legenda. Você responde falando.','O relatório mostra os erros com a frase corrigida e o que treinar primeiro.'];
+  const CAPTXT=['Cole a vaga e a IA monta a entrevista.','O entrevistador pergunta, você responde falando.','O relatório mostra o que corrigir primeiro.'];
 
   const scenes=$('#scenes'),cur=$('#cur'),panels=$$('.sc'),pg0=$('#pg0'),pg2=$('#pg2');
   const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
@@ -755,6 +772,8 @@ AWS e observabilidade</div></div>
   const ELS={};const getEl=id=>ELS[id]||(ELS[id]=document.getElementById(id)||$(`#sgDur span:nth-of-type(1)`));
   ELS.d5=$('#sgDur span:nth-of-type(1)');
   const APP=1.25;
+  let pgY=0;
+  const SCROLLPTS=[['mAuto',2.2],['ta',3.8],['bAn',13.0],['sgFoc',17.9],['pf2',20.4],['sgDur',22.8],['bStart',24.8]];
   function targetXY(el,box){const a=el.getBoundingClientRect();return[a.left-box.left+Math.min(a.width*.5,56),a.top-box.top+a.height*.62]}
   function placeCursor(t){
     const box=scenes.getBoundingClientRect();
@@ -766,7 +785,9 @@ AWS e observabilidade</div></div>
     let from;
     if(i===0||w.fromOff)from=[box.width*.82,box.height*.96];
     else from=targetXY(getEl(WP[i-1].el),box);
-    css(cur,'transform',`translate(${from[0]+(to[0]-from[0])*p}px,${from[1]+(to[1]-from[1])*p}px)`);
+    const cl=(v,m)=>Math.min(m-14,Math.max(8,v));
+    const fx=cl(from[0],box.width),fy=cl(from[1],box.height),tx=cl(to[0],box.width),ty=cl(to[1],box.height);
+    css(cur,'transform',`translate(${fx+(tx-fx)*p}px,${fy+(ty-fy)*p}px)`);
     const pressing=WP.some(x=>t>=x.c&&t<x.c+.18);
     tg(cur,'press',pressing);
     WP.forEach(x=>{const el=getEl(x.el);tg(el,'press',t>=x.c&&t<x.c+.18)});
@@ -787,10 +808,16 @@ AWS e observabilidade</div></div>
     $$('#sgFoc span').forEach((s,k)=>tg(s,'on',k===(t>=17.6?0:3)));
     tg(E.pf0,'on',t>=18.2);tg(E.pf1,'on',t>=18.9);tg(E.pf2,'on',t>=19.6);
     css(E.sgDur,'--i',t>=22.8?0:2);$$('#sgDur span').forEach((s,k)=>tg(s,'on',k===(t>=22.8?0:2)));
-    // scroll the page like a real one
-    const over=Math.max(0,pg0.scrollHeight-scenes.clientHeight);
-    const f=t<15.2?0:t<21.0?ease(prog(t,15.2,21.0))*.9:.9+prog(t,22.2,23.4)*.1;
-    css(pg0,'transform',`translateY(${-over*f}px)`);
+    // scroll like a real page, always keeping the next click target on screen
+    const H=scenes.clientHeight,top=scenes.getBoundingClientRect().top;
+    let y=0;
+    for(const [id,c] of SCROLLPTS){
+      const r0=c-1.8;if(t<r0)break;
+      const r=getEl(id).getBoundingClientRect();
+      const need=Math.max(0,r.bottom-top+pgY+30-H);
+      y+=(need-y)*ease(prog(t,r0,c-.6));
+    }
+    pgY=y;css(pg0,'transform',`translateY(${-y}px)`);
   }
   function renderRoom(t){
     const tl=t-T1;
@@ -848,7 +875,12 @@ AWS e observabilidade</div></div>
     $('#icoPause').toggleAttribute('hidden',userPaused);$('#icoPlay').toggleAttribute('hidden',!userPaused);
     $('#dPlay').setAttribute('aria-label',userPaused?'Retomar animação':'Pausar animação');
   }
-  $('#dPlay').addEventListener('click',()=>{userPaused=!userPaused;syncUI()});
+  const pb=$('#pbadge');
+  function toggle(){userPaused=!userPaused;syncUI();
+    pb.innerHTML=userPaused?'<svg width="26" height="26" viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>':'<svg width="26" height="26" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2l10 6-10 6z"/></svg>';
+    redraw(pb,'show')}
+  $('#dPlay').addEventListener('click',toggle);
+  scenes.addEventListener('click',toggle);
   /* seeking */
   function seekFromEvent(e){const r=$('#tr').getBoundingClientRect();t=clamp((e.clientX-r.left)/r.width)*DUR}
   scrub.addEventListener('pointerdown',e=>{dragging=true;scrub.setPointerCapture(e.pointerId);seekFromEvent(e)});
@@ -858,7 +890,7 @@ AWS e observabilidade</div></div>
   scrub.addEventListener('keydown',e=>{const d=e.key==='ArrowRight'?5:e.key==='ArrowLeft'?-5:0;if(d){e.preventDefault();t=clamp(t+d,0,DUR)}});
   chapBtns.forEach(b=>b.addEventListener('click',()=>{t=+b.dataset.t}));
   $('#bCap').dataset.off='0';
-  $('#bCap').addEventListener('click',()=>{const b=$('#bCap');const off=b.dataset.off!=='1';b.dataset.off=off?'1':'0';b.classList.toggle('off',off)});
+  $('#bCap').addEventListener('click',e=>{e.stopPropagation();const b=$('#bCap');const off=b.dataset.off!=='1';b.dataset.off=off?'1':'0';b.classList.toggle('off',off)});
   new IntersectionObserver(es=>es.forEach(e=>{
     const was=inView;inView=e.isIntersecting;
     if(inView&&!was)armed=performance.now()+(t<1?1100:600);
