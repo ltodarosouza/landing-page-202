@@ -58,16 +58,12 @@ section{padding:clamp(44px,6vw,80px) 0}
 @media(max-width:460px){.brand span{display:none}}
 
 /* hero */
-.hero{position:relative;padding:clamp(40px,6vw,84px) 0 0;overflow:hidden;isolation:isolate}
-.hero-art{position:absolute;inset:0;z-index:-1;opacity:.92;pointer-events:none;line-height:0}
-.hero-art img{width:100%;height:100%;object-fit:cover;object-position:center 4%}
-.hero-inner{text-align:center;padding:0 0 clamp(90px,11vw,150px)}
+.hero{padding:clamp(48px,7vw,92px) 0 clamp(40px,5vw,64px)}
 .hero h1{font-size:clamp(2.5rem,5.8vw,4.8rem);margin:0 auto 1.2rem;max-width:15ch;text-wrap:balance}
 .hero h1 em{color:var(--green);font-style:italic}
-.hero .lead{margin:0 auto 1.8rem;max-width:30ch;color:var(--ink);text-wrap:balance}
+.hero .lead{margin:0 auto 1.8rem;max-width:34ch;color:var(--text2);text-wrap:balance}
 .cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
-@media(max-width:640px){.hero{padding-top:36px}.hero-inner{padding-bottom:190px}.hero-art{inset:0}.hero-art img{object-position:50% 0}.hero h1{font-size:2.5rem}.hero .lead{max-width:26ch}}
-
+@media(max-width:640px){.hero h1{font-size:2.5rem}.hero .lead{max-width:26ch}}
 /* ===== windows (shared by demo + Treinar) ===== */
 .win{background:var(--surface);border-radius:24px;box-shadow:var(--shadow),0 30px 60px -34px rgba(14,42,31,.35);overflow:hidden;position:relative}
 .chrome{display:flex;align-items:center;gap:6px;height:38px;padding:0 14px;background:var(--field);border-bottom:1px solid rgba(14,42,31,.06)}
@@ -76,6 +72,19 @@ section{padding:clamp(44px,6vw,80px) 0}
 .lb{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text2);margin:1rem 0 .4rem}
 
 /* ===== DEMO ===== */
+/* demo over the artwork */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+#demo{position:relative;isolation:isolate;overflow:hidden;padding:clamp(56px,8vw,110px) 0 clamp(64px,9vw,140px)}
+.demo-art{position:absolute;inset-inline:0;bottom:-6%;height:112%;z-index:-1;pointer-events:none;mask-image:linear-gradient(to bottom,transparent 0,#000 70px);-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 70px)}
+.demo-art img{width:100%;height:100%;object-fit:cover;object-position:center bottom;opacity:.95;will-change:transform;transform:translateY(var(--py,0px))}
+.d-wrap{max-width:860px;margin:0 auto}
+.d-wrap.rv{transform:translateY(40px) scale(.965);transition:opacity .8s var(--ease),transform .9s var(--ease)}
+.d-wrap.rv.in{transform:none}
+#screen{box-shadow:0 0 0 1px rgba(255,255,255,.55),0 2px 4px rgba(14,42,31,.1),0 50px 90px -30px rgba(14,42,31,.6)}
+.dpanel{background:rgba(251,251,247,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:22px;padding:6px 18px 14px;margin-top:14px;box-shadow:var(--shadow)}
+.dpanel .fine{margin-top:.4rem}
+@media(max-width:640px){#demo{padding:40px 0 170px}.demo-art{inset:auto 0 0 0;height:380px}.demo-art img{object-position:50% 100%}.dpanel{padding:4px 14px 12px}}
+
 .d-wrap{margin-top:1.8rem}
 .scenes{position:relative;height:clamp(520px,56vw,600px);overflow:hidden;background:var(--cream)}
 .sc{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .5s var(--ease),transform .5s var(--ease),visibility 0s .5s;overflow:hidden}
@@ -415,8 +424,7 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 <main>
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-art" aria-hidden="true"><img src="assets/hero-mata.png" alt="" width="1536" height="1024" fetchpriority="high"></div>
-  <div class="wrap hero-inner">
+  <div class="wrap hero-inner" style="text-align:center">
     <h1>Você sabe a resposta. Em inglês, ela <em>trava</em>.</h1>
     <p class="lead">Treine falando com um agente de voz e descubra o que corrigir.</p>
     <div class="cta-row">
@@ -428,11 +436,9 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 
 <!-- DEMO -->
 <section id="demo">
+  <div class="demo-art" aria-hidden="true"><img src="assets/hero-mata.png" alt="" width="1536" height="1024" fetchpriority="high"></div>
   <div class="wrap">
-    <div class="rv">
-      <span class="eyebrow">Como funciona</span>
-      <h2>Veja uma entrevista do começo ao fim.</h2>
-    </div>
+    <h2 class="sr">Como funciona</h2>
 
     <div class="d-wrap rv">
       <div class="win" id="screen" role="img" aria-label="Animação do produto: a IA analisa a descrição da vaga, a sala de entrevista por voz com legendas e o relatório final">
@@ -550,6 +556,7 @@ AWS e observabilidade</div></div>
         </div>
       </div>
 
+      <div class="dpanel">
       <div class="pbar">
         <div class="scrub" id="scrub" role="slider" tabindex="0" aria-label="Posição da animação" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
           <div class="tr" id="tr"><i style="flex:25.5"></i><i style="flex:38"></i><i style="flex:16.5"></i><span class="fill" id="fill"></span></div>
@@ -567,6 +574,7 @@ AWS e observabilidade</div></div>
         <a class="btn sm" href="https://englishinterview.vercel.app/signup" data-cta>Fazer a minha</a>
       </div>
       <p class="fine">Exemplo ilustrativo. Na entrevista real o entrevistador fala em voz alta, com áudio.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -743,6 +751,14 @@ AWS e observabilidade</div></div>
   /* reveal */
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
   $$('.rv').forEach(el=>io.observe(el));
+
+  /* soft parallax on the artwork behind the demo */
+  (function(){
+    const sec=$('#demo'),img=$('.demo-art img');if(reduce)return;let tick=false;
+    const upd=()=>{tick=false;const r=sec.getBoundingClientRect(),vh=innerHeight;if(r.bottom<0||r.top>vh)return;
+      const p=(vh/2-(r.top+r.height/2))/(vh+r.height);img.style.setProperty('--py',(p*-60).toFixed(1)+'px')};
+    addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});upd();
+  })();
 
   /* ================= DEMO: timeline driven by a single clock ================= */
   const SPEED=1.5,DUR=80, CH=[0,25.5,63.5];
