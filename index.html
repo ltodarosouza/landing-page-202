@@ -58,16 +58,15 @@ section{padding:clamp(44px,6vw,80px) 0}
 @media(max-width:460px){.brand span{display:none}}
 
 /* hero */
-.hero{position:relative;padding:clamp(40px,6vw,84px) 0 0;overflow:hidden;isolation:isolate}
+.hero{position:relative;padding:clamp(28px,4vw,56px) 0 0;overflow:hidden;isolation:isolate}
 .hero-art{position:absolute;inset:0;z-index:-1;opacity:.92;pointer-events:none;line-height:0;mask-image:linear-gradient(to bottom,#000 calc(100% - 20px),transparent);-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 20px),transparent)}
-.hero-art img{width:100%;height:100%;object-fit:cover;object-position:53% 0;transform:translateY(clamp(24px,7vw,100px))}
+.hero-art img{width:100%;height:100%;object-fit:cover;object-position:53% 0}
 .hero-inner{text-align:center;padding:0 0 clamp(70px,calc(37.5vw - 410px),460px)}
 .hero h1{font-size:clamp(2.5rem,5.8vw,4.8rem);margin:0 auto 1.2rem;max-width:15ch;text-wrap:balance}
 .hero h1 em{color:var(--green);font-style:italic}
 .hero .lead{margin:0 auto 1.8rem;max-width:30ch;color:var(--ink);text-wrap:balance}
 .cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
-@media(min-width:641px){.hero h1{max-width:13ch}.hero .lead{max-width:26ch}}
-@media(max-width:640px){.hero{padding-top:36px}.hero-inner{padding-bottom:175px}.hero-art img{object-position:53% 0}.hero h1{font-size:2.3rem}.hero .lead{max-width:23ch}}
+@media(max-width:640px){.hero{padding-top:28px}.hero-inner{padding-bottom:175px}.hero-art img{object-position:53% 0}.hero h1{font-size:2.3rem}.hero .lead{max-width:23ch}}
 
 /* ===== windows (shared by demo + Treinar) ===== */
 .win{background:var(--surface);border-radius:24px;box-shadow:var(--shadow),0 30px 60px -34px rgba(14,42,31,.35);overflow:hidden;position:relative}
@@ -390,25 +389,6 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .final p{color:var(--text2);max-width:48ch;margin:0 auto 1.8rem}
 .final-art{margin-top:-10px;line-height:0;pointer-events:none;mask-image:linear-gradient(to bottom,transparent,#000 16px);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 16px)}
 .final-art img{width:100%;height:clamp(210px,28vw,400px);object-fit:cover;object-position:center 55%;opacity:.9}
-
-/* footer */
-.site-footer{position:relative;margin-top:-18px;padding:30px 0 16px;background:linear-gradient(to bottom,rgba(243,244,238,.94),var(--cream) 42%);color:var(--text2)}
-.footer-top{display:grid;grid-template-columns:minmax(220px,1.25fr) 1fr;gap:2rem;align-items:start}
-.footer-brand{display:inline-flex;align-items:center;gap:.55rem;color:var(--ink);font-size:.94rem;font-weight:600;text-decoration:none}
-.footer-brand img{width:24px;height:28px}
-.footer-about{max-width:34ch;margin-top:.5rem;font-size:.88rem;line-height:1.45}
-.footer-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
-.footer-links nav{display:grid;align-content:start;gap:.45rem;font-size:.88rem}
-.footer-links a{width:fit-content;color:var(--text2);text-decoration:none;text-underline-offset:3px}
-.footer-links a:hover{color:var(--ink);text-decoration:underline}
-.footer-meta{margin-top:1.25rem;padding-top:.75rem;border-top:1px solid rgba(14,42,31,.1);font-size:.76rem;line-height:1.4}
-@media(max-width:640px){
-  .site-footer{padding-top:24px}
-  .footer-top{grid-template-columns:1fr;gap:1.1rem}
-  .footer-links{gap:1rem}
-  .footer-links nav{gap:.55rem}
-  .footer-meta{margin-top:1rem}
-}
 
 /* reveal */
 .rv{opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
@@ -747,29 +727,6 @@ AWS e observabilidade</div></div>
   <div class="final-art" aria-hidden="true"><img src="assets/footer-mata.png" alt="" width="2172" height="724" loading="lazy"></div>
 </section>
 </main>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-top">
-      <div>
-        <a class="footer-brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="24" height="28"><span>English Interview Agent</span></a>
-        <p class="footer-about">Treine seu inglês para entrevistas com mais clareza e confiança.</p>
-      </div>
-      <div class="footer-links">
-        <nav aria-label="Explorar">
-          <a href="#demo">Relatório</a>
-          <a href="#demo">Como funciona</a>
-          <a href="https://englishinterview.vercel.app/signup" data-cta>Fazer entrevista grátis</a>
-        </nav>
-        <nav aria-label="Conta">
-          <a href="https://englishinterview.vercel.app/login">Entrar</a>
-          <a href="https://englishinterview.vercel.app/signup" data-cta>Criar conta</a>
-        </nav>
-      </div>
-    </div>
-    <p class="footer-meta">© 2026 English Interview Agent · Feito no Brasil.</p>
-  </div>
-</footer>
 
 <script>
 (function(){
