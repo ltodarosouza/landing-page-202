@@ -47,6 +47,7 @@ section{padding:clamp(44px,6vw,80px) 0}
 
 /* nav */
 .nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--cream) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid rgba(14,42,31,.06)}
+.nav::after{content:"";position:absolute;top:100%;inset-inline:0;height:18px;background:linear-gradient(to bottom,color-mix(in srgb,var(--cream) 82%,transparent),transparent);pointer-events:none}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
 .brand{display:flex;align-items:center;gap:.6rem;font-weight:600;font-size:.95rem;text-decoration:none;white-space:nowrap}
 .brand img{width:26px}
