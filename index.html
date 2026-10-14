@@ -60,12 +60,13 @@ section{padding:clamp(44px,6vw,80px) 0}
 /* hero */
 .hero{position:relative;padding:clamp(40px,6vw,84px) 0 0;overflow:hidden;isolation:isolate}
 .hero-art{position:absolute;inset:0;z-index:-1;opacity:.92;pointer-events:none;line-height:0;mask-image:linear-gradient(to bottom,#000 calc(100% - 20px),transparent);-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 20px),transparent)}
-.hero-art img{width:100%;height:100%;object-fit:cover;object-position:53% 0}
+.hero-art img{width:100%;height:100%;object-fit:cover;object-position:53% 0;transform:translateY(clamp(24px,7vw,100px))}
 .hero-inner{text-align:center;padding:0 0 clamp(70px,calc(37.5vw - 410px),460px)}
 .hero h1{font-size:clamp(2.5rem,5.8vw,4.8rem);margin:0 auto 1.2rem;max-width:15ch;text-wrap:balance}
 .hero h1 em{color:var(--green);font-style:italic}
 .hero .lead{margin:0 auto 1.8rem;max-width:30ch;color:var(--ink);text-wrap:balance}
 .cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
+@media(min-width:641px){.hero h1{max-width:13ch}.hero .lead{max-width:26ch}}
 @media(max-width:640px){.hero{padding-top:36px}.hero-inner{padding-bottom:175px}.hero-art img{object-position:53% 0}.hero h1{font-size:2.3rem}.hero .lead{max-width:23ch}}
 
 /* ===== windows (shared by demo + Treinar) ===== */
@@ -240,30 +241,31 @@ section{padding:clamp(44px,6vw,80px) 0}
 }
 /* ===== cursinho ===== */
 .compact{padding:clamp(32px,4.5vw,56px) 0}
-.compact .stat{margin-bottom:.9rem}
-.compact .vcol{padding:1.4rem 1.6rem}
-.compact .vcol h3{margin-bottom:.7rem}
 .vs{background:var(--surface);border-radius:28px;box-shadow:var(--shadow);margin-top:1.8rem;overflow:hidden}
-.vs-top{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;padding:1.2rem 1.6rem;background:var(--tint)}
+.vs-top{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.55rem 1.4rem;padding:1.35rem 1.7rem;background:var(--tint)}
 .vs-top label{font-weight:600}
-.vs-top input{flex:1;min-width:160px}
-.out{font-family:var(--serif);font-size:1.7rem;min-width:3ch;text-align:right;white-space:nowrap}
+.vs-top input{grid-column:1;grid-row:2;width:100%;min-width:0}
+.out{grid-column:2;grid-row:1 / span 2;font-family:var(--serif);font-size:1.5rem;white-space:nowrap}
 input[type=range]{-webkit-appearance:none;appearance:none;min-width:140px;height:8px;border-radius:99px;background:var(--track);outline-offset:6px}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:var(--green);border:4px solid var(--surface);box-shadow:0 2px 8px rgba(14,42,31,.35);cursor:grab}
 input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--green);border:4px solid var(--surface);cursor:grab}
 .vs-cols{display:grid;grid-template-columns:1fr 1fr}
 @media(max-width:760px){.vs-cols{grid-template-columns:1fr}}
-.vcol{padding:1.6rem}
+.vcol{padding:clamp(1.4rem,3vw,2.2rem)}
+.vcol+ .vcol{border-left:1px solid rgba(14,42,31,.1)}
+.vcol h3{font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.02em;color:var(--text2);margin-bottom:1.4rem}
+.share-time{font-family:var(--serif);font-size:clamp(2.8rem,6vw,4.5rem);line-height:.95;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.share-time small{font-family:var(--sans);font-size:.42em;letter-spacing:0;color:var(--text2)}
+.share-note{margin-top:.55rem;color:var(--text2);font-size:.92rem}
+.hour-rail{height:10px;margin-top:1.5rem;border-radius:99px;background:var(--track);overflow:hidden}
+.hour-rail i{display:block;width:8.33%;height:100%;border-radius:inherit;background:var(--warm);transition:width .35s var(--ease)}
+.rail-labels{display:flex;justify-content:space-between;margin-top:.35rem;color:var(--text2);font-size:.76rem;font-variant-numeric:tabular-nums}
 .vcol.us{background:var(--ink);color:#ecebe4}
-.vcol h3{font-size:1.7rem;margin-bottom:1rem}
-.timebar{display:flex;height:40px;border-radius:12px;overflow:hidden;background:var(--track)}
-.timebar i{display:block;background:var(--warm);min-width:6px;transition:width .35s var(--ease)}
-.timebar.full{background:#2a4a3a}.timebar.full i{background:#6fbf94;width:100%}
-.stat{margin:.8rem 0 1.1rem;font-size:1.02rem}
-.vcol ul{list-style:none;padding:0;display:grid;gap:.5rem;font-size:.95rem;color:var(--text2)}
-.vcol.us ul{color:#b9c9bf}
-.vcol li{display:flex;gap:.6rem}.vcol li::before{content:"–"}
-.vcol.us li::before{content:"✓";color:#9fd4b4}
+.vcol.us h3,.vcol.us .share-note{color:#b9c9bf}
+.answer-share{font-family:var(--serif);font-size:clamp(2.8rem,6vw,4.5rem);line-height:.95;letter-spacing:-.04em;color:#9fd4b4}
+.answer-share span{display:block;color:#ecebe4;font-size:.62em;margin-top:.12em}
+.vcol.us .share-note{max-width:29ch;margin-top:1.05rem}
+@media(max-width:760px){.vcol+.vcol{border-left:0;border-top:1px solid rgba(14,42,31,.1)}.vs-top{padding:1.1rem 1.2rem}.out{font-size:1.3rem}}
 
 /* ===== treinar ===== */
 .steps4{display:flex;flex-wrap:wrap;gap:.4rem .6rem;margin-top:1.2rem;font-size:.88rem;color:var(--text2);align-items:center}
@@ -388,6 +390,25 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .final p{color:var(--text2);max-width:48ch;margin:0 auto 1.8rem}
 .final-art{margin-top:-10px;line-height:0;pointer-events:none;mask-image:linear-gradient(to bottom,transparent,#000 16px);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 16px)}
 .final-art img{width:100%;height:clamp(210px,28vw,400px);object-fit:cover;object-position:center 55%;opacity:.9}
+
+/* footer */
+.site-footer{position:relative;margin-top:-18px;padding:30px 0 16px;background:linear-gradient(to bottom,rgba(243,244,238,.94),var(--cream) 42%);color:var(--text2)}
+.footer-top{display:grid;grid-template-columns:minmax(220px,1.25fr) 1fr;gap:2rem;align-items:start}
+.footer-brand{display:inline-flex;align-items:center;gap:.55rem;color:var(--ink);font-size:.94rem;font-weight:600;text-decoration:none}
+.footer-brand img{width:24px;height:28px}
+.footer-about{max-width:34ch;margin-top:.5rem;font-size:.88rem;line-height:1.45}
+.footer-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
+.footer-links nav{display:grid;align-content:start;gap:.45rem;font-size:.88rem}
+.footer-links a{width:fit-content;color:var(--text2);text-decoration:none;text-underline-offset:3px}
+.footer-links a:hover{color:var(--ink);text-decoration:underline}
+.footer-meta{margin-top:1.25rem;padding-top:.75rem;border-top:1px solid rgba(14,42,31,.1);font-size:.76rem;line-height:1.4}
+@media(max-width:640px){
+  .site-footer{padding-top:24px}
+  .footer-top{grid-template-columns:1fr;gap:1.1rem}
+  .footer-links{gap:1rem}
+  .footer-links nav{gap:.55rem}
+  .footer-meta{margin-top:1rem}
+}
 
 /* reveal */
 .rv{opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
@@ -575,34 +596,28 @@ AWS e observabilidade</div></div>
 <section id="cursinho" class="alt compact">
   <div class="wrap">
     <div class="rv">
-      <span class="eyebrow">Cursinho ou agente?</span>
-      <h2>Cursinho é, em boa parte, escuta.</h2>
-      <p class="lead">Em grupo, o tempo de fala é dividido. Mexa no número de alunos e veja a conta.</p>
+      <span class="eyebrow">O tempo de fala</span>
+      <h2>Em turma, a fala se divide.</h2>
+      <p class="lead">Compare uma aula de 60 min. A estimativa da turma supõe que todos falem pelo mesmo tempo.</p>
     </div>
     <div class="vs rv">
       <div class="vs-top">
-        <label for="alunos">Quantos alunos tem a sua turma?</label>
-        <input type="range" id="alunos" min="4" max="25" value="12">
-        <div class="out"><span id="alunosV">12</span> alunos</div>
+        <label for="alunos">Alunos na turma</label>
+        <input type="range" id="alunos" min="4" max="25" value="12" aria-valuetext="12 alunos">
+        <output class="out" id="alunosV" for="alunos">12 alunos</output>
       </div>
       <div class="vs-cols">
         <div class="vcol">
-          <h3>Cursinho</h3>
-          <div class="timebar" id="bar1" role="img" aria-label=""><i id="speak" style="width:8%"></i></div>
-          <p class="stat" id="calcTxt"></p>
-          <ul>
-            <li>Horário fixo, no ritmo da turma.</li>
-            <li>Conteúdo geral, nem sempre do cargo que você quer.</li>
-          </ul>
+          <h3>Na turma · sua parte de uma aula de 60 min</h3>
+          <p class="share-time"><span id="calcTxt">5,0</span> <small>min</small></p>
+          <p class="share-note">estimativa de fala por aluno, se o tempo for dividido igualmente</p>
+          <div class="hour-rail" id="bar1" role="img" aria-label="Cerca de 5 minutos de fala sua em uma aula de 60 minutos"><i id="speak" style="width:8.33%"></i></div>
+          <div class="rail-labels" aria-hidden="true"><span>0 min</span><span>60 min de aula</span></div>
         </div>
         <div class="vcol us">
-          <h3>Agente de voz</h3>
-          <div class="timebar full" role="img" aria-label="Com o agente, todas as respostas são suas"><i></i></div>
-          <p class="stat"><b>A vez de responder é sempre sua.</b> Sem plateia, a qualquer hora.</p>
-          <ul>
-            <li>Perguntas do cargo que você escolheu, com follow-ups.</li>
-            <li>Relatório com a frase corrigida e a regra explicada.</li>
-          </ul>
+          <h3>Com o agente de voz</h3>
+          <p class="answer-share">Cada resposta<span>é sua.</span></p>
+          <p class="share-note">Sem dividir a vez. No seu horário, com perguntas e follow-ups da vaga escolhida.</p>
         </div>
       </div>
     </div>
@@ -732,6 +747,29 @@ AWS e observabilidade</div></div>
   <div class="final-art" aria-hidden="true"><img src="assets/footer-mata.png" alt="" width="2172" height="724" loading="lazy"></div>
 </section>
 </main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <a class="footer-brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="24" height="28"><span>English Interview Agent</span></a>
+        <p class="footer-about">Treine seu inglês para entrevistas com mais clareza e confiança.</p>
+      </div>
+      <div class="footer-links">
+        <nav aria-label="Explorar">
+          <a href="#demo">Relatório</a>
+          <a href="#demo">Como funciona</a>
+          <a href="https://englishinterview.vercel.app/signup" data-cta>Fazer entrevista grátis</a>
+        </nav>
+        <nav aria-label="Conta">
+          <a href="https://englishinterview.vercel.app/login">Entrar</a>
+          <a href="https://englishinterview.vercel.app/signup" data-cta>Criar conta</a>
+        </nav>
+      </div>
+    </div>
+    <p class="footer-meta">© 2026 English Interview Agent · Feito no Brasil.</p>
+  </div>
+</footer>
 
 <script>
 (function(){
@@ -904,9 +942,12 @@ AWS e observabilidade</div></div>
   const al=$('#alunos');
   function calc(){
     const n=+al.value,mins=60/n;
-    $('#alunosV').textContent=n;$('#speak').style.width=(100/n)+'%';
-    $('#calcTxt').innerHTML=`<b>Cerca de ${mins.toFixed(1).replace('.',',')} min de fala sua</b> em uma aula de 60 min, se a fala for dividida igualmente.`;
-    $('#bar1').setAttribute('aria-label',`Em uma turma de ${n}, sobram cerca de ${Math.round(mins)} minutos de fala por aluno`);
+    const minText=mins.toFixed(1).replace('.',',');
+    $('#alunosV').textContent=`${n} alunos`;
+    al.setAttribute('aria-valuetext',`${n} alunos; cerca de ${minText} minutos de fala por aluno em 60 minutos, se o tempo for dividido igualmente`);
+    $('#speak').style.width=(100/n)+'%';
+    $('#calcTxt').textContent=minText;
+    $('#bar1').setAttribute('aria-label',`Em uma aula de 60 minutos com ${n} alunos, cerca de ${minText} minutos de fala sua se o tempo for dividido igualmente`);
   }
   al.addEventListener('input',calc);calc();
 
