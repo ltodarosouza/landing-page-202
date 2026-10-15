@@ -75,7 +75,12 @@ section{padding:clamp(44px,6vw,80px) 0}
 .lb{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text2);margin:1rem 0 .4rem}
 
 /* ===== DEMO ===== */
-.d-wrap{margin-top:1.8rem}
+main{overflow-x:clip}
+.d-stage{position:relative;isolation:isolate;margin-inline:calc(50% - 50vw);padding:clamp(28px,4.5vw,72px) max(20px,calc(50vw - 560px))}
+.d-art{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  mask-image:linear-gradient(to bottom,transparent,#000 40px,#000 calc(100% - 40px),transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 40px,#000 calc(100% - 40px),transparent)}
+.d-art img{width:100%;height:100%;object-fit:cover;object-position:center 60%;opacity:.9}
+.d-wrap{margin-top:1rem}
 .scenes{position:relative;height:clamp(520px,56vw,600px);overflow:hidden;background:var(--cream)}
 .sc{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .5s var(--ease),transform .5s var(--ease),visibility 0s .5s;overflow:hidden}
 .sc.on{opacity:1;visibility:visible;transform:none;transition-delay:0s}
@@ -239,7 +244,7 @@ section{padding:clamp(44px,6vw,80px) 0}
 /* ===== relatório sobre a mata (from the current site) ===== */
 .rstage{position:relative;isolation:isolate;overflow:hidden;padding:clamp(36px,5vw,84px) 0 clamp(48px,6vw,96px)}
 .stage-art{position:absolute;inset:0;z-index:-1;pointer-events:none;
-  mask-image:linear-gradient(to bottom,transparent,#000 22%,#000 70%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 22%,#000 70%,transparent)}
+  mask-image:linear-gradient(to bottom,transparent,#000 40px,#000 calc(100% - 40px),transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 40px,#000 calc(100% - 40px),transparent)}
 .stage-art img{width:100%;height:100%;object-fit:cover;object-position:center 70%;opacity:.9}
 .rep{max-width:1000px;margin-inline:auto;background:var(--surface);border-radius:28px;overflow:hidden;box-shadow:0 2px 4px rgba(14,42,31,.05),0 40px 80px -36px rgba(14,42,31,.5)}
 .rep-top{display:grid;gap:1.6rem;padding:1.5rem}
@@ -319,24 +324,20 @@ section{padding:clamp(44px,6vw,80px) 0}
 .q-btn[aria-expanded=true]+.a{grid-template-rows:1fr}
 .q-btn[aria-expanded=true]+.a p{opacity:1;transform:none;transition-delay:.08s}
 
-/* final: dark green box (from the current site) resting on the forest art */
-.final{position:relative;padding:clamp(40px,5vw,72px) 0 0;overflow:hidden}
-.cta-box{position:relative;z-index:1;overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:1.6rem;border-radius:32px;background:var(--ink);color:var(--cream);padding:clamp(2.4rem,5vw,4.6rem) 1.5rem;text-align:center;box-shadow:0 24px 48px -24px rgba(14,42,31,.5)}
-.cta-box::before{content:"";position:absolute;inset:auto -10% -60% -10%;height:90%;background:radial-gradient(closest-side,rgba(31,107,69,.55),transparent);pointer-events:none}
-.cta-box>*{position:relative}
-.cta-box h2{max-width:20ch;margin:0}
-.cta-box .btn{background:var(--cream);color:var(--ink);box-shadow:none}
-@media(hover:hover){.cta-box .btn:hover{background:#fff}}
-.final-art{margin-top:clamp(-120px,-8vw,-50px);line-height:0;pointer-events:none;mask-image:linear-gradient(to bottom,transparent,#000 30%);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 30%)}
-.final-art img{width:100%;height:clamp(220px,30vw,420px);object-fit:cover;object-position:center 55%;opacity:.9}
-
-/* footer (from the current site, trimmed) */
-.foot{background:var(--tint);padding:1.6rem 0 1.4rem}
+/* final: full-width dark green closing, footer sits inside it */
+.final{position:relative;overflow:hidden;isolation:isolate;background:var(--ink);color:var(--cream);text-align:center;padding:clamp(64px,8vw,120px) 0 0}
+.final::before{content:"";position:absolute;inset:auto -10% -40% -10%;height:90%;background:radial-gradient(closest-side,rgba(31,107,69,.55),transparent);pointer-events:none;z-index:-1}
+.final h2{max-width:20ch;margin:0 auto 1.8rem}
+.final .btn{background:var(--cream);color:var(--ink);box-shadow:none}
+@media(hover:hover){.final .btn:hover{background:#fff}}
+.foot{margin-top:clamp(64px,8vw,112px);padding:1.4rem 0 1.4rem;border-top:1px solid rgba(243,244,238,.14);text-align:left}
 .foot-in{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.foot .brand{color:var(--cream)}
 .foot nav{display:flex;gap:1.4rem;flex-wrap:wrap;font-size:.92rem}
-.foot nav a{text-decoration:none;color:var(--text2)}
-@media(hover:hover){.foot nav a:hover{color:var(--ink)}}
-.foot-base{display:flex;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap;margin-top:1rem;font-size:.8rem;color:var(--text2)}
+.foot nav a{text-decoration:none;color:#b9c9bf}
+@media(hover:hover){.foot nav a:hover{color:var(--cream)}}
+.foot-base{display:flex;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap;margin-top:1rem;font-size:.8rem;color:#9fb3a7}
+.final :focus-visible{outline-color:var(--cream)}
 
 /* reveal */
 .rv{opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
@@ -427,6 +428,8 @@ section{padding:clamp(44px,6vw,80px) 0}
     </div>
 
     <div class="d-wrap rv">
+      <div class="d-stage">
+      <div class="d-art" aria-hidden="true"><img src="assets/footer-mata.png" alt="" width="2172" height="724" loading="lazy"></div>
       <div class="win" id="screen" role="img" aria-label="Animação do produto: a IA analisa a descrição da vaga, a sala de entrevista por voz com legendas e o relatório final">
         <div class="chrome"><i></i><i></i><i></i><span>Entoa · entrevista</span></div>
         <div class="scenes" id="scenes">
@@ -541,6 +544,7 @@ AWS e observabilidade</div></div>
           <svg class="cur" id="cur" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 2l15 7-6.5 2L9 18z" fill="#0e2a1f" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
         </div>
       </div>
+      </div>
 
       <div class="pbar">
         <div class="scrub" id="scrub" role="slider" tabindex="0" aria-label="Posição da animação" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
@@ -564,7 +568,7 @@ AWS e observabilidade</div></div>
 </section>
 
 <!-- FAQ -->
-<section class="alt faq-sec">
+<section class="faq-sec">
   <div class="wrap">
     <div class="rv">
       <span class="eyebrow">Perguntas rápidas</span>
@@ -580,26 +584,21 @@ AWS e observabilidade</div></div>
   </div>
 </section>
 
-<!-- FINAL -->
+<!-- FINAL: closing + footer on the dark green -->
 <section class="final">
   <div class="wrap">
-    <div class="cta-box rv">
-      <h2>Descubra como seu inglês soa para quem vai te contratar.</h2>
-      <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Fazer entrevista grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
+    <h2 class="rv">Descubra como seu inglês soa para quem vai te contratar.</h2>
+    <a class="btn rv" href="https://englishinterview.vercel.app/signup" data-cta>Fazer entrevista grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div>
-  <div class="final-art" aria-hidden="true"><img src="assets/footer-mata.png" alt="" width="2172" height="724" loading="lazy"></div>
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="22" height="26"> <span class="wordmark">Entoa</span></a>
+      <nav aria-label="Rodapé"><a href="#relatorio">Relatório</a><a href="#demo">Como funciona</a><a href="https://englishinterview.vercel.app/login">Entrar</a><a href="https://englishinterview.vercel.app/signup">Criar conta</a></nav>
+    </div>
+    <div class="wrap foot-base"><span>Entoa © 2026</span><span>Feito no Brasil, para vaga lá fora.</span></div>
+  </footer>
 </section>
 </main>
-
-<footer class="foot">
-  <div class="wrap foot-in">
-    <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="22" height="26"> <span class="wordmark">Entoa</span></a>
-    <nav aria-label="Rodapé"><a href="#relatorio">Relatório</a><a href="#demo">Como funciona</a><a href="https://englishinterview.vercel.app/login">Entrar</a><a href="https://englishinterview.vercel.app/signup">Criar conta</a></nav>
-  </div>
-  <div class="wrap foot-base"><span>Entoa © 2026</span><span>Feito no Brasil, para vaga lá fora.</span></div>
-</footer>
-
 <script>
 (function(){
   const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];

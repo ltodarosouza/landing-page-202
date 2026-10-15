@@ -105,3 +105,18 @@ A ordem agora é: **topo → relatório sobre a mata → você × nativo → com
 
 ### Removido nesta rodada (restaurável pelo histórico do git, commit da rodada 1)
 - O **gráfico de evolução** e a **seção Treinar** (demo da aula e dos exercícios). A ordem que o Lucas descreveu não inclui essas seções.
+
+---
+
+## Rodada 3: fades discretos, entrevista sobre a mata, fechamento verde-escuro
+
+- **Transição imagem ↔ fundo** muito mais discreta: o degradê agora ocupa só 40 px em cima e embaixo, contra cerca de 20–30% da altura antes.
+- **Animação da entrevista sobre a mata:**
+  - a janela do demo fica sobre uma faixa da arte da praia/mata, de ponta a ponta da tela, com o mesmo fade curto;
+  - a imagem é outra (`footer-mata.png`), para não repetir a do relatório;
+  - os controles (linha do tempo, play, "Fazer a minha") ficam abaixo, no fundo claro, para manter a leitura.
+- **Perguntas rápidas** no fundo claro, sem faixa nem degradê.
+- **Fechamento:**
+  - a seção final inteira agora é o verde-escuro, de ponta a ponta, com "Descubra como seu inglês soa para quem vai te contratar." e o botão;
+  - o rodapé (marca, links e "Feito no Brasil, para vaga lá fora.") fica dentro desse verde, com texto claro;
+  - a imagem final saiu.
