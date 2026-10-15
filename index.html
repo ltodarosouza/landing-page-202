@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>English Interview Agent — treine sua entrevista em inglês</title>
+<title>Entoa — treine sua entrevista em inglês</title>
 <meta name="description" content="Tem entrevista em inglês para vaga gringa? Treine falando com um agente de voz, receba o relatório do seu inglês sob pressão e treine só o que você errou.">
 <meta name="theme-color" content="#f3f4ee">
 <link rel="icon" href="assets/tucano-mark.webp" type="image/webp">
@@ -33,7 +33,7 @@ h1,h2,h3,h4,h5{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;li
 h2{font-size:clamp(2rem,4.6vw,3.3rem);margin:.4rem 0 1rem;text-wrap:balance}
 .lead{color:var(--text2);font-size:1.12rem;max-width:60ch}
 section{padding:clamp(44px,6vw,80px) 0}
-.alt{background:var(--field)}
+.alt{background:linear-gradient(to bottom,var(--cream),var(--field) 96px,var(--field) calc(100% - 96px),var(--cream))}
 .sm{font-size:.82rem;color:var(--text2);line-height:1.4}
 
 /* buttons */
@@ -56,18 +56,16 @@ section{padding:clamp(44px,6vw,80px) 0}
 .nav nav a:hover{color:var(--ink)}
 .nav .btn{min-height:40px;padding:0 1.1rem;font-size:.9rem;color:var(--cream)}
 @media(max-width:720px){.nav nav a:not(.btn){display:none}.brand{font-size:.8rem}.brand img{width:22px}.nav .btn{padding:0 .8rem;font-size:.82rem;white-space:nowrap}}
-@media(max-width:460px){.brand span{display:none}}
 
-/* hero */
-.hero{position:relative;padding:clamp(28px,4vw,56px) 0 0;overflow:hidden;isolation:isolate}
-.hero-art{position:absolute;inset:0 0 -24px;z-index:-1;opacity:.92;pointer-events:none;line-height:0;mask-image:linear-gradient(to bottom,#000 calc(100% - 44px),transparent calc(100% - 24px));-webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 44px),transparent calc(100% - 24px))}
-.hero-art img{width:100%;height:100%;object-fit:cover;object-position:53% 0}
-.hero-inner{position:relative;top:-8px;text-align:center;padding:0 0 clamp(70px,calc(37.5vw - 410px),460px)}
-.hero h1{font-size:clamp(2.5rem,5.8vw,4.8rem);margin:0 auto 1.2rem;max-width:15ch;text-wrap:balance}
-.hero h1 em{color:var(--green);font-style:italic}
-.hero .lead{margin:0 auto 1.8rem;max-width:30ch;color:var(--ink);text-wrap:balance}
+/* hero: plain background (no artwork), compact, sits high on the page */
+.hero{position:relative;padding:clamp(40px,6vw,84px) 0 clamp(36px,5vw,64px);text-align:center}
+.hero-inner{position:relative}
+.hero h1{font-size:clamp(2.3rem,5vw,4.1rem);margin:0 auto 1rem;max-width:16ch;text-wrap:balance}
+.hero h1 em{font-style:italic;color:var(--green-deep);background:var(--tint);border-radius:.18em;padding:0 .1em .02em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero .lead{margin:0 auto 1.6rem;max-width:34ch;color:var(--text2);text-wrap:balance}
 .cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
-@media(max-width:640px){.hero{padding-top:28px}.hero-inner{padding-bottom:175px}.hero-art img{object-position:53% 0}.hero h1{font-size:2.3rem}.hero .lead{max-width:23ch}}
+@media(max-width:640px){.hero{padding-top:32px}.hero h1{font-size:2.2rem}.hero .lead{max-width:26ch}}
+.wordmark{font-family:var(--serif);font-size:1.45rem;font-weight:400;letter-spacing:-.01em;line-height:1}
 
 /* ===== windows (shared by demo + Treinar) ===== */
 .win{background:var(--surface);border-radius:24px;box-shadow:var(--shadow),0 30px 60px -34px rgba(14,42,31,.35);overflow:hidden;position:relative}
@@ -234,38 +232,31 @@ section{padding:clamp(44px,6vw,80px) 0}
   section{padding:36px 0}h2{margin-bottom:.4rem}
   .scenes{height:560px}
   .sg span{font-size:.72rem;padding:.5rem .1rem}.a-card h4{font-size:1.4rem}
-  .hm,.vcol li:nth-child(2){display:none}
-  .vcol{padding:1.1rem 1.2rem}.compact .vcol{padding:1.1rem 1.2rem}
+  .hm{display:none}
   .dctl p{display:none}
   .rcard,.rp{font-size:.95rem}
 }
-/* ===== cursinho ===== */
-.compact{padding:clamp(32px,4.5vw,56px) 0}
-.vs{background:var(--surface);border-radius:28px;box-shadow:var(--shadow);margin-top:1.8rem;overflow:hidden}
-.vs-top{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.55rem 1.4rem;padding:1.35rem 1.7rem;background:var(--tint)}
-.vs-top label{font-weight:600}
-.vs-top input{grid-column:1;grid-row:2;width:100%;min-width:0}
-.out{grid-column:2;grid-row:1 / span 2;font-family:var(--serif);font-size:1.5rem;white-space:nowrap}
-input[type=range]{-webkit-appearance:none;appearance:none;min-width:140px;height:8px;border-radius:99px;background:var(--track);outline-offset:6px}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:var(--green);border:4px solid var(--surface);box-shadow:0 2px 8px rgba(14,42,31,.35);cursor:grab}
-input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--green);border:4px solid var(--surface);cursor:grab}
-.vs-cols{display:grid;grid-template-columns:1fr 1fr}
-@media(max-width:760px){.vs-cols{grid-template-columns:1fr}}
-.vcol{padding:clamp(1.4rem,3vw,2.2rem)}
-.vcol+ .vcol{border-left:1px solid rgba(14,42,31,.1)}
-.vcol h3{font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.02em;color:var(--text2);margin-bottom:1.4rem}
-.share-time{font-family:var(--serif);font-size:clamp(2.8rem,6vw,4.5rem);line-height:.95;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
-.share-time small{font-family:var(--sans);font-size:.42em;letter-spacing:0;color:var(--text2)}
-.share-note{margin-top:.55rem;color:var(--text2);font-size:.92rem}
-.hour-rail{height:10px;margin-top:1.5rem;border-radius:99px;background:var(--track);overflow:hidden}
-.hour-rail i{display:block;width:8.33%;height:100%;border-radius:inherit;background:var(--warm);transition:width .35s var(--ease)}
-.rail-labels{display:flex;justify-content:space-between;margin-top:.35rem;color:var(--text2);font-size:.76rem;font-variant-numeric:tabular-nums}
-.vcol.us{background:var(--ink);color:#ecebe4}
-.vcol.us h3,.vcol.us .share-note{color:#b9c9bf}
-.answer-share{font-family:var(--serif);font-size:clamp(2.8rem,6vw,4.5rem);line-height:.95;letter-spacing:-.04em;color:#9fd4b4}
-.answer-share span{display:block;color:#ecebe4;font-size:.62em;margin-top:.12em}
-.vcol.us .share-note{max-width:29ch;margin-top:1.05rem}
-@media(max-width:760px){.vcol+.vcol{border-left:0;border-top:1px solid rgba(14,42,31,.1)}.vs-top{padding:1.1rem 1.2rem}.out{font-size:1.3rem}}
+/* ===== evolução ===== */
+.compact{padding:clamp(40px,5vw,72px) 0}
+.evo{background:var(--surface);border-radius:28px;box-shadow:var(--shadow);margin-top:1.6rem;padding:clamp(18px,3vw,32px)}
+.evo-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;min-height:4.2rem}
+.evo-k{font-size:.78rem;font-weight:600;color:var(--text2)}
+.evo-v{font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.4rem);line-height:1;font-variant-numeric:tabular-nums}
+.evo-v small{font-family:var(--sans);font-size:.9rem;color:var(--text2);margin-left:.2rem}
+.evo-note{max-width:30ch;text-align:right;color:var(--text2);font-size:.95rem;transition:opacity .2s}
+.evo-chart{position:relative;margin-top:1rem;touch-action:pan-y}
+.evo-chart svg{display:block;width:100%;height:auto;overflow:visible}
+.evo-grid line{stroke:rgba(14,42,31,.08);stroke-width:1}
+.evo-area{fill:url(#evoFill);opacity:0;transition:opacity .8s var(--ease) .5s}
+.evo-line{fill:none;stroke:var(--green);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.evo-dot{fill:var(--surface);stroke:var(--green);stroke-width:2.5;transition:r .2s var(--ease)}
+.evo-dot.on{fill:var(--green)}
+.evo-guide{stroke:var(--green);stroke-width:1;stroke-dasharray:3 4;opacity:.5}
+.evo-x{font:500 12px var(--sans);fill:var(--text2)}
+.evo.in .evo-area{opacity:1}
+.evo-foot{display:flex;justify-content:space-between;gap:.6rem 1.4rem;flex-wrap:wrap;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(14,42,31,.08);font-size:.92rem;color:var(--text2)}
+.evo-foot b{color:var(--ink);font-weight:600}
+@media(max-width:640px){.evo-note{text-align:left}.evo-head{min-height:0}}
 
 /* ===== treinar ===== */
 .steps4{display:flex;flex-wrap:wrap;gap:.4rem .6rem;margin-top:1.2rem;font-size:.88rem;color:var(--text2);align-items:center}
@@ -391,6 +382,14 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .final-art{margin-top:-10px;line-height:0;pointer-events:none;mask-image:linear-gradient(to bottom,transparent,#000 16px);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 16px)}
 .final-art img{width:100%;height:clamp(210px,28vw,400px);object-fit:cover;object-position:center 55%;opacity:.9}
 
+/* footer (from the current site, trimmed) */
+.foot{background:var(--tint);padding:1.6rem 0 1.4rem}
+.foot-in{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+.foot nav{display:flex;gap:1.4rem;flex-wrap:wrap;font-size:.92rem}
+.foot nav a{text-decoration:none;color:var(--text2)}
+@media(hover:hover){.foot nav a:hover{color:var(--ink)}}
+.foot-base{display:flex;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap;margin-top:1rem;font-size:.8rem;color:var(--text2)}
+
 /* reveal */
 .rv{opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
 .rv.in{opacity:1;transform:none}
@@ -404,11 +403,11 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="26" height="30"> <span>English Interview Agent</span></a>
+    <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="26" height="30"> <span class="wordmark">Entoa</span></a>
     <nav aria-label="Principal">
       <a href="#demo">Como funciona</a>
-      <a href="#cursinho">Cursinho?</a>
-      <a href="#treinar">Treinar</a>
+      <a href="#evolucao">Evolução</a>
+      <a href="https://englishinterview.vercel.app/login">Entrar</a>
       <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis</a>
     </nav>
   </div>
@@ -417,10 +416,9 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 <main>
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-art" aria-hidden="true"><img src="assets/hero-mata.png" alt="" width="1536" height="1024" fetchpriority="high"></div>
   <div class="wrap hero-inner">
     <h1>Você sabe a resposta. Em inglês, ela <em>trava</em>.</h1>
-    <p class="lead">Treine falando com um agente de voz e descubra o que corrigir.</p>
+    <p class="lead">Treine a entrevista falando. No fim, veja exatamente o que corrigir.</p>
     <div class="cta-row">
       <a class="btn" href="#demo">Ver como funciona <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn soft" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis</a>
@@ -438,7 +436,7 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 
     <div class="d-wrap rv">
       <div class="win" id="screen" role="img" aria-label="Animação do produto: a IA analisa a descrição da vaga, a sala de entrevista por voz com legendas e o relatório final">
-        <div class="chrome"><i></i><i></i><i></i><span>englishinterview.vercel.app</span></div>
+        <div class="chrome"><i></i><i></i><i></i><span>Entoa · entrevista</span></div>
         <div class="scenes" id="scenes">
 
           <!-- 1 · setup -->
@@ -573,33 +571,33 @@ AWS e observabilidade</div></div>
   </div>
 </section>
 
-<!-- CURSINHO -->
-<section id="cursinho" class="alt compact">
+<!-- EVOLUÇÃO (substitui a comparação com cursinho) -->
+<section id="evolucao" class="alt compact">
   <div class="wrap">
     <div class="rv">
-      <span class="eyebrow">O tempo de fala</span>
-      <h2>Em turma, a fala se divide.</h2>
-      <p class="lead">Compare uma aula de 60 min. A estimativa da turma supõe que todos falem pelo mesmo tempo.</p>
+      <span class="eyebrow">Sua evolução</span>
+      <h2>Entrevista, relatório, repete.</h2>
+      <p class="lead">Cada sessão mostra o quanto seu inglês avançou desde a anterior.</p>
     </div>
-    <div class="vs rv">
-      <div class="vs-top">
-        <label for="alunos">Alunos na turma</label>
-        <input type="range" id="alunos" min="4" max="25" value="12" aria-valuetext="12 alunos">
-        <output class="out" id="alunosV" for="alunos">12 alunos</output>
+    <div class="evo rv" id="evo">
+      <div class="evo-head">
+        <div><div class="evo-k" id="evoK">Entrevista 8</div><div class="evo-v"><span id="evoV">81</span><small>/100</small></div></div>
+        <p class="evo-note" id="evoN" aria-live="polite"></p>
       </div>
-      <div class="vs-cols">
-        <div class="vcol">
-          <h3>Na turma · sua parte de uma aula de 60 min</h3>
-          <p class="share-time"><span id="calcTxt">5,0</span> <small>min</small></p>
-          <p class="share-note">estimativa de fala por aluno, se o tempo for dividido igualmente</p>
-          <div class="hour-rail" id="bar1" role="img" aria-label="Cerca de 5 minutos de fala sua em uma aula de 60 minutos"><i id="speak" style="width:8.33%"></i></div>
-          <div class="rail-labels" aria-hidden="true"><span>0 min</span><span>60 min de aula</span></div>
-        </div>
-        <div class="vcol us">
-          <h3>Com o agente de voz</h3>
-          <p class="answer-share">Cada resposta<span>é sua.</span></p>
-          <p class="share-note">Sem dividir a vez. No seu horário, com perguntas e follow-ups da vaga escolhida.</p>
-        </div>
+      <div class="evo-chart" id="evoChart" role="img" aria-label="Exemplo: a pontuação da fala sobe de 58 para 81 ao longo de 8 entrevistas">
+        <svg viewBox="0 0 720 230" aria-hidden="true">
+          <defs><linearGradient id="evoFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f6b45" stop-opacity=".16"/><stop offset="1" stop-color="#1f6b45" stop-opacity="0"/></linearGradient></defs>
+          <g class="evo-grid" id="evoGrid"></g>
+          <path class="evo-area" id="evoArea"/>
+          <path class="evo-line" id="evoLine"/>
+          <line class="evo-guide" id="evoGuide" y1="8" y2="196"/>
+          <g id="evoDots"></g>
+          <g id="evoX"></g>
+        </svg>
+      </div>
+      <div class="evo-foot">
+        <span>Numa turma de 12, você fala uns <b>5 min por aula</b>. Aqui, a entrevista inteira é sua.</span>
+        <span class="sm">Exemplo ilustrativo.</span>
       </div>
     </div>
   </div>
@@ -609,17 +607,16 @@ AWS e observabilidade</div></div>
 <section id="treinar">
   <div class="wrap">
     <div class="rv">
-      <span class="eyebrow">Treinar</span>
-      <h2>Seu treino nasce dos seus erros.</h2>
-      <p class="lead">Cada erro do relatório vira aula e exercício.</p>
+      <span class="eyebrow">Depois do relatório</span>
+      <h2>Treine só o que você errou.</h2>
+      <p class="lead">Os exercícios aparecem a partir dos erros das suas entrevistas. Nada de curso genérico.</p>
     </div>
 
     <div class="win rv" id="homeWin">
-      <div class="chrome"><i></i><i></i><i></i><span>englishinterview.vercel.app/treinar</span></div>
+      <div class="chrome"><i></i><i></i><i></i><span>Entoa · treinar</span></div>
       <div class="abody" id="erros">
         <div class="home-head">
-          <div><h3>Treinar</h3><p class="sm" style="margin-top:.2rem">Pratique inglês para entrevistas, no seu ritmo.</p></div>
-          <div class="les"><span class="cur2">Preposições</span><span>Artigos</span><span>Tempos verbais</span><span>Formas do verbo</span><span>Vocabulário</span><span>Estrutura da frase</span></div>
+          <div><h3>Treinar</h3><p class="sm" style="margin-top:.2rem">A partir das suas 3 últimas entrevistas.</p></div>
         </div>
         <div class="home-grid">
           <div class="acard">
@@ -639,10 +636,10 @@ AWS e observabilidade</div></div>
     </div>
 
     <div class="win rv" id="lessonWin" style="margin-top:18px">
-      <div class="chrome"><i></i><i></i><i></i><span id="lessonUrl">englishinterview.vercel.app/treinar/preposicoes</span></div>
+      <div class="chrome"><i></i><i></i><i></i><span id="lessonUrl">Entoa · treinar · preposições</span></div>
       <div class="abody">
         <div id="vLesson">
-          <p class="back">← Voltar aos temas</p>
+          <p class="back">← Voltar aos seus erros</p>
           <h3>Preposições</h3>
           <p class="sm" style="margin-top:.2rem">at, on, in, for, to, by</p>
           <div class="lgrid">
@@ -728,6 +725,14 @@ AWS e observabilidade</div></div>
   <div class="final-art" aria-hidden="true"><img src="assets/footer-mata.png" alt="" width="2172" height="724" loading="lazy"></div>
 </section>
 </main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="22" height="26"> <span class="wordmark">Entoa</span></a>
+    <nav aria-label="Rodapé"><a href="#demo">Como funciona</a><a href="https://englishinterview.vercel.app/login">Entrar</a><a href="https://englishinterview.vercel.app/signup">Criar conta</a></nav>
+  </div>
+  <div class="wrap foot-base"><span>Entoa © 2026</span><span>Feito no Brasil, para vaga lá fora.</span></div>
+</footer>
 
 <script>
 (function(){
@@ -896,18 +901,47 @@ AWS e observabilidade</div></div>
   requestAnimationFrame(n=>{last=n;requestAnimationFrame(frame)});
 
 
-  /* ================= cursinho ================= */
-  const al=$('#alunos');
-  function calc(){
-    const n=+al.value,mins=60/n;
-    const minText=mins.toFixed(1).replace('.',',');
-    $('#alunosV').textContent=`${n} alunos`;
-    al.setAttribute('aria-valuetext',`${n} alunos; cerca de ${minText} minutos de fala por aluno em 60 minutos, se o tempo for dividido igualmente`);
-    $('#speak').style.width=(100/n)+'%';
-    $('#calcTxt').textContent=minText;
-    $('#bar1').setAttribute('aria-label',`Em uma aula de 60 minutos com ${n} alunos, cerca de ${minText} minutos de fala sua se o tempo for dividido igualmente`);
+  /* ================= evolução ================= */
+  const EVO=[
+    {v:58,n:'Primeira entrevista: preposições trocadas 4 vezes.'},
+    {v:61,n:'“Experience in backend” já sai certo.'},
+    {v:60,n:'Pressão maior, mais pausas longas.'},
+    {v:66,n:'Tempos verbais: “I’ve been working” no lugar de “I am working”.'},
+    {v:70,n:'Respostas mais curtas e diretas.'},
+    {v:72,n:'Só 1 erro de preposição na entrevista toda.'},
+    {v:77,n:'Follow-ups respondidos sem travar.'},
+    {v:81,n:'Pronto para a entrevista de verdade.'}
+  ];
+  const ev=$('#evo'),W=720,H=230,PX=28,TOP=14,BOT=196,MIN=52,MAX=86;
+  const ex=i=>PX+i*(W-2*PX)/(EVO.length-1), ey=v=>BOT-(v-MIN)/(MAX-MIN)*(BOT-TOP);
+  const NS='http://www.w3.org/2000/svg',mk=(tag,at)=>{const e=document.createElementNS(NS,tag);for(const k in at)e.setAttribute(k,at[k]);return e};
+  [60,70,80].forEach(v=>$('#evoGrid').appendChild(mk('line',{x1:0,x2:W,y1:ey(v),y2:ey(v)})));
+  const pts=EVO.map((d,i)=>[ex(i),ey(d.v)]);
+  const line=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+  $('#evoLine').setAttribute('d',line);
+  $('#evoArea').setAttribute('d',line+` L${ex(EVO.length-1)} ${BOT} L${ex(0)} ${BOT} Z`);
+  const dots=pts.map((p,i)=>{const c=mk('circle',{class:'evo-dot',cx:p[0],cy:p[1],r:5});$('#evoDots').appendChild(c);
+    $('#evoX').appendChild(mk('text',{class:'evo-x',x:p[0],y:H-8,'text-anchor':'middle'})).textContent=String(i+1);return c});
+  let evSel=-1;
+  function evPick(i){
+    if(i===evSel)return;evSel=i;
+    dots.forEach((d,k)=>{d.classList.toggle('on',k===i);d.setAttribute('r',k===i?7:5)});
+    $('#evoGuide').setAttribute('x1',pts[i][0]);$('#evoGuide').setAttribute('x2',pts[i][0]);
+    $('#evoK').textContent='Entrevista '+(i+1);$('#evoV').textContent=EVO[i].v;$('#evoN').textContent=EVO[i].n;
   }
-  al.addEventListener('input',calc);calc();
+  evPick(EVO.length-1);
+  const evChart=$('#evoChart');
+  function evFromX(clientX){const r=evChart.getBoundingClientRect();const x=(clientX-r.left)/r.width*W;let b=0;pts.forEach((p,k)=>{if(Math.abs(p[0]-x)<Math.abs(pts[b][0]-x))b=k});evPick(b)}
+  evChart.addEventListener('pointermove',e=>evFromX(e.clientX));
+  evChart.addEventListener('pointerdown',e=>evFromX(e.clientX));
+  evChart.addEventListener('pointerleave',()=>evPick(EVO.length-1));
+  // draw the line in when it scrolls into view, then count up to the last score
+  const evLine=$('#evoLine'),evLen=evLine.getTotalLength();
+  if(!reduce){evLine.style.strokeDasharray=evLen;evLine.style.strokeDashoffset=evLen;dots.forEach(d=>d.style.opacity=0)}
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();ev.classList.add('in');if(reduce)return;
+    evLine.animate([{strokeDashoffset:evLen},{strokeDashoffset:0}],{duration:1400,easing:'cubic-bezier(.23,1,.32,1)',fill:'forwards'});
+    dots.forEach((d,k)=>d.animate([{opacity:0},{opacity:1}],{duration:300,delay:150+k*150,fill:'forwards'}));
+  }),{threshold:.35}).observe(ev);
 
   /* ================= treinar ================= */
   const SVG={
@@ -934,7 +968,7 @@ AWS e observabilidade</div></div>
   function view(n,scroll){
     vL.hidden=n!=='lesson';vP.hidden=n!=='practice';
     const v=n==='lesson'?vL:vP;redraw(v,'fadein');
-    $('#lessonUrl').textContent='englishinterview.vercel.app/treinar/'+(n==='lesson'?'preposicoes':'preposicoes/praticar');
+    $('#lessonUrl').textContent='Entoa · treinar · '+(n==='lesson'?'preposições':'praticar');
     // wait for the new layout, then centre the window on screen
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
       $('#lessonWin').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
