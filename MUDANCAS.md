@@ -179,3 +179,21 @@ A ordem agora é: **topo → relatório sobre a mata → você × nativo → com
 - **Saiu o véu claro** da rodada 8, que ficou estranho.
 - **Também testei** só um halo no texto, sem fundo: sobre as folhas, os links ficavam ilegíveis.
 - **Ficou** uma pílula compacta, centralizada, em vidro fosco claro, na base da imagem: Entoa · Relatório · Como funciona · Entrar · Criar conta · "© 2026 · Feito no Brasil, para vaga lá fora.". Ela ocupa só a largura do conteúdo, não a tela toda.
+
+---
+
+## Rodada 10: feedback do amigo (15/10)
+- **Bug da animação corrigido:**
+  - **Sintoma:** na cena da sala, a barra de controles virava uma coluna enorme e os quadros sumiam.
+  - **Causa:** o bloco final da página usava a classe `end`, o mesmo nome do botão "Encerrar" da sala (`.rb.end`), que herdava a altura de 500+ px.
+  - **Correção:** a classe do bloco final virou `endart`.
+- **Você × nativo:**
+  - saíram a marcação do "since 2021", a linha de explicação (Preposição/Tempo verbal) e os botões de baixo;
+  - ficaram as duas frases com as partes marcadas, e passar o mouse numa parte acende o par dela na outra frase;
+  - legenda nova: "Passe o mouse nas partes marcadas para ver o par."
+- **Navegação:**
+  - os links Relatório e Como funciona agora ficam centralizados;
+  - "Entrar" virou um botão claro, diferente dos links, ao lado do "Experimentar grátis", que também ficou menor;
+  - no celular aparecem só a marca e os dois botões.
+- **Topo:** "Ver o relatório" saiu e "Entrar" entrou no lugar (botão claro).
+- **"Experimentar grátis" foi mantido** no lugar de "Experimente agora": o "grátis" é um argumento forte para quem ainda não conhece. Fácil de trocar se quiserem testar.

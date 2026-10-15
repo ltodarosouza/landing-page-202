@@ -48,14 +48,16 @@ section{padding:clamp(44px,6vw,80px) 0}
 /* nav */
 .nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--cream) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid rgba(14,42,31,.06)}
 .nav::after{content:"";position:absolute;top:100%;inset-inline:0;height:18px;background:linear-gradient(to bottom,color-mix(in srgb,var(--cream) 82%,transparent),transparent);pointer-events:none}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:64px}
+.nav-links{display:flex;gap:1.8rem;justify-content:center;font-size:.92rem}
+.nav-links a{text-decoration:none;color:var(--text2)}
+.nav-act{display:flex;gap:.5rem;justify-content:flex-end;align-items:center}
+.nav-act .btn.soft{min-height:40px;padding:0 1.1rem;font-size:.9rem;color:var(--ink)}
 .brand{display:flex;align-items:center;gap:.6rem;font-weight:600;font-size:.95rem;text-decoration:none;white-space:nowrap}
 .brand img{width:26px}
-.nav nav{display:flex;gap:1.6rem;align-items:center;font-size:.92rem}
-.nav nav a{text-decoration:none;color:var(--text2)}
-.nav nav a:hover{color:var(--ink)}
+@media(hover:hover){.nav-links a:hover{color:var(--ink)}}
 .nav .btn{min-height:40px;padding:0 1.1rem;font-size:.9rem;color:var(--cream)}
-@media(max-width:720px){.nav nav a:not(.btn){display:none}.brand{font-size:.8rem}.brand img{width:22px}.nav .btn{padding:0 .8rem;font-size:.82rem;white-space:nowrap}}
+@media(max-width:720px){.nav .wrap{grid-template-columns:auto 1fr}.nav-links{display:none}.brand{font-size:.8rem}.brand img{width:22px}.nav .btn{padding:0 .8rem;font-size:.82rem;white-space:nowrap}}
 
 /* hero: plain background (no artwork), compact, sits high on the page */
 .hero{position:relative;padding:clamp(24px,3.6vw,52px) 0 clamp(20px,3vw,40px);text-align:center}
@@ -332,7 +334,7 @@ main{overflow-x:clip}
 .cta-box .qa{color:var(--ink)}
 .cta-box :focus-visible{outline-color:var(--cream)}
 .faq-sec h2{margin-bottom:0}
-.end{position:relative;isolation:isolate;margin-top:clamp(28px,4vw,56px);height:clamp(460px,40vw,560px)}
+.endart{position:relative;isolation:isolate;margin-top:clamp(28px,4vw,56px);height:clamp(460px,40vw,560px)}
 .end-img{position:absolute;inset:0;z-index:-1;width:100%;height:100%;object-fit:cover;object-position:center bottom;opacity:.92;pointer-events:none;
   mask-image:linear-gradient(to bottom,transparent,#000 32px);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 32px)}
 /* the closing call sits in the empty sky at the top centre of the artwork */
@@ -373,12 +375,14 @@ main{overflow-x:clip}
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="26" height="30"> <span class="wordmark">Entoa</span></a>
-    <nav aria-label="Principal">
+    <nav class="nav-links" aria-label="Principal">
       <a href="#relatorio">Relatório</a>
       <a href="#demo">Como funciona</a>
-      <a href="https://englishinterview.vercel.app/login">Entrar</a>
-      <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis</a>
     </nav>
+    <div class="nav-act">
+      <a class="btn soft" href="https://englishinterview.vercel.app/login">Entrar</a>
+      <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis</a>
+    </div>
   </div>
 </header>
 
@@ -390,7 +394,7 @@ main{overflow-x:clip}
     <p class="lead">Entrevista em inglês para dev brasileiro. Treine falando e veja exatamente o que corrigir.</p>
     <div class="cta-row">
       <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn soft" href="#relatorio">Ver o relatório</a>
+      <a class="btn soft" href="https://englishinterview.vercel.app/login">Entrar</a>
     </div>
   </div>
 </section>
@@ -428,14 +432,12 @@ main{overflow-x:clip}
   <div class="wrap">
     <div class="diff-head rv">
       <h2>Seu conteúdo é bom. O inglês esconde.</h2>
-      <p class="lead">Toque nas partes marcadas para ver o que muda.</p>
+      <p class="lead">Passe o mouse nas partes marcadas para ver o par.</p>
     </div>
     <div class="diff rv" id="diff" lang="en">
-      <div class="drow"><span>Você</span><p>I have five years <button class="seg" data-d="0">experience on</button> backend and I <button class="seg" data-d="1">am working</button> with Go <button class="seg ok" data-d="2">since 2021</button>.</p></div>
-      <div class="drow"><span>Nativo</span><p>I have five years <button class="seg" data-d="0">of experience in</button> backend and I<button class="seg" data-d="1">’ve been working</button> with Go <button class="seg" data-d="2">since 2021</button>.</p></div>
-      <div class="why" lang="pt-BR"><b id="whyK">Preposição</b><p id="whyT"></p></div>
+      <div class="drow"><span>Você</span><p>I have five years <button class="seg" data-d="0">experience on</button> backend and I <button class="seg" data-d="1">am working</button> with Go since 2021.</p></div>
+      <div class="drow"><span>Nativo</span><p>I have five years <button class="seg" data-d="0">of experience in</button> backend and I<button class="seg" data-d="1">’ve been working</button> with Go since 2021.</p></div>
     </div>
-    <div class="dtabs rv" id="dtabs"><button data-d="0" aria-pressed="true">Preposição</button><button data-d="1" aria-pressed="false">Tempo verbal</button><button data-d="2" aria-pressed="false">O que já estava certo</button></div>
   </div>
 </section>
 
@@ -600,7 +602,7 @@ AWS e observabilidade</div></div>
       </div>
     </div>
   </div>
-  <div class="end">
+  <div class="endart">
     <img class="end-img" src="assets/footer-mata.png" alt="" width="2172" height="724" loading="lazy">
     <div class="wrap end-cta rv">
       <h2>Descubra como seu inglês soa para quem vai te contratar.</h2>
@@ -808,25 +810,11 @@ AWS e observabilidade</div></div>
     const st=performance.now(),D=reduce?0:1400;(function tick(n){const p=D?Math.min(1,(n-st)/D):1;$('#repScore').textContent=Math.round(84*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)})(st)}),{threshold:.25}).observe($('#rep'));
 
   /* ================= você × nativo ================= */
-  const WHY=[
-    ['Preposição','Experiência em uma área é <b>experience in</b>, e falta o <b>of</b>: five years <b>of</b> experience.'],
-    ['Tempo verbal','Começou em 2021 e continua até hoje: <b>I’ve been working</b>. “I am working” soa como algo só de agora.'],
-    ['Certo','<b>Since 2021</b> já estava certo. O relatório também mostra o que você acertou.']
-  ];
-  let dSel=-1,dAuto=null,dTouched=false;
-  function dPick(k){
-    if(k===dSel)return;dSel=k;
-    $$('#diff .seg').forEach(b=>b.classList.toggle('on',+b.dataset.d===k));
-    $$('#dtabs button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.d===k)));
-    $('#whyK').textContent=WHY[k][0];const t=$('#whyT');t.innerHTML=WHY[k][1];redraw(t,'swap');
-  }
-  const dStop=()=>{dTouched=true;clearInterval(dAuto)};
-  $('#diff').addEventListener('click',e=>{const b=e.target.closest('.seg');if(!b)return;dStop();dPick(+b.dataset.d)});
-  $('#diff').addEventListener('pointerover',e=>{const b=e.target.closest('.seg');if(b&&matchMedia('(hover:hover)').matches){dStop();dPick(+b.dataset.d)}});
-  $('#dtabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;dStop();dPick(+b.dataset.d)});
-  dPick(0);
-  // cycle through the differences while the card is on screen, until the visitor touches it
-  new IntersectionObserver(es=>es.forEach(e=>{clearInterval(dAuto);if(e.isIntersecting&&!dTouched&&!reduce)dAuto=setInterval(()=>dPick((dSel+1)%WHY.length),3200)}),{threshold:.5}).observe($('#diff'));
+  // hovering or tapping a marked part lights up the same part in the other sentence
+  function dPick(k){$$('#diff .seg').forEach(b=>b.classList.toggle('on',+b.dataset.d===k))}
+  $('#diff').addEventListener('pointerover',e=>{const b=e.target.closest('.seg');dPick(b?+b.dataset.d:-1)});
+  $('#diff').addEventListener('pointerleave',()=>dPick(-1));
+  $('#diff').addEventListener('click',e=>{const b=e.target.closest('.seg');if(b)dPick(+b.dataset.d)});
 
   /* ================= focus on the demo: the nav slides away and the window grows a little ================= */
   const nav=$('.nav'),screen=$('#screen'),dwrap=$('.d-wrap');
