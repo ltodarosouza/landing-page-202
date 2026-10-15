@@ -157,3 +157,11 @@ A ordem agora é: **topo → relatório sobre a mata → você × nativo → com
 - As **perguntas rápidas** agora ficam dentro do bloco verde-escuro, em cartões claros sobre o verde.
 - O mesmo bloco traz depois o "Descubra como seu inglês soa para quem vai te contratar." com o botão e, no pé, o **rodapé** (marca, links e "Feito no Brasil…") em texto claro.
 - A **arte da mata é a última coisa da página**: nada aparece depois dela, então ela não é mais cortada por uma faixa de informações.
+
+---
+
+## Rodada 7: bloco verde só nas perguntas, fechamento sobre a imagem
+- O **bloco verde-escuro envolve só as perguntas rápidas** e termina junto com elas, sem encostar na imagem.
+- **"Descubra como seu inglês soa para quem vai te contratar."** e o botão ficam sobre a arte da mata, no céu vazio no alto e no centro, com um leve halo claro no texto para garantir a leitura.
+- O **rodapé** (Entoa, Relatório, Como funciona, Entrar, Criar conta, "Feito no Brasil…") também fica sobre a imagem, num painel claro translúcido (vidro fosco) na base, para não se confundir com as folhas.
+- A imagem é a última coisa da página e ficou mais alta, para caberem o céu do texto e o rodapé.

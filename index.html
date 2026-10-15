@@ -322,30 +322,30 @@ main{overflow-x:clip}
 .q-btn[aria-expanded=true]+.a{grid-template-rows:1fr}
 .q-btn[aria-expanded=true]+.a p{opacity:1;transform:none;transition-delay:.08s}
 
-/* final: dark green box resting on the forest art; footer below the art */
+/* final: dark green block around the FAQ, then the forest art carries the closing call and the footer */
 .final{position:relative;padding:clamp(8px,2vw,24px) 0 0;overflow:hidden}
-.final-art img{display:block}
-.cta-box{position:relative;z-index:1;overflow:hidden;border-radius:32px;background:var(--ink);color:var(--cream);padding:clamp(2.4rem,5vw,4.4rem) clamp(1.1rem,4vw,3rem) 1.4rem;box-shadow:0 24px 48px -24px rgba(14,42,31,.5)}
+.cta-box{position:relative;overflow:hidden;border-radius:32px;background:var(--ink);color:var(--cream);padding:clamp(2.4rem,5vw,4rem) clamp(1.1rem,4vw,3rem);box-shadow:0 24px 48px -24px rgba(14,42,31,.5)}
+.cta-box::before{content:"";position:absolute;inset:auto -10% -60% -10%;height:90%;background:radial-gradient(closest-side,rgba(31,107,69,.55),transparent);pointer-events:none}
+.cta-box>*{position:relative}
 .cta-box .eyebrow{color:#9fd4b4}
 .cta-box .faq{margin-inline:auto}
 .cta-box .qa{color:var(--ink)}
-.cta-end{display:flex;flex-direction:column;align-items:center;gap:1.6rem;text-align:center;margin-top:clamp(3rem,6vw,5rem)}
-.cta-box::before{content:"";position:absolute;inset:auto -10% -60% -10%;height:90%;background:radial-gradient(closest-side,rgba(31,107,69,.55),transparent);pointer-events:none}
-.cta-box>*{position:relative}
-.cta-end h2{max-width:20ch;margin:0}
-.faq-sec h2{margin-bottom:0}
-.cta-end .btn{background:var(--cream);color:var(--ink);box-shadow:none}
-@media(hover:hover){.cta-end .btn:hover{background:#fff}}
 .cta-box :focus-visible{outline-color:var(--cream)}
-.final-art{margin-top:clamp(-120px,-8vw,-50px);line-height:0;pointer-events:none;mask-image:linear-gradient(to bottom,transparent,#000 30%);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 30%)}
-.final-art img{width:100%;height:clamp(220px,30vw,420px);object-fit:cover;object-position:center 55%;opacity:.9}
-.foot{margin-top:clamp(3rem,6vw,4.5rem);padding-top:1.3rem;border-top:1px solid rgba(243,244,238,.14)}
-.foot .brand{color:var(--cream)}
-.foot-in{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-.foot nav{display:flex;gap:1.4rem;flex-wrap:wrap;font-size:.92rem}
-.foot nav a{text-decoration:none;color:#b9c9bf}
-@media(hover:hover){.foot nav a:hover{color:var(--cream)}}
-.foot-base{display:flex;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap;margin-top:1rem;font-size:.8rem;color:#9fb3a7}
+.faq-sec h2{margin-bottom:0}
+.end{position:relative;isolation:isolate;margin-top:clamp(28px,4vw,56px);height:clamp(560px,52vw,700px)}
+.end-img{position:absolute;inset:0;z-index:-1;width:100%;height:100%;object-fit:cover;object-position:center bottom;opacity:.92;pointer-events:none;
+  mask-image:linear-gradient(to bottom,transparent,#000 32px);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 32px)}
+/* the closing call sits in the empty sky at the top centre of the artwork */
+.end-cta{display:flex;flex-direction:column;align-items:center;gap:1.4rem;text-align:center;padding-top:clamp(36px,5vw,72px)}
+.end-cta h2{max-width:20ch;margin:0;font-size:clamp(1.9rem,4vw,3rem);text-shadow:0 0 18px var(--cream),0 0 2px var(--cream)}
+/* footer on a frosted panel at the foot of the artwork, so it reads over the leaves */
+.foot{position:absolute;left:0;right:0;bottom:clamp(12px,2vw,24px)}
+.foot-panel{background:color-mix(in srgb,var(--cream) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:20px;padding:1rem 1.3rem;box-shadow:var(--shadow)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;gap:.6rem 1rem;flex-wrap:wrap}
+.foot nav{display:flex;gap:.4rem 1.4rem;flex-wrap:wrap;font-size:.92rem}
+.foot nav a{text-decoration:none;color:var(--text2)}
+@media(hover:hover){.foot nav a:hover{color:var(--ink)}}
+.foot-base{display:flex;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap;margin-top:.7rem;font-size:.8rem;color:var(--text2)}
 
 /* nav hides while the demo has the stage */
 .nav{transition:transform .45s var(--ease)}
@@ -580,7 +580,7 @@ AWS e observabilidade</div></div>
   </div>
 </section>
 
-<!-- FINAL: FAQ, closing call and footer all inside the dark green block, resting on the forest art -->
+<!-- FINAL: FAQ in the dark green block; closing call and footer on the forest art -->
 <section class="final">
   <div class="wrap">
     <div class="cta-box">
@@ -595,20 +595,24 @@ AWS e observabilidade</div></div>
         <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a4" id="b4">É só para quem trabalha com tecnologia?</button><div class="a" id="a4" role="region" aria-labelledby="b4"><div><p>É feito para dev brasileiro mirando vaga na gringa.</p></div></div></div>
         <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a5" id="b5">Preciso de microfone?</button><div class="a" id="a5" role="region" aria-labelledby="b5"><div><p>Sim, você responde falando. Há um teste de microfone antes de começar.</p></div></div></div>
       </div>
-      <div class="cta-end rv">
-        <h2>Descubra como seu inglês soa para quem vai te contratar.</h2>
-        <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-      <footer class="foot">
+    </div>
+  </div>
+  <div class="end">
+    <img class="end-img" src="assets/footer-mata.png" alt="" width="2172" height="724" loading="lazy">
+    <div class="wrap end-cta rv">
+      <h2>Descubra como seu inglês soa para quem vai te contratar.</h2>
+      <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <footer class="foot">
+      <div class="wrap"><div class="foot-panel">
         <div class="foot-in">
           <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="22" height="26"> <span class="wordmark">Entoa</span></a>
           <nav aria-label="Rodapé"><a href="#relatorio">Relatório</a><a href="#demo">Como funciona</a><a href="https://englishinterview.vercel.app/login">Entrar</a><a href="https://englishinterview.vercel.app/signup">Criar conta</a></nav>
         </div>
         <div class="foot-base"><span>Entoa © 2026</span><span>Feito no Brasil, para vaga lá fora.</span></div>
-      </footer>
-    </div>
+      </div></div>
+    </footer>
   </div>
-  <div class="final-art" aria-hidden="true"><img src="assets/footer-mata.png" alt="" width="2172" height="724" loading="lazy"></div>
 </section>
 </main>
 <script>
