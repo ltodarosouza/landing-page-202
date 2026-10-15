@@ -150,3 +150,10 @@ A ordem agora é: **topo → relatório sobre a mata → você × nativo → com
   - a caixa verde-escura fica logo abaixo das perguntas, apoiada na arte da mata, como na rodada 2;
   - o rodapé (marca, links e "Feito no Brasil…") fica abaixo da imagem;
   - o botão da caixa agora também diz "Experimentar grátis".
+
+---
+
+## Rodada 6: fechamento num bloco só
+- As **perguntas rápidas** agora ficam dentro do bloco verde-escuro, em cartões claros sobre o verde.
+- O mesmo bloco traz depois o "Descubra como seu inglês soa para quem vai te contratar." com o botão e, no pé, o **rodapé** (marca, links e "Feito no Brasil…") em texto claro.
+- A **arte da mata é a última coisa da página**: nada aparece depois dela, então ela não é mais cortada por uma faixa de informações.

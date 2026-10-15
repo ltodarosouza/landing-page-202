@@ -307,8 +307,7 @@ main{overflow-x:clip}
 .dtabs button[aria-pressed=true]{background:var(--ink);color:var(--cream)}
 
 /* faq centered */
-.faq-sec{padding-top:clamp(8px,2vw,24px)}
-.faq-sec .rv:first-child{text-align:center}
+.faq-sec{text-align:center}
 .faq{margin-inline:auto}
 
 /* faq */
@@ -325,21 +324,28 @@ main{overflow-x:clip}
 
 /* final: dark green box resting on the forest art; footer below the art */
 .final{position:relative;padding:clamp(8px,2vw,24px) 0 0;overflow:hidden}
-.cta-box{position:relative;z-index:1;overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:1.6rem;border-radius:32px;background:var(--ink);color:var(--cream);padding:clamp(2.4rem,5vw,4.6rem) 1.5rem;text-align:center;box-shadow:0 24px 48px -24px rgba(14,42,31,.5)}
+.final-art img{display:block}
+.cta-box{position:relative;z-index:1;overflow:hidden;border-radius:32px;background:var(--ink);color:var(--cream);padding:clamp(2.4rem,5vw,4.4rem) clamp(1.1rem,4vw,3rem) 1.4rem;box-shadow:0 24px 48px -24px rgba(14,42,31,.5)}
+.cta-box .eyebrow{color:#9fd4b4}
+.cta-box .faq{margin-inline:auto}
+.cta-box .qa{color:var(--ink)}
+.cta-end{display:flex;flex-direction:column;align-items:center;gap:1.6rem;text-align:center;margin-top:clamp(3rem,6vw,5rem)}
 .cta-box::before{content:"";position:absolute;inset:auto -10% -60% -10%;height:90%;background:radial-gradient(closest-side,rgba(31,107,69,.55),transparent);pointer-events:none}
 .cta-box>*{position:relative}
-.cta-box h2{max-width:20ch;margin:0}
-.cta-box .btn{background:var(--cream);color:var(--ink);box-shadow:none}
-@media(hover:hover){.cta-box .btn:hover{background:#fff}}
+.cta-end h2{max-width:20ch;margin:0}
+.faq-sec h2{margin-bottom:0}
+.cta-end .btn{background:var(--cream);color:var(--ink);box-shadow:none}
+@media(hover:hover){.cta-end .btn:hover{background:#fff}}
 .cta-box :focus-visible{outline-color:var(--cream)}
 .final-art{margin-top:clamp(-120px,-8vw,-50px);line-height:0;pointer-events:none;mask-image:linear-gradient(to bottom,transparent,#000 30%);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 30%)}
 .final-art img{width:100%;height:clamp(220px,30vw,420px);object-fit:cover;object-position:center 55%;opacity:.9}
-.foot{background:var(--tint);padding:1.6rem 0 1.4rem}
+.foot{margin-top:clamp(3rem,6vw,4.5rem);padding-top:1.3rem;border-top:1px solid rgba(243,244,238,.14)}
+.foot .brand{color:var(--cream)}
 .foot-in{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
 .foot nav{display:flex;gap:1.4rem;flex-wrap:wrap;font-size:.92rem}
-.foot nav a{text-decoration:none;color:var(--text2)}
-@media(hover:hover){.foot nav a:hover{color:var(--ink)}}
-.foot-base{display:flex;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap;margin-top:1rem;font-size:.8rem;color:var(--text2)}
+.foot nav a{text-decoration:none;color:#b9c9bf}
+@media(hover:hover){.foot nav a:hover{color:var(--cream)}}
+.foot-base{display:flex;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap;margin-top:1rem;font-size:.8rem;color:#9fb3a7}
 
 /* nav hides while the demo has the stage */
 .nav{transition:transform .45s var(--ease)}
@@ -574,40 +580,36 @@ AWS e observabilidade</div></div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="faq-sec">
-  <div class="wrap">
-    <div class="rv">
-      <span class="eyebrow">Perguntas rápidas</span>
-      <h2>Antes de começar.</h2>
-    </div>
-    <div class="faq rv" id="faq">
-      <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a1" id="b1">Preciso falar inglês perfeito?</button><div class="a" id="a1" role="region" aria-labelledby="b1"><div><p>Não. O objetivo é ser entendido com clareza e confiança. Sotaque brasileiro não é defeito.</p></div></div></div>
-      <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a2" id="b2">O que o relatório mostra?</button><div class="a" id="a2" role="region" aria-labelledby="b2"><div><p>Seus principais erros com a frase corrigida e a regra, a pontuação da fala e o que estudar primeiro.</p></div></div></div>
-      <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a3" id="b3">Quanto custa?</button><div class="a" id="a3" role="region" aria-labelledby="b3"><div><p>Por enquanto é grátis. Ainda não existe plano pago.</p></div></div></div>
-      <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a4" id="b4">É só para quem trabalha com tecnologia?</button><div class="a" id="a4" role="region" aria-labelledby="b4"><div><p>É feito para dev brasileiro mirando vaga na gringa.</p></div></div></div>
-      <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a5" id="b5">Preciso de microfone?</button><div class="a" id="a5" role="region" aria-labelledby="b5"><div><p>Sim, você responde falando. Há um teste de microfone antes de começar.</p></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL -->
+<!-- FINAL: FAQ, closing call and footer all inside the dark green block, resting on the forest art -->
 <section class="final">
   <div class="wrap">
-    <div class="cta-box rv">
-      <h2>Descubra como seu inglês soa para quem vai te contratar.</h2>
-      <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="cta-box">
+      <div class="faq-sec rv">
+        <span class="eyebrow">Perguntas rápidas</span>
+        <h2>Antes de começar.</h2>
+      </div>
+      <div class="faq rv" id="faq">
+        <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a1" id="b1">Preciso falar inglês perfeito?</button><div class="a" id="a1" role="region" aria-labelledby="b1"><div><p>Não. O objetivo é ser entendido com clareza e confiança. Sotaque brasileiro não é defeito.</p></div></div></div>
+        <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a2" id="b2">O que o relatório mostra?</button><div class="a" id="a2" role="region" aria-labelledby="b2"><div><p>Seus principais erros com a frase corrigida e a regra, a pontuação da fala e o que estudar primeiro.</p></div></div></div>
+        <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a3" id="b3">Quanto custa?</button><div class="a" id="a3" role="region" aria-labelledby="b3"><div><p>Por enquanto é grátis. Ainda não existe plano pago.</p></div></div></div>
+        <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a4" id="b4">É só para quem trabalha com tecnologia?</button><div class="a" id="a4" role="region" aria-labelledby="b4"><div><p>É feito para dev brasileiro mirando vaga na gringa.</p></div></div></div>
+        <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a5" id="b5">Preciso de microfone?</button><div class="a" id="a5" role="region" aria-labelledby="b5"><div><p>Sim, você responde falando. Há um teste de microfone antes de começar.</p></div></div></div>
+      </div>
+      <div class="cta-end rv">
+        <h2>Descubra como seu inglês soa para quem vai te contratar.</h2>
+        <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <footer class="foot">
+        <div class="foot-in">
+          <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="22" height="26"> <span class="wordmark">Entoa</span></a>
+          <nav aria-label="Rodapé"><a href="#relatorio">Relatório</a><a href="#demo">Como funciona</a><a href="https://englishinterview.vercel.app/login">Entrar</a><a href="https://englishinterview.vercel.app/signup">Criar conta</a></nav>
+        </div>
+        <div class="foot-base"><span>Entoa © 2026</span><span>Feito no Brasil, para vaga lá fora.</span></div>
+      </footer>
     </div>
   </div>
   <div class="final-art" aria-hidden="true"><img src="assets/footer-mata.png" alt="" width="2172" height="724" loading="lazy"></div>
 </section>
-<footer class="foot">
-  <div class="wrap foot-in">
-    <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="22" height="26"> <span class="wordmark">Entoa</span></a>
-    <nav aria-label="Rodapé"><a href="#relatorio">Relatório</a><a href="#demo">Como funciona</a><a href="https://englishinterview.vercel.app/login">Entrar</a><a href="https://englishinterview.vercel.app/signup">Criar conta</a></nav>
-  </div>
-  <div class="wrap foot-base"><span>Entoa © 2026</span><span>Feito no Brasil, para vaga lá fora.</span></div>
-</footer>
 </main>
 <script>
 (function(){
