@@ -58,13 +58,13 @@ section{padding:clamp(44px,6vw,80px) 0}
 @media(max-width:720px){.nav nav a:not(.btn){display:none}.brand{font-size:.8rem}.brand img{width:22px}.nav .btn{padding:0 .8rem;font-size:.82rem;white-space:nowrap}}
 
 /* hero: plain background (no artwork), compact, sits high on the page */
-.hero{position:relative;padding:clamp(40px,6vw,84px) 0 clamp(36px,5vw,64px);text-align:center}
+.hero{position:relative;padding:clamp(24px,3.6vw,52px) 0 clamp(20px,3vw,40px);text-align:center}
 .hero-inner{position:relative}
 .hero h1{font-size:clamp(2.3rem,5vw,4.1rem);margin:0 auto 1rem;max-width:16ch;text-wrap:balance}
-.hero h1 em{font-style:italic;color:var(--green-deep);background:var(--tint);border-radius:.18em;padding:0 .1em .02em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero h1 em{font-style:italic;color:var(--green)}
 .hero .lead{margin:0 auto 1.6rem;max-width:34ch;color:var(--text2);text-wrap:balance}
 .cta-row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap}
-@media(max-width:640px){.hero{padding-top:32px}.hero h1{font-size:2.2rem}.hero .lead{max-width:26ch}}
+@media(max-width:640px){.hero{padding-top:20px}.hero h1{font-size:2.2rem}.hero .lead{max-width:26ch}}
 .wordmark{font-family:var(--serif);font-size:1.45rem;font-weight:400;letter-spacing:-.01em;line-height:1}
 
 /* ===== windows (shared by demo + Treinar) ===== */
@@ -236,128 +236,73 @@ section{padding:clamp(44px,6vw,80px) 0}
   .dctl p{display:none}
   .rcard,.rp{font-size:.95rem}
 }
-/* ===== evolução ===== */
+/* ===== relatório sobre a mata (from the current site) ===== */
+.rstage{position:relative;isolation:isolate;overflow:hidden;padding:clamp(36px,5vw,84px) 0 clamp(48px,6vw,96px)}
+.stage-art{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  mask-image:linear-gradient(to bottom,transparent,#000 22%,#000 70%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 22%,#000 70%,transparent)}
+.stage-art img{width:100%;height:100%;object-fit:cover;object-position:center 70%;opacity:.9}
+.rep{max-width:1000px;margin-inline:auto;background:var(--surface);border-radius:28px;overflow:hidden;box-shadow:0 2px 4px rgba(14,42,31,.05),0 40px 80px -36px rgba(14,42,31,.5)}
+.rep-top{display:grid;gap:1.6rem;padding:1.5rem}
+@media(min-width:800px){.rep-top{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:2rem;padding:2.2rem 2.4rem 1.8rem;align-items:center}}
+.badge{display:inline-flex;align-items:center;gap:.45rem;width:fit-content;border-radius:99px;background:var(--tint);padding:.22rem .7rem .22rem .6rem;font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--green-deep)}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--green)}
+.rep-role{margin-top:.7rem;font-weight:600;font-size:1.05rem}
+.rep-k{margin-top:1.2rem;font-size:.72rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--text2)}
+.rep-score{font-size:clamp(4.2rem,7vw,5.6rem);font-weight:500;line-height:.9;letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+.rep-score small{font-size:1.2rem;letter-spacing:0;color:var(--text2);margin-left:.3rem;font-weight:400}
+.rep-meta{color:var(--text2);font-size:.92rem;margin-top:.35rem}
+.rep-meta b{color:var(--ink);font-weight:600}
+.radar{position:relative;display:flex;justify-content:center;padding-top:1.4rem}
+.radar svg{width:260px;max-width:100%;height:auto;overflow:visible}
+.radar-tip{position:absolute;left:50%;top:0;transform:translateX(-50%);white-space:nowrap;border-radius:99px;background:var(--ink);color:var(--cream);padding:.2rem .65rem;font-size:.74rem;font-weight:600;opacity:0;transition:opacity .2s;pointer-events:none}
+.radar .poly{transform-origin:150px 150px;transform:scale(.4);opacity:0;transition:transform .9s var(--ease) .3s,opacity .4s ease .3s}
+.rep.in .radar .poly{transform:none;opacity:1}
+.radar .pt{transition:r .2s,fill .2s;opacity:0}
+.rep.in .radar .pt{opacity:1;transition:r .2s,fill .2s,opacity .3s 1s}
+.rep-fix{font-size:1.05rem;line-height:1.5;margin-top:.5rem}
+.rep-fix s{color:var(--err);text-decoration-color:#c9694a;text-decoration-thickness:1.5px}
+.rep-fix strong{font-weight:600;color:var(--green-deep);background:rgba(31,107,69,.12);border-radius:.3em;padding:.05em .25em}
+.dims{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;padding:.75rem;background:var(--field)}
+@media(min-width:640px){.dims{grid-template-columns:repeat(3,minmax(0,1fr));padding:1rem 1.5rem 1.2rem}}
+@media(min-width:900px){.dims{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.dim{display:flex;flex-direction:column;gap:.15rem;border-radius:14px;padding:.8rem 1rem;transition:background .16s,box-shadow .16s;cursor:default}
+.dim.on{background:var(--surface);box-shadow:var(--shadow)}
+.dim b{font-size:1.6rem;font-weight:500;line-height:1.1;letter-spacing:-.025em;font-variant-numeric:tabular-nums;transition:color .16s}
+.dim.on b{color:var(--green)}
+.dim span{font-size:.8rem;color:var(--text2)}
+
 .compact{padding:clamp(40px,5vw,72px) 0}
-.evo{background:var(--surface);border-radius:28px;box-shadow:var(--shadow);margin-top:1.6rem;padding:clamp(18px,3vw,32px)}
-.evo-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap;min-height:4.2rem}
-.evo-k{font-size:.78rem;font-weight:600;color:var(--text2)}
-.evo-v{font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.4rem);line-height:1;font-variant-numeric:tabular-nums}
-.evo-v small{font-family:var(--sans);font-size:.9rem;color:var(--text2);margin-left:.2rem}
-.evo-note{max-width:30ch;text-align:right;color:var(--text2);font-size:.95rem;transition:opacity .2s}
-.evo-chart{position:relative;margin-top:1rem;touch-action:pan-y}
-.evo-chart svg{display:block;width:100%;height:auto;overflow:visible}
-.evo-grid line{stroke:rgba(14,42,31,.08);stroke-width:1}
-.evo-area{fill:url(#evoFill);opacity:0;transition:opacity .8s var(--ease) .5s}
-.evo-line{fill:none;stroke:var(--green);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-.evo-dot{fill:var(--surface);stroke:var(--green);stroke-width:2.5;transition:r .2s var(--ease)}
-.evo-dot.on{fill:var(--green)}
-.evo-guide{stroke:var(--green);stroke-width:1;stroke-dasharray:3 4;opacity:.5}
-.evo-x{font:500 12px var(--sans);fill:var(--text2)}
-.evo.in .evo-area{opacity:1}
-.evo-foot{display:flex;justify-content:space-between;gap:.6rem 1.4rem;flex-wrap:wrap;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(14,42,31,.08);font-size:.92rem;color:var(--text2)}
-.evo-foot b{color:var(--ink);font-weight:600}
-@media(max-width:640px){.evo-note{text-align:left}.evo-head{min-height:0}}
+/* ===== você × nativo ===== */
+.diff-head{text-align:center}
+.diff-head h2{max-width:20ch;margin-inline:auto}
+.diff-head .lead{margin-inline:auto;max-width:40ch}
+.diff{max-width:760px;margin:1.8rem auto 0;background:var(--surface);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+.drow{display:grid;gap:.4rem;padding:1.2rem 1.3rem}
+@media(min-width:640px){.drow{grid-template-columns:5.5rem minmax(0,1fr);gap:1.2rem;padding:1.6rem 2rem;align-items:baseline}}
+.drow+.drow{background:var(--tint)}
+.drow>span{font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text2)}
+.drow+.drow>span{color:var(--green-deep)}
+.drow p{font-family:var(--serif);font-size:clamp(1.3rem,2.6vw,1.65rem);line-height:1.4}
+.drow:first-child p{color:var(--text2)}
+.seg{border:0;background:none;font:inherit;color:inherit;padding:0 .1em;margin:0 -.04em;border-radius:.28em;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s}
+.drow:first-child .seg:not(.ok){color:var(--err);text-decoration:line-through;text-decoration-color:rgba(201,105,74,.55);text-decoration-thickness:1.5px}
+.drow+.drow .seg{color:var(--green-deep)}
+.seg.on{text-decoration-color:transparent}
+.seg.ok{text-decoration:underline dotted rgba(31,107,69,.45);text-underline-offset:.2em}
+.drow:first-child .seg.ok.on{background:var(--tint);box-shadow:inset 0 0 0 1.5px var(--green);color:var(--green-deep)}
+.drow:first-child .seg:not(.ok).on{background:var(--err-tint);box-shadow:inset 0 0 0 1.5px rgba(201,105,74,.5);text-decoration:none}
+.drow+.drow .seg.on{background:var(--surface);box-shadow:inset 0 0 0 1.5px var(--green)}
+.why{display:flex;gap:.8rem;align-items:flex-start;padding:1rem 1.3rem 1.2rem;border-top:1px solid rgba(14,42,31,.08);min-height:5.2rem}
+@media(min-width:640px){.why{padding:1.1rem 2rem 1.3rem}}
+.why>b{flex:none;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);padding-top:.2rem}
+.why p{color:var(--text2)}
+.why p b{color:var(--ink);font-weight:600}
+.why p.swap{animation:rise .3s var(--ease)}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}}
+.dtabs{display:flex;gap:.4rem;justify-content:center;margin-top:1rem;flex-wrap:wrap}
+.dtabs button{border:0;background:var(--surface);box-shadow:var(--shadow);border-radius:99px;padding:.45rem 1rem;font-size:.86rem;font-weight:500;color:var(--text2);transition:background .16s,color .16s}
+.dtabs button[aria-pressed=true]{background:var(--ink);color:var(--cream)}
 
-/* ===== treinar ===== */
-.steps4{display:flex;flex-wrap:wrap;gap:.4rem .6rem;margin-top:1.2rem;font-size:.88rem;color:var(--text2);align-items:center}
-.steps4 b{background:var(--tint);color:var(--green-deep);padding:.25rem .75rem;border-radius:99px;font-weight:600}
-.tgrid{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px;margin-top:1.6rem;align-items:start}
-@media(max-width:900px){.tgrid{grid-template-columns:1fr}}
-.tgrid .win{background:var(--cream)}
-.abody{padding:clamp(14px,2.4vw,24px)}
-.abody h3{font-size:2rem}
-.acard{background:var(--surface);border-radius:18px;box-shadow:var(--shadow);padding:1rem 1.1rem;margin-top:.9rem}
-.acard h5{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text2);margin-bottom:.7rem}
-.erow{display:grid;grid-template-columns:120px 1fr auto;gap:.8rem;align-items:center;font-size:.9rem;padding:.35rem 0;border:0;background:none;width:100%;text-align:left}
-.erow .b{height:8px;border-radius:9px;background:var(--track);overflow:hidden}
-.erow .b i{display:block;height:100%;width:0;background:var(--warm);transition:width 1s var(--ease) .2s;border-radius:9px}
-.in .erow .b i,.erow.in .b i{width:var(--w)}
-.erow em{font-style:normal;font-size:.8rem;color:var(--text2)}
-@media(hover:hover){.erow.link:hover span{color:var(--green-deep);text-decoration:underline}}
-.tplan{display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap}
-.tplan b{display:block}
-.les{display:flex;flex-wrap:wrap;gap:.4rem}
-.les span{background:var(--field);padding:.35rem .8rem;border-radius:99px;font-size:.82rem}
-.les span.cur2{background:var(--tint);color:var(--green-deep);font-weight:600}
-.back{font-size:.84rem;color:var(--text2);margin-bottom:.6rem}
-.ls{margin-top:1rem}
-.ls h5{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:.35rem}
-.ls p{font-size:.95rem;color:var(--ink)}
-.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
-.chip{border:0;background:var(--field);padding:.5rem 1.3rem;border-radius:999px;min-height:44px;font-family:var(--serif);font-size:1.3rem;transition:transform .12s var(--ease),background .16s,box-shadow .16s}
-.chip:active{transform:scale(.96)}
-.chip[aria-pressed=true]{background:var(--tint);box-shadow:inset 0 0 0 2px var(--green);color:var(--green-deep)}
-@media(hover:hover){.chip:hover{background:#e9ede3}.chip[aria-pressed=true]:hover{background:var(--tint)}}
-.model{display:grid;grid-template-columns:200px 1fr;gap:1.2rem;align-items:center;margin-top:.8rem}
-@media(max-width:560px){.model{grid-template-columns:1fr}}
-.scene{background:var(--field);border-radius:18px;aspect-ratio:1.25;display:grid;place-items:center;overflow:hidden}
-.scene svg{width:86%;height:auto;overflow:visible}
-.rule{background:var(--surface);border-radius:16px;padding:1rem 1.1rem;margin-top:.9rem;box-shadow:var(--shadow);display:grid;gap:.7rem}
-.formula{font-family:var(--serif);font-size:1.5rem;color:var(--green-deep)}
-.vs2{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;font-size:.9rem}
-@media(max-width:480px){.vs2{grid-template-columns:1fr}}
-.vs2 div{border-radius:12px;padding:.55rem .8rem;font-family:var(--serif);font-size:1.1rem}
-.vs2 span{display:block;font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.1em;margin-bottom:.1rem}
-.vs2 .ev{background:var(--err-tint);color:var(--err)}.vs2 .pr{background:var(--tint);color:var(--green-deep)}
-.swap{animation:rise .3s var(--ease)}
-.fadein{animation:fadein .25s ease-out}
-@keyframes fadein{from{opacity:0}}
-@keyframes rise{from{opacity:0;transform:translateY(8px)}}
-.tstack{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
-@media(max-width:820px){.tstack{grid-template-columns:1fr}}
-.tcard{background:var(--surface);border-radius:26px;box-shadow:var(--shadow);padding:clamp(18px,3vw,28px)}
-.tl{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:.9rem}
-.tl b{flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;font-size:.82rem;font-family:var(--sans)}
-.tl span{font-weight:600}
-.tl small{display:block;font-weight:400;color:var(--text2);font-size:.82rem}
-.qsent{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2rem);line-height:1.35;margin:.4rem 0 1.2rem}
-.blank{display:inline-block;min-width:3.2ch;border-bottom:3px solid var(--green);text-align:center;color:var(--green-deep)}
-.opts{display:flex;gap:.6rem;flex-wrap:wrap}
-.opt{display:inline-flex;align-items:center;gap:.7rem;border:0;background:var(--surface);border-radius:16px;min-height:56px;min-width:104px;padding:0 1.3rem 0 .9rem;font-family:var(--serif);font-size:1.55rem;box-shadow:inset 0 0 0 1.5px rgba(14,42,31,.2),0 1px 2px rgba(14,42,31,.06);transition:transform .12s var(--ease),background .16s,box-shadow .16s}
-.opt::before{content:attr(data-n);display:inline-grid;place-items:center;width:24px;height:24px;border-radius:8px;background:var(--field);font:600 .74rem var(--sans);color:var(--text2)}
-.hintk{font-size:.78rem;color:var(--text2);margin-top:.6rem}
-.opt:active{transform:scale(.96)}
-@media(hover:hover){.opt:not(:disabled):hover{background:var(--tint);box-shadow:inset 0 0 0 1.5px var(--green)}}
-.opt:disabled{cursor:default}
-.opt.ok{background:var(--tint);box-shadow:inset 0 0 0 2px var(--green);color:var(--green-deep)}
-.opt.ok::before{background:#fff}
-.opt.no{background:var(--err-tint);box-shadow:inset 0 0 0 2px #c9694a;color:var(--err);animation:shake .35s}
-@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
-.fb{min-height:4.4rem;margin-top:1rem;color:var(--text2);font-size:.98rem}
-.fb b{color:var(--ink)}
-.fb.show{animation:rise .3s var(--ease)}
-.again{margin-top:.3rem}
-.words{line-height:1.7}
-.words .w{display:inline-block;border:0;background:transparent;font:inherit;padding:0 .14em;border-radius:8px;border-bottom:2px dashed rgba(31,107,69,.35);transition:background .16s,transform .12s var(--ease),border-color .16s;margin:0 .02em}
-.words .w:active{transform:scale(.95)}
-@media(hover:hover){.words .w:not(:disabled):hover{background:var(--tint);border-bottom-color:var(--green)}}
-.words .w.sel{background:var(--warn-tint);border-bottom:2px solid var(--warm)}
-.words .w.fixed{background:var(--tint);color:var(--green-deep);border-bottom:2px solid var(--green)}
-.words .w.miss{animation:shake .35s}
-.tap{display:inline-flex;align-items:center;gap:.4rem;background:var(--tint);color:var(--green-deep);font-size:.82rem;font-weight:600;padding:.3rem .8rem;border-radius:99px}
-
-
-
-/* treinar v5 */
-#homeWin,#lessonWin{background:var(--cream)}
-#homeWin{margin-top:1.6rem}
-.home-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem 2rem;flex-wrap:wrap}
-.home-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:14px;align-items:stretch;margin-top:1rem}
-.home-grid .acard{margin-top:0}
-@media(max-width:800px){.home-grid{grid-template-columns:1fr}}
-.tplan{display:flex;flex-direction:column;justify-content:space-between;gap:1rem;align-items:flex-start}
-.lgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
-@media(max-width:860px){.lgrid{grid-template-columns:1fr}}
-.lgrid .rule{margin-top:.8rem}
-.lfoot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:1.4rem;padding-top:1.1rem;border-top:1px solid rgba(14,42,31,.08)}
-.linkbtn{background:none;border:0;padding:0;cursor:pointer}
-.kinds{display:inline-flex;gap:4px;background:var(--track);border-radius:14px;padding:4px;margin:.9rem 0 1.1rem;flex-wrap:wrap}
-.kinds button{border:0;background:transparent;border-radius:11px;padding:.55rem 1rem;font-size:.86rem;font-weight:500;color:var(--text2);transition:background .2s,color .2s,box-shadow .2s}
-.kinds button[aria-selected=true]{background:var(--surface);color:var(--ink);font-weight:600;box-shadow:var(--shadow)}
-.pane{max-width:720px}
-.fu{position:absolute;left:10px;top:10px;z-index:4;font-size:.72rem;font-weight:600;background:var(--tint);color:var(--green-deep);padding:3px 11px;border-radius:99px;opacity:0;transform:translateY(-4px);transition:.4s var(--ease)}
-.fu.on{opacity:1;transform:none}
-.aud{position:absolute;right:10px;top:10px;z-index:4;font-size:.7rem;background:rgba(14,42,31,.08);color:var(--text2);padding:3px 10px;border-radius:99px}
 /* faq centered */
 .faq-sec .rv:first-child{text-align:center}
 .faq{margin-inline:auto}
@@ -374,13 +319,16 @@ section{padding:clamp(44px,6vw,80px) 0}
 .q-btn[aria-expanded=true]+.a{grid-template-rows:1fr}
 .q-btn[aria-expanded=true]+.a p{opacity:1;transform:none;transition-delay:.08s}
 
-/* final */
-.final{position:relative;text-align:center;overflow:hidden;isolation:isolate;padding:clamp(34px,4.5vw,60px) 0 0;background:linear-gradient(to bottom,var(--cream),var(--tint))}
-.final-in{padding-bottom:clamp(20px,3.5vw,44px)}
-.final h2{max-width:17ch;margin-inline:auto}
-.final p{color:var(--text2);max-width:48ch;margin:0 auto 1.8rem}
-.final-art{margin-top:-10px;line-height:0;pointer-events:none;mask-image:linear-gradient(to bottom,transparent,#000 16px);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 16px)}
-.final-art img{width:100%;height:clamp(210px,28vw,400px);object-fit:cover;object-position:center 55%;opacity:.9}
+/* final: dark green box (from the current site) resting on the forest art */
+.final{position:relative;padding:clamp(40px,5vw,72px) 0 0;overflow:hidden}
+.cta-box{position:relative;z-index:1;overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:1.6rem;border-radius:32px;background:var(--ink);color:var(--cream);padding:clamp(2.4rem,5vw,4.6rem) 1.5rem;text-align:center;box-shadow:0 24px 48px -24px rgba(14,42,31,.5)}
+.cta-box::before{content:"";position:absolute;inset:auto -10% -60% -10%;height:90%;background:radial-gradient(closest-side,rgba(31,107,69,.55),transparent);pointer-events:none}
+.cta-box>*{position:relative}
+.cta-box h2{max-width:20ch;margin:0}
+.cta-box .btn{background:var(--cream);color:var(--ink);box-shadow:none}
+@media(hover:hover){.cta-box .btn:hover{background:#fff}}
+.final-art{margin-top:clamp(-120px,-8vw,-50px);line-height:0;pointer-events:none;mask-image:linear-gradient(to bottom,transparent,#000 30%);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 30%)}
+.final-art img{width:100%;height:clamp(220px,30vw,420px);object-fit:cover;object-position:center 55%;opacity:.9}
 
 /* footer (from the current site, trimmed) */
 .foot{background:var(--tint);padding:1.6rem 0 1.4rem}
@@ -405,8 +353,8 @@ section{padding:clamp(44px,6vw,80px) 0}
   <div class="wrap">
     <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="26" height="30"> <span class="wordmark">Entoa</span></a>
     <nav aria-label="Principal">
+      <a href="#relatorio">Relatório</a>
       <a href="#demo">Como funciona</a>
-      <a href="#evolucao">Evolução</a>
       <a href="https://englishinterview.vercel.app/login">Entrar</a>
       <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis</a>
     </nav>
@@ -418,11 +366,55 @@ section{padding:clamp(44px,6vw,80px) 0}
 <section class="hero">
   <div class="wrap hero-inner">
     <h1>Você sabe a resposta. Em inglês, ela <em>trava</em>.</h1>
-    <p class="lead">Treine a entrevista falando. No fim, veja exatamente o que corrigir.</p>
+    <p class="lead">Entrevista em inglês para dev brasileiro. Treine falando e veja exatamente o que corrigir.</p>
     <div class="cta-row">
-      <a class="btn" href="#demo">Ver como funciona <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="#relatorio">Ver o relatório <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn soft" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis</a>
     </div>
+  </div>
+</section>
+
+<!-- RELATÓRIO sobre a mata (gráfico do site atual, com menos texto) -->
+<section id="relatorio" class="rstage" aria-label="Exemplo de relatório">
+  <div class="stage-art" aria-hidden="true"><img src="assets/hero-mata.png" alt="" width="1536" height="1024" fetchpriority="high"></div>
+  <div class="wrap">
+    <div class="rep rv" id="rep">
+      <div class="rep-top">
+        <div>
+          <span class="badge"><i></i>Exemplo</span>
+          <p class="rep-role">Backend Engineer · Sênior</p>
+          <p class="rep-k">Pontuação da fala</p>
+          <div class="rep-score"><span id="repScore">0</span><small>/100</small></div>
+          <p class="rep-meta">Fluência <b>78</b> · Prosódia <b>72</b></p>
+        </div>
+        <div class="radar">
+          <div class="radar-tip" id="radarTip" aria-hidden="true"></div>
+          <svg viewBox="0 0 300 300" id="radar" role="img" aria-label="Radar de exemplo com seis dimensões do seu inglês"></svg>
+        </div>
+        <div>
+          <p class="rep-k" style="margin-top:0">Ponto principal</p>
+          <p class="rep-fix"><s>experience on backend</s> → <strong>experience in backend</strong></p>
+          <p class="rep-meta">Experiência em uma área pede <em>in</em>.</p>
+        </div>
+      </div>
+      <div class="dims" id="dims"></div>
+    </div>
+  </div>
+</section>
+
+<!-- VOCÊ × NATIVO -->
+<section id="diferenca" class="compact">
+  <div class="wrap">
+    <div class="diff-head rv">
+      <h2>Seu conteúdo é bom. O inglês esconde.</h2>
+      <p class="lead">Toque nas partes marcadas para ver o que muda.</p>
+    </div>
+    <div class="diff rv" id="diff" lang="en">
+      <div class="drow"><span>Você</span><p>I have five years <button class="seg" data-d="0">experience on</button> backend and I <button class="seg" data-d="1">am working</button> with Go <button class="seg ok" data-d="2">since 2021</button>.</p></div>
+      <div class="drow"><span>Nativo</span><p>I have five years <button class="seg" data-d="0">of experience in</button> backend and I<button class="seg" data-d="1">’ve been working</button> with Go <button class="seg" data-d="2">since 2021</button>.</p></div>
+      <div class="why" lang="pt-BR"><b id="whyK">Preposição</b><p id="whyT"></p></div>
+    </div>
+    <div class="dtabs rv" id="dtabs"><button data-d="0" aria-pressed="true">Preposição</button><button data-d="1" aria-pressed="false">Tempo verbal</button><button data-d="2" aria-pressed="false">O que já estava certo</button></div>
   </div>
 </section>
 
@@ -552,13 +544,13 @@ AWS e observabilidade</div></div>
 
       <div class="pbar">
         <div class="scrub" id="scrub" role="slider" tabindex="0" aria-label="Posição da animação" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-          <div class="tr" id="tr"><i style="flex:25.5"></i><i style="flex:38"></i><i style="flex:16.5"></i><span class="fill" id="fill"></span></div>
+          <div class="tr" id="tr"><i style="flex:25.5"></i><i style="flex:38"></i><i style="flex:11.5"></i><span class="fill" id="fill"></span></div>
           <div class="kz"><span class="knob" id="knob" style="left:0"></span></div>
         </div>
         <div class="chap" id="chap">
           <button data-t="0" style="flex:25.5"><b>1</b><span class="lg">Escolha a vaga</span><span class="sh">Vaga</span></button>
           <button data-t="25.5" style="flex:38"><b>2</b><span class="lg">Responda por voz</span><span class="sh">Voz</span></button>
-          <button data-t="63.5" style="flex:16.5"><b>3</b><span class="lg">Receba o relatório</span><span class="sh">Relatório</span></button>
+          <button data-t="63.5" style="flex:11.5"><b>3</b><span class="lg">Receba o relatório</span><span class="sh">Relatório</span></button>
         </div>
       </div>
       <div class="dctl">
@@ -567,133 +559,6 @@ AWS e observabilidade</div></div>
         <a class="btn sm" href="https://englishinterview.vercel.app/signup" data-cta>Fazer a minha</a>
       </div>
       <p class="fine">Exemplo ilustrativo. Na entrevista real o entrevistador fala em voz alta, com áudio.</p>
-    </div>
-  </div>
-</section>
-
-<!-- EVOLUÇÃO (substitui a comparação com cursinho) -->
-<section id="evolucao" class="alt compact">
-  <div class="wrap">
-    <div class="rv">
-      <span class="eyebrow">Sua evolução</span>
-      <h2>Entrevista, relatório, repete.</h2>
-      <p class="lead">Cada sessão mostra o quanto seu inglês avançou desde a anterior.</p>
-    </div>
-    <div class="evo rv" id="evo">
-      <div class="evo-head">
-        <div><div class="evo-k" id="evoK">Entrevista 8</div><div class="evo-v"><span id="evoV">81</span><small>/100</small></div></div>
-        <p class="evo-note" id="evoN" aria-live="polite"></p>
-      </div>
-      <div class="evo-chart" id="evoChart" role="img" aria-label="Exemplo: a pontuação da fala sobe de 58 para 81 ao longo de 8 entrevistas">
-        <svg viewBox="0 0 720 230" aria-hidden="true">
-          <defs><linearGradient id="evoFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f6b45" stop-opacity=".16"/><stop offset="1" stop-color="#1f6b45" stop-opacity="0"/></linearGradient></defs>
-          <g class="evo-grid" id="evoGrid"></g>
-          <path class="evo-area" id="evoArea"/>
-          <path class="evo-line" id="evoLine"/>
-          <line class="evo-guide" id="evoGuide" y1="8" y2="196"/>
-          <g id="evoDots"></g>
-          <g id="evoX"></g>
-        </svg>
-      </div>
-      <div class="evo-foot">
-        <span>Numa turma de 12, você fala uns <b>5 min por aula</b>. Aqui, a entrevista inteira é sua.</span>
-        <span class="sm">Exemplo ilustrativo.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TREINAR -->
-<section id="treinar">
-  <div class="wrap">
-    <div class="rv">
-      <span class="eyebrow">Depois do relatório</span>
-      <h2>Treine só o que você errou.</h2>
-      <p class="lead">Os exercícios aparecem a partir dos erros das suas entrevistas. Nada de curso genérico.</p>
-    </div>
-
-    <div class="win rv" id="homeWin">
-      <div class="chrome"><i></i><i></i><i></i><span>Entoa · treinar</span></div>
-      <div class="abody" id="erros">
-        <div class="home-head">
-          <div><h3>Treinar</h3><p class="sm" style="margin-top:.2rem">A partir das suas 3 últimas entrevistas.</p></div>
-        </div>
-        <div class="home-grid">
-          <div class="acard">
-            <h5>Onde você mais erra</h5>
-            <button class="erow link" data-goto="1" style="--w:100%"><span>Preposições</span><div class="b"><i></i></div><em>3 erros</em></button>
-            <div class="erow" style="--w:66%"><span>Tempos verbais</span><div class="b"><i></i></div><em>2 erros</em></div>
-            <div class="erow" style="--w:33%"><span>Artigos</span><div class="b"><i></i></div><em>1 erro</em></div>
-            <div class="erow" style="--w:33%"><span>Falsos cognatos</span><div class="b"><i></i></div><em>1 erro</em></div>
-          </div>
-          <div class="acard tplan">
-            <div><h5 style="margin-bottom:.4rem">Treino com os seus erros</h5><b style="font-size:1.05rem">10 exercícios · cerca de 3 minutos</b></div>
-            <button class="btn" id="goTrain">Treinar meus erros</button>
-          </div>
-        </div>
-        <p class="fine">Exemplo com dados fictícios. No produto, a lista vem das suas entrevistas.</p>
-      </div>
-    </div>
-
-    <div class="win rv" id="lessonWin" style="margin-top:18px">
-      <div class="chrome"><i></i><i></i><i></i><span id="lessonUrl">Entoa · treinar · preposições</span></div>
-      <div class="abody">
-        <div id="vLesson">
-          <p class="back">← Voltar aos seus erros</p>
-          <h3>Preposições</h3>
-          <p class="sm" style="margin-top:.2rem">at, on, in, for, to, by</p>
-          <div class="lgrid">
-            <div>
-              <div class="ls" style="margin-top:.8rem"><h5>Por que o brasileiro tropeça aqui</h5><p>Preposições quase nunca se traduzem ao pé da letra: “em” pode virar at, on ou in.</p></div>
-              <div class="ls"><h5>A ideia central</h5><p>Pense em formas. Toque em cada uma:</p>
-                <div class="chips" id="prepTabs">
-                  <button class="chip" aria-pressed="true" data-p="at">at</button>
-                  <button class="chip" aria-pressed="false" data-p="on">on</button>
-                  <button class="chip" aria-pressed="false" data-p="in">in</button>
-                </div>
-                <div class="model" id="model">
-                  <div class="scene" id="scene" aria-hidden="true"></div>
-                  <div><p id="mText"></p></div>
-                </div>
-              </div>
-            </div>
-            <div class="rule" id="rule">
-              <div><div class="lb" style="margin:0">A fórmula</div><div class="formula" id="rF"></div></div>
-              <div><div class="lb" style="margin:0">Quando usar</div><p id="rW"></p></div>
-              <div class="hm"><div class="lb" style="margin:0">Como usar</div><p id="rX" class="sm" style="font-size:.9rem"></p></div>
-              <div><div class="lb" style="margin:0 0 .3rem">Na sua entrevista</div>
-                <div class="vs2" lang="en"><div class="ev"><span>EVITE</span><i id="rEv" style="font-style:normal"></i></div><div class="pr"><span>PREFIRA</span><i id="rPr" style="font-style:normal"></i></div></div>
-                <p class="sm" id="rN" style="margin-top:.4rem"></p></div>
-            </div>
-          </div>
-          <div class="lfoot"><span class="sm">Fim da aula. Que tal praticar o que você viu?</span><button class="btn" id="goPractice">Praticar agora</button></div>
-        </div>
-
-        <div id="vPractice" hidden>
-          <button class="back linkbtn" id="backLesson">← Rever a aula</button>
-          <h3>Praticar · Preposições</h3>
-          <div class="kinds" role="tablist" aria-label="Tipo de exercício">
-            <button role="tab" aria-selected="true" data-k="c">Complete a frase</button>
-            <button role="tab" aria-selected="false" data-k="s">Encontre e corrija o erro</button>
-          </div>
-          <div class="pane" id="kC">
-            <p class="sm">Escolha a preposição que completa a frase.</p>
-            <p class="qsent" id="cSent" lang="en"></p>
-            <div class="opts" id="cOpts"></div>
-            <p class="hintk">Atalho: teclas 1 a 3</p>
-            <div class="fb" id="cFb" role="status"></div>
-            <button class="btn soft sm again" id="cNext" hidden>Outra frase</button>
-          </div>
-          <div class="pane" id="kS" hidden>
-            <p class="sm">Toque na palavra errada e corrija só ela.</p>
-            <span class="tap" style="margin-top:.5rem">Toque em qualquer palavra da frase</span>
-            <p class="qsent words" id="sSent" lang="en"></p>
-            <div class="opts" id="sOpts" hidden></div>
-            <div class="fb" id="sFb" role="status"></div>
-            <button class="btn soft sm again" id="sNext" hidden>Outra frase</button>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -717,10 +582,11 @@ AWS e observabilidade</div></div>
 
 <!-- FINAL -->
 <section class="final">
-  <div class="wrap final-in">
-    <h2 class="rv">Descubra como seu inglês soa para quem vai te contratar.</h2>
-    <p class="rv">Em poucos minutos você sabe o que treinar.</p>
-    <a class="btn rv" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <div class="wrap">
+    <div class="cta-box rv">
+      <h2>Descubra como seu inglês soa para quem vai te contratar.</h2>
+      <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Fazer entrevista grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
   </div>
   <div class="final-art" aria-hidden="true"><img src="assets/footer-mata.png" alt="" width="2172" height="724" loading="lazy"></div>
 </section>
@@ -729,7 +595,7 @@ AWS e observabilidade</div></div>
 <footer class="foot">
   <div class="wrap foot-in">
     <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="22" height="26"> <span class="wordmark">Entoa</span></a>
-    <nav aria-label="Rodapé"><a href="#demo">Como funciona</a><a href="https://englishinterview.vercel.app/login">Entrar</a><a href="https://englishinterview.vercel.app/signup">Criar conta</a></nav>
+    <nav aria-label="Rodapé"><a href="#relatorio">Relatório</a><a href="#demo">Como funciona</a><a href="https://englishinterview.vercel.app/login">Entrar</a><a href="https://englishinterview.vercel.app/signup">Criar conta</a></nav>
   </div>
   <div class="wrap foot-base"><span>Entoa © 2026</span><span>Feito no Brasil, para vaga lá fora.</span></div>
 </footer>
@@ -746,7 +612,7 @@ AWS e observabilidade</div></div>
   $$('.rv').forEach(el=>io.observe(el));
 
   /* ================= DEMO: timeline driven by a single clock ================= */
-  const SPEED=1.5,DUR=80, CH=[0,25.5,63.5];
+  const SPEED=2.1,DUR=75, CH=[0,25.5,63.5];
   const JOB='We are looking for a Senior Backend Engineer to join our payments platform team. You will design and maintain Go APIs, work with distributed systems on AWS, and mentor other engineers. 5+ years of experience in backend and strong communication skills.';
   const LINE1="Hi, I'm Tuk, and I'll be your interviewer today. We have about 5 minutes for your senior Backend Engineer role, with a focus on technical depth. Tell me about your experience with backend systems.";
   const LINE2="Got it. You mentioned payment APIs. How did you keep a payment from being charged twice?";
@@ -768,7 +634,7 @@ AWS e observabilidade</div></div>
   /* cursor: waypoints {c: click time, el}; the pointer leaves the previous one 1.25s before the click */
   const WP=[
     {c:2.2,el:'mAuto'},{c:3.8,el:'ta'},{c:13.0,el:'bAn'},{c:22.8,el:'d5'},{c:24.8,el:'bStart'},
-    {c:41.5,el:'bMic'},{c:52.5,el:'bMic'},{c:60.5,el:'bEnd'},{c:62.8,el:'dFin'},{c:77.3,el:'bTrain',fromOff:true}
+    {c:41.5,el:'bMic'},{c:52.5,el:'bMic'},{c:60.5,el:'bEnd'},{c:62.8,el:'dFin'}
   ];
   const ELS={};const getEl=id=>ELS[id]||(ELS[id]=document.getElementById(id)||$(`#sgDur span:nth-of-type(1)`));
   ELS.d5=$('#sgDur span:nth-of-type(1)');
@@ -779,7 +645,7 @@ AWS e observabilidade</div></div>
   function placeCursor(t){
     const box=scenes.getBoundingClientRect();
     let i=-1;for(let k=0;k<WP.length;k++){if(t>=WP[k].c-APP)i=k}
-    if(i<0||(t>63.6&&t<76&&i<WP.length-1)){css(cur,'opacity','0');return}
+    if(i<0||t>63.6){css(cur,'opacity','0');return}
     css(cur,'opacity','1');
     const w=WP[i],p=ease(prog(t,w.c-APP,w.c-.3));
     const to=targetXY(getEl(w.el),box);
@@ -843,7 +709,7 @@ AWS e observabilidade</div></div>
     const p=ease(prog(t,66.5,68.2));txt(E.score,String(Math.round(82*p)));
     css(E.mF,'width',(78*ease(prog(t,66.5,68.5)))+'%');css(E.mP,'width',(84*ease(prog(t,66.8,68.8)))+'%');
     const over=Math.max(0,pg2.scrollHeight-scenes.clientHeight+20);
-    const f=ease(prog(t,68.5,73))*.95*(1-ease(prog(t,74.5,76)));
+    const f=ease(prog(t,68.5,73))*.95;
     css(pg2,'transform',`translateY(${-over*f}px)`);
   }
   const scrubFill=$('#fill'),knob=$('#knob'),scrub=$('#scrub'),chapBtns=$$('#chap button');
@@ -858,13 +724,14 @@ AWS e observabilidade</div></div>
   }
 
   /* clock */
-  let t=0,userPaused=false,inView=false,armed=0,last=0,dragging=false;
+  let t=0,userPaused=false,ended=false,inView=false,armed=0,last=0,dragging=false;
   const playing=()=>!userPaused&&inView&&!dragging&&performance.now()>=armed;
   function frame(now){
     const dt=Math.min(.1,(now-last)/1000);last=now;
     const prev=t;
     if(playing()){
-      t+=dt*SPEED;if(t>=DUR+.6)t=0;
+      t+=dt*SPEED;
+      if(t>=DUR){t=DUR;userPaused=true;ended=true;syncUI()}
     }
     render(t);
     frozenSync();
@@ -874,22 +741,22 @@ AWS e observabilidade</div></div>
   function frozenSync(){const f=!playing();if(f!==frozen){frozen=f;$('#screen').classList.toggle('frozen',f)}}
   function syncUI(){
     $('#icoPause').toggleAttribute('hidden',userPaused);$('#icoPlay').toggleAttribute('hidden',!userPaused);
-    $('#dPlay').setAttribute('aria-label',userPaused?'Retomar animação':'Pausar animação');
+    $('#dPlay').setAttribute('aria-label',ended?'Ver de novo':userPaused?'Retomar animação':'Pausar animação');
   }
   const pb=$('#pbadge');
-  function toggle(){userPaused=!userPaused;syncUI();
+  function toggle(){if(ended){ended=false;t=0}userPaused=!userPaused;syncUI();
     pb.innerHTML=userPaused?'<svg width="26" height="26" viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>':'<svg width="26" height="26" viewBox="0 0 16 16" fill="currentColor"><path d="M4 2l10 6-10 6z"/></svg>';
     redraw(pb,'show')}
   $('#dPlay').addEventListener('click',toggle);
   scenes.addEventListener('click',toggle);
   /* seeking */
-  function seekFromEvent(e){const r=$('#tr').getBoundingClientRect();t=clamp((e.clientX-r.left)/r.width)*DUR}
+  function seekFromEvent(e){const r=$('#tr').getBoundingClientRect();t=clamp((e.clientX-r.left)/r.width)*DUR;if(t<DUR)ended=false}
   scrub.addEventListener('pointerdown',e=>{dragging=true;scrub.setPointerCapture(e.pointerId);seekFromEvent(e)});
   scrub.addEventListener('pointermove',e=>{if(dragging)seekFromEvent(e)});
   const endDrag=()=>{dragging=false};
   scrub.addEventListener('pointerup',endDrag);scrub.addEventListener('pointercancel',endDrag);
   scrub.addEventListener('keydown',e=>{const d=e.key==='ArrowRight'?5:e.key==='ArrowLeft'?-5:0;if(d){e.preventDefault();t=clamp(t+d,0,DUR)}});
-  chapBtns.forEach(b=>b.addEventListener('click',()=>{t=+b.dataset.t}));
+  chapBtns.forEach(b=>b.addEventListener('click',()=>{t=+b.dataset.t;if(ended){ended=false;userPaused=false;syncUI()}}));
   $('#bCap').dataset.off='0';
   $('#bCap').addEventListener('click',e=>{e.stopPropagation();const b=$('#bCap');const off=b.dataset.off!=='1';b.dataset.off=off?'1':'0';b.classList.toggle('off',off)});
   new IntersectionObserver(es=>es.forEach(e=>{
@@ -901,142 +768,49 @@ AWS e observabilidade</div></div>
   requestAnimationFrame(n=>{last=n;requestAnimationFrame(frame)});
 
 
-  /* ================= evolução ================= */
-  const EVO=[
-    {v:58,n:'Primeira entrevista: preposições trocadas 4 vezes.'},
-    {v:61,n:'“Experience in backend” já sai certo.'},
-    {v:60,n:'Pressão maior, mais pausas longas.'},
-    {v:66,n:'Tempos verbais: “I’ve been working” no lugar de “I am working”.'},
-    {v:70,n:'Respostas mais curtas e diretas.'},
-    {v:72,n:'Só 1 erro de preposição na entrevista toda.'},
-    {v:77,n:'Follow-ups respondidos sem travar.'},
-    {v:81,n:'Pronto para a entrevista de verdade.'}
-  ];
-  const ev=$('#evo'),W=720,H=230,PX=28,TOP=14,BOT=196,MIN=52,MAX=86;
-  const ex=i=>PX+i*(W-2*PX)/(EVO.length-1), ey=v=>BOT-(v-MIN)/(MAX-MIN)*(BOT-TOP);
+  /* ================= relatório: radar ================= */
+  const DIM=[['Gramática',70,'% sem erro'],['Escolha de palavras',85,'% sem erro'],['Falsos cognatos',95,'% sem erro'],['Estrutura',80,'% sem erro'],['Fluência',78,'Azure'],['Precisão',84,'Azure']];
   const NS='http://www.w3.org/2000/svg',mk=(tag,at)=>{const e=document.createElementNS(NS,tag);for(const k in at)e.setAttribute(k,at[k]);return e};
-  [60,70,80].forEach(v=>$('#evoGrid').appendChild(mk('line',{x1:0,x2:W,y1:ey(v),y2:ey(v)})));
-  const pts=EVO.map((d,i)=>[ex(i),ey(d.v)]);
-  const line=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
-  $('#evoLine').setAttribute('d',line);
-  $('#evoArea').setAttribute('d',line+` L${ex(EVO.length-1)} ${BOT} L${ex(0)} ${BOT} Z`);
-  const dots=pts.map((p,i)=>{const c=mk('circle',{class:'evo-dot',cx:p[0],cy:p[1],r:5});$('#evoDots').appendChild(c);
-    $('#evoX').appendChild(mk('text',{class:'evo-x',x:p[0],y:H-8,'text-anchor':'middle'})).textContent=String(i+1);return c});
-  let evSel=-1;
-  function evPick(i){
-    if(i===evSel)return;evSel=i;
-    dots.forEach((d,k)=>{d.classList.toggle('on',k===i);d.setAttribute('r',k===i?7:5)});
-    $('#evoGuide').setAttribute('x1',pts[i][0]);$('#evoGuide').setAttribute('x2',pts[i][0]);
-    $('#evoK').textContent='Entrevista '+(i+1);$('#evoV').textContent=EVO[i].v;$('#evoN').textContent=EVO[i].n;
-  }
-  evPick(EVO.length-1);
-  const evChart=$('#evoChart');
-  function evFromX(clientX){const r=evChart.getBoundingClientRect();const x=(clientX-r.left)/r.width*W;let b=0;pts.forEach((p,k)=>{if(Math.abs(p[0]-x)<Math.abs(pts[b][0]-x))b=k});evPick(b)}
-  evChart.addEventListener('pointermove',e=>evFromX(e.clientX));
-  evChart.addEventListener('pointerdown',e=>evFromX(e.clientX));
-  evChart.addEventListener('pointerleave',()=>evPick(EVO.length-1));
-  // draw the line in when it scrolls into view, then count up to the last score
-  const evLine=$('#evoLine'),evLen=evLine.getTotalLength();
-  if(!reduce){evLine.style.strokeDasharray=evLen;evLine.style.strokeDashoffset=evLen;dots.forEach(d=>d.style.opacity=0)}
-  new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();ev.classList.add('in');if(reduce)return;
-    evLine.animate([{strokeDashoffset:evLen},{strokeDashoffset:0}],{duration:1400,easing:'cubic-bezier(.23,1,.32,1)',fill:'forwards'});
-    dots.forEach((d,k)=>d.animate([{opacity:0},{opacity:1}],{duration:300,delay:150+k*150,fill:'forwards'}));
-  }),{threshold:.35}).observe(ev);
+  const rpt=(i,r)=>{const a=-Math.PI/2+i*Math.PI*2/DIM.length;return[150+r*Math.cos(a),150+r*Math.sin(a)]};
+  const radar=$('#radar'),tip=$('#radarTip'),dimsEl=$('#dims');
+  [130,100,70,40].forEach(r=>radar.appendChild(mk('circle',{cx:150,cy:150,r,fill:'none',stroke:'rgba(14,42,31,.14)','stroke-dasharray':'3 4'})));
+  DIM.forEach((d,i)=>{const p=rpt(i,130);radar.appendChild(mk('line',{x1:150,y1:150,x2:p[0],y2:p[1],stroke:'rgba(14,42,31,.08)'}))});
+  radar.appendChild(mk('polygon',{class:'poly',points:DIM.map((d,i)=>rpt(i,130*d[1]/100).join(',')).join(' '),fill:'rgba(31,107,69,.14)',stroke:'#1f6b45','stroke-width':2,'stroke-linejoin':'round'}));
+  const rays=[],pts2=[],cells=[];
+  DIM.forEach((d,i)=>{
+    const g=mk('g',{style:'cursor:pointer'}),a=rpt(i,130),p=rpt(i,130*d[1]/100);
+    const ray=mk('line',{x1:150,y1:150,x2:a[0],y2:a[1],stroke:'transparent','stroke-width':2});
+    g.append(ray,mk('circle',{cx:a[0],cy:a[1],r:16,fill:'transparent'}),mk('circle',{cx:p[0],cy:p[1],r:16,fill:'transparent'}));
+    const pt=mk('circle',{class:'pt',cx:p[0],cy:p[1],r:3.5,fill:'#0e2a1f'});g.appendChild(pt);radar.appendChild(g);
+    rays.push(ray);pts2.push(pt);
+    const c=document.createElement('div');c.className='dim';c.innerHTML=`<b>${d[1]}${d[2]==='Azure'?'':'%'}</b><span>${d[0]}</span>`;dimsEl.appendChild(c);cells.push(c);
+    [g,c].forEach(el=>{el.addEventListener('pointerenter',()=>hl(i));el.addEventListener('pointerleave',()=>hl(-1))});
+  });
+  function hl(k){rays.forEach((r,i)=>r.setAttribute('stroke',i===k?'#1f6b45':'transparent'));pts2.forEach((p,i)=>{p.setAttribute('r',i===k?6.5:3.5);p.setAttribute('fill',i===k?'#1f6b45':'#0e2a1f')});cells.forEach((c,i)=>c.classList.toggle('on',i===k));
+    tip.style.opacity=k<0?0:1;if(k>=0)tip.textContent=`${DIM[k][0]} · ${DIM[k][1]} (${DIM[k][2]})`}
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();$('#rep').classList.add('in');
+    const st=performance.now(),D=reduce?0:1400;(function tick(n){const p=D?Math.min(1,(n-st)/D):1;$('#repScore').textContent=Math.round(84*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick)})(st)}),{threshold:.25}).observe($('#rep'));
 
-  /* ================= treinar ================= */
-  const SVG={
-    at:`<svg viewBox="0 0 200 130"><path d="M20 100h160M20 100V30" stroke="#c9d8cf" stroke-width="2" fill="none"/><circle cx="100" cy="65" r="22" fill="#e6f1ea"/><g class="dot"><path d="M100 88s-16-17-16-30a16 16 0 0 1 32 0c0 13-16 30-16 30z" fill="#1f6b45"/><circle cx="100" cy="58" r="6" fill="#f3f4ee"/></g><text x="100" y="118" text-anchor="middle" font-size="11" fill="#44604f" font-family="Instrument Sans">um ponto exato</text></svg>`,
-    on:`<svg viewBox="0 0 200 130"><rect x="30" y="86" width="140" height="10" rx="5" fill="#a6c8b4"/><g class="dot"><circle cx="100" cy="72" r="14" fill="#1f6b45"/></g><text x="100" y="118" text-anchor="middle" font-size="11" fill="#44604f" font-family="Instrument Sans">em cima de uma superfície</text></svg>`,
-    in:`<svg viewBox="0 0 200 130"><rect x="42" y="22" width="116" height="78" rx="12" fill="#e6f1ea" stroke="#1f6b45" stroke-width="3" stroke-dasharray="6 5"/><g class="dot"><circle cx="100" cy="61" r="14" fill="#1f6b45"/></g><text x="100" y="118" text-anchor="middle" font-size="11" fill="#44604f" font-family="Instrument Sans">dentro de um espaço</text></svg>`
-  };
-  const RULE={
-    at:{m:'at é um ponto (alfinete no mapa ou no relógio).',f:'at + ponto exato',w:'Um ponto exato: horário, empresa, lugar específico.',x:'At marca um ponto preciso: horários (at 9 a.m.), a empresa onde você trabalha (at Nubank), lugares vistos como ponto (at the office) e momentos (at the end of the sprint).',ev:'I work in Nubank.',pr:'I work at Nubank.',n:'Empresa é um ponto: at, e não in.'},
-    on:{m:'on é uma superfície (em cima de).',f:'on + dia / plataforma / projeto / time',w:'Dias, plataformas, o time em que você está e aquilo em que você trabalha.',x:'On é “em cima de” uma superfície: dias e datas (on Monday), plataformas (on GitHub), work on um projeto ou bug, e o time do qual você faz parte (I’m on the payments team).',ev:'I worked in the payments project.',pr:'I worked on the payments project.',n:'Trabalhar em um projeto é work on.'},
-    in:{m:'in é um espaço (dentro de).',f:'in + período / lugar amplo / linguagem',w:'Dentro de algo: meses, anos, cidades e linguagens.',x:'In é “dentro de”: um período maior (in 2021, in March), um lugar amplo (in São Paulo) ou a linguagem e a ferramenta usadas (in Python, in React).',ev:'I joined the company on 2021.',pr:'I joined the company in 2021.',n:'Ano é um período grande: in.'}
-  };
-  function showModel(k,first){
-    const r=RULE[k];
-    $('#scene').innerHTML=SVG[k];$('#mText').textContent=r.m.charAt(0).toUpperCase()+r.m.slice(1);
-    $('#rF').textContent=r.f;$('#rW').textContent=r.w;$('#rX').textContent=r.x;$('#rEv').textContent=r.ev;$('#rPr').textContent=r.pr;$('#rN').textContent=r.n;
-    if(!first){redraw($('#model'),'swap');redraw($('#rule'),'swap')}
-    const dot=$('#scene .dot');if(dot&&!reduce)dot.animate([{transform:'translateY(-18px)'},{transform:'none'}],{duration:500,easing:'cubic-bezier(.23,1,.32,1)'});
-  }
-  $('#prepTabs').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;$$('#prepTabs .chip').forEach(c=>c.setAttribute('aria-pressed',c===b));showModel(b.dataset.p)});
-  showModel('at',true);
-  // home -> lesson / practice (same window swaps views)
-  const vL=$('#vLesson'),vP=$('#vPractice');
-  function view(n,scroll){
-    vL.hidden=n!=='lesson';vP.hidden=n!=='practice';
-    const v=n==='lesson'?vL:vP;redraw(v,'fadein');
-    $('#lessonUrl').textContent='Entoa · treinar · '+(n==='lesson'?'preposições':'praticar');
-    // wait for the new layout, then centre the window on screen
-    requestAnimationFrame(()=>requestAnimationFrame(()=>{
-      $('#lessonWin').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
-      if(scroll)redraw($('#lessonWin'),'flash');
-    }));
-  }
-  $('#goTrain').addEventListener('click',()=>view('practice',true));
-  $$('.erow.link').forEach(b=>b.addEventListener('click',()=>view('lesson',true)));
-  $('#goPractice').addEventListener('click',()=>view('practice',false));
-  $('#backLesson').addEventListener('click',()=>view('lesson',false));
-  document.addEventListener('keydown',e=>{if(vP.hidden||e.metaKey||e.ctrlKey||e.altKey)return;const n=+e.key;if(!(n>=1&&n<=3))return;const box=!$('#kC').hidden?$('#cOpts'):$('#sOpts');if(box.hidden)return;const b=box.querySelectorAll('.opt:not(:disabled)');const t=[...box.querySelectorAll('.opt')][n-1];if(t&&!t.disabled)t.click()});
-  $$('.kinds button').forEach(b=>b.addEventListener('click',()=>{
-    $$('.kinds button').forEach(x=>x.setAttribute('aria-selected',x===b));
-    $('#kC').hidden=b.dataset.k!=='c';$('#kS').hidden=b.dataset.k!=='s';redraw(b.dataset.k==='c'?$('#kC'):$('#kS'),'swap');
-  }));
-  new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){$('#erros').classList.add('in');o.disconnect()}}),{threshold:.3}).observe($('#erros'));
-
-  const CHQ=[
-    {s:'The daily is ___ 9 a.m.',a:'at',ok:'Hora do relógio é um ponto exato: <b>at</b> 9 a.m.',no:{on:'<b>On</b> é para dias (on Monday), não para horas.',in:'<b>In</b> é para meses e anos (in May), não para horas.'}},
-    {s:'I’m ___ the payments team.',a:'on',ok:'Fazer parte de um time é <b>on</b> the team.',no:{at:'<b>At</b> marca um ponto, como a empresa (at Nubank). Time é on.',in:'<b>In</b> daria a ideia de uma caixa fechada. Time pede on.'}},
-    {s:'I have five years of experience ___ backend.',a:'in',ok:'Experiência em uma área pede <b>in</b>.',no:{at:'<b>At</b> é um ponto exato. Uma área é um espaço: in.',on:'<b>On</b> é para dias, plataformas e times. Área pede in.'}}
+  /* ================= você × nativo ================= */
+  const WHY=[
+    ['Preposição','Experiência em uma área é <b>experience in</b>, e falta o <b>of</b>: five years <b>of</b> experience.'],
+    ['Tempo verbal','Começou em 2021 e continua até hoje: <b>I’ve been working</b>. “I am working” soa como algo só de agora.'],
+    ['Certo','<b>Since 2021</b> já estava certo. O relatório também mostra o que você acertou.']
   ];
-  let ci=0,cLock=false;
-  function cShow(){
-    const q=CHQ[ci];cLock=false;
-    $('#cSent').innerHTML=esc(q.s).replace('___','<span class="blank">&nbsp;</span>');
-    $('#cOpts').innerHTML=['at','on','in'].map((o,i)=>`<button class="opt" data-o="${o}" data-n="${i+1}">${o}</button>`).join('');
-    $('#cFb').textContent='';$('#cNext').hidden=true;
+  let dSel=-1,dAuto=null,dTouched=false;
+  function dPick(k){
+    if(k===dSel)return;dSel=k;
+    $$('#diff .seg').forEach(b=>b.classList.toggle('on',+b.dataset.d===k));
+    $$('#dtabs button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.d===k)));
+    $('#whyK').textContent=WHY[k][0];const t=$('#whyT');t.innerHTML=WHY[k][1];redraw(t,'swap');
   }
-  $('#cOpts').addEventListener('click',e=>{
-    const b=e.target.closest('.opt');if(!b||cLock)return;const q=CHQ[ci],fb=$('#cFb');
-    if(b.dataset.o===q.a){cLock=true;b.classList.add('ok');$('#cSent .blank').textContent=q.a;fb.innerHTML='<b>Isso!</b> '+q.ok;$$('#cOpts .opt').forEach(o=>o.disabled=true);$('#cNext').hidden=false}
-    else{b.classList.add('no');b.disabled=true;fb.innerHTML='<b>Ainda não: '+b.dataset.o+'.</b> '+q.no[b.dataset.o]}
-    redraw(fb,'show');
-  });
-  $('#cNext').addEventListener('click',()=>{ci=(ci+1)%CHQ.length;cShow()});
-  cShow();
-
-  const SP=[
-    {s:'We found the bug in the end of the sprint.',w:4,o:['at','on','for'],a:'at',why:'“No fim de algo” é <b>at</b> the end of. (In the end significa “no final das contas”.)',no:{on:'<b>On</b> é para dias e plataformas, não para um momento como o fim da sprint.',for:'<b>For</b> indica duração ou destinatário (for two weeks, for you), não um momento.'}},
-    {s:'I’m in the payments team.',w:1,o:['at','on','of'],a:'on',why:'Fazer parte de um time é <b>on</b> the team.',no:{at:'<b>At</b> marca um ponto, como a empresa (at Nubank). Time pede on.',of:'<b>Of</b> indica posse ou origem. Para estar em um time, use on.'}},
-    {s:'The release is in Friday.',w:3,o:['at','on','for'],a:'on',why:'Dia da semana pede <b>on</b>: on Friday.',no:{at:'<b>At</b> é para horas (at 3 p.m.), não para dias.',for:'<b>For</b> indica duração ou destinatário, não o dia em que algo acontece.'}}
-  ];
-  let si=0,sDone=false;
-  function sShow(){
-    const q=SP[si];sDone=false;
-    $('#sSent').innerHTML=q.s.split(' ').map((w,i)=>`<button class="w" data-i="${i}">${esc(w)}</button>`).join(' ');
-    $('#sOpts').hidden=true;$('#sFb').textContent='';$('#sNext').hidden=true;
-  }
-  $('#sSent').addEventListener('click',e=>{
-    const b=e.target.closest('.w');if(!b||sDone)return;
-    const q=SP[si],i=+b.dataset.i,fb=$('#sFb');
-    $$('#sSent .w').forEach(x=>x.classList.remove('sel'));
-    if(i!==q.w){redraw(b,'miss');fb.innerHTML='<b>“'+esc(b.textContent)+'” está certa.</b> O erro é uma preposição trocada.';redraw(fb,'show');$('#sOpts').hidden=true;return}
-    b.classList.add('sel');fb.innerHTML='Achou. Qual preposição deveria estar no lugar de <b>'+esc(b.textContent)+'</b>?';redraw(fb,'show');
-    $('#sOpts').innerHTML=q.o.map((o,i)=>`<button class="opt" data-o="${o}" data-n="${i+1}">${o}</button>`).join('');$('#sOpts').hidden=false;
-  });
-  $('#sOpts').addEventListener('click',e=>{
-    const b=e.target.closest('.opt');if(!b||sDone)return;const q=SP[si],fb=$('#sFb');
-    if(b.dataset.o===q.a){
-      sDone=true;b.classList.add('ok');$$('#sOpts .opt').forEach(o=>o.disabled=true);
-      const w=$(`#sSent .w[data-i="${q.w}"]`);w.textContent=q.a;w.classList.remove('sel');w.classList.add('fixed');
-      fb.innerHTML='<b>Isso!</b> '+q.why;$('#sNext').hidden=false;
-    }else{b.classList.add('no');b.disabled=true;fb.innerHTML='<b>Ainda não: '+b.dataset.o+'.</b> '+q.no[b.dataset.o]}
-    redraw(fb,'show');
-  });
-  $('#sNext').addEventListener('click',()=>{si=(si+1)%SP.length;sShow()});
-  sShow();
+  const dStop=()=>{dTouched=true;clearInterval(dAuto)};
+  $('#diff').addEventListener('click',e=>{const b=e.target.closest('.seg');if(!b)return;dStop();dPick(+b.dataset.d)});
+  $('#diff').addEventListener('pointerover',e=>{const b=e.target.closest('.seg');if(b&&matchMedia('(hover:hover)').matches){dStop();dPick(+b.dataset.d)}});
+  $('#dtabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;dStop();dPick(+b.dataset.d)});
+  dPick(0);
+  // cycle through the differences while the card is on screen, until the visitor touches it
+  new IntersectionObserver(es=>es.forEach(e=>{clearInterval(dAuto);if(e.isIntersecting&&!dTouched&&!reduce)dAuto=setInterval(()=>dPick((dSel+1)%WHY.length),3200)}),{threshold:.5}).observe($('#diff'));
 
   /* ================= faq ================= */
   $$('#faq .q-btn').forEach(b=>b.addEventListener('click',()=>{

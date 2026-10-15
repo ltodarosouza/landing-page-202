@@ -64,3 +64,44 @@ Este arquivo registra o que mudou em `index.html` a partir da revisão da landin
 - A caixa verde do hero (item 2) é o que vocês imaginaram?
 - Como o nome Entoa fica na navegação e no rodapé.
 - No celular, o gráfico de evolução e o hero.
+
+---
+
+## Rodada 2: nova ordem da página (feedback do Lucas)
+
+A ordem agora é: **topo → relatório sobre a mata → você × nativo → como funciona (animação) → perguntas rápidas → fechamento verde-escuro → rodapé**.
+
+### Topo
+- **Saiu a caixa verde.** Só a palavra *trava* fica em verde itálico, como no site atual.
+- O bloco subiu: tem menos espaço em cima e embaixo.
+- **Subtítulo** com o público do site atual, ainda curto: "Entrevista em inglês para dev brasileiro. Treine falando e veja exatamente o que corrigir."
+- O botão principal virou "Ver o relatório" e leva à seção logo abaixo.
+
+### Relatório sobre a mata (vem do site atual)
+- **Imagem:** a arte da mata voltou como fundo dessa seção, com degradê suave do fundo claro para a imagem e de volta.
+- **Por cima, o cartão do relatório do site atual:**
+  - o radar de 6 pontos, que acende ao passar o mouse;
+  - a pontuação contando até 84;
+  - a faixa com as 6 notas.
+- **Menos texto no cartão:**
+  - saíram o nome fictício, a linha de unidade embaixo de cada nota e o bloco "Prioridade 1 / Exercício";
+  - ficaram o cargo, a pontuação e o "Ponto principal" com uma frase.
+
+### Você × nativo (vem do site atual, com interação)
+- **Título curto:** "Seu conteúdo é bom. O inglês esconde." O texto longo do site atual saiu.
+- **Interação:**
+  - tocando ou passando o mouse numa parte marcada, ela acende nas duas frases e a explicação aparece embaixo;
+  - há três botões: Preposição, Tempo verbal e O que já estava certo;
+  - enquanto a pessoa não mexe, as diferenças se alternam sozinhas.
+
+### Como funciona = a animação
+- A animação da entrevista fica aqui. Os blocos 1-2-3-4 do site atual não entraram.
+- **Mais rápida:** cerca de 36 s, contra cerca de 53 s antes.
+- **Para no relatório e não recomeça sozinha.** O cursor não vai mais até "Treinar meus erros". O botão de play recomeça a animação do início.
+
+### Fechamento
+- Depois das perguntas rápidas vem a **caixa verde-escura do site atual**, com "Descubra como seu inglês soa para quem vai te contratar." e o botão.
+- A caixa fica apoiada na arte da mata, e as duas ideias convivem: termina com a caixa e com a imagem.
+
+### Removido nesta rodada (restaurável pelo histórico do git, commit da rodada 1)
+- O **gráfico de evolução** e a **seção Treinar** (demo da aula e dos exercícios). A ordem que o Lucas descreveu não inclui essas seções.
