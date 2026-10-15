@@ -165,3 +165,10 @@ A ordem agora é: **topo → relatório sobre a mata → você × nativo → com
 - **"Descubra como seu inglês soa para quem vai te contratar."** e o botão ficam sobre a arte da mata, no céu vazio no alto e no centro, com um leve halo claro no texto para garantir a leitura.
 - O **rodapé** (Entoa, Relatório, Como funciona, Entrar, Criar conta, "Feito no Brasil…") também fica sobre a imagem, num painel claro translúcido (vidro fosco) na base, para não se confundir com as folhas.
 - A imagem é a última coisa da página e ficou mais alta, para caberem o céu do texto e o rodapé.
+
+---
+
+## Rodada 8: acabamento do fim da página
+- O texto final está mais largo e cabe em **2 linhas**, contra 3 antes.
+- A **imagem final está mais baixa**: cerca de 40% da largura da tela, contra 52% antes.
+- **Rodapé sem a barra:** os textos ficam direto sobre a imagem, e um véu claro e suave sobe da base da arte para garantir a leitura.

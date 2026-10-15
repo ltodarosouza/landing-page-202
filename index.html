@@ -332,18 +332,19 @@ main{overflow-x:clip}
 .cta-box .qa{color:var(--ink)}
 .cta-box :focus-visible{outline-color:var(--cream)}
 .faq-sec h2{margin-bottom:0}
-.end{position:relative;isolation:isolate;margin-top:clamp(28px,4vw,56px);height:clamp(560px,52vw,700px)}
+.end{position:relative;isolation:isolate;margin-top:clamp(28px,4vw,56px);height:clamp(460px,40vw,560px)}
 .end-img{position:absolute;inset:0;z-index:-1;width:100%;height:100%;object-fit:cover;object-position:center bottom;opacity:.92;pointer-events:none;
   mask-image:linear-gradient(to bottom,transparent,#000 32px);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 32px)}
 /* the closing call sits in the empty sky at the top centre of the artwork */
-.end-cta{display:flex;flex-direction:column;align-items:center;gap:1.4rem;text-align:center;padding-top:clamp(36px,5vw,72px)}
-.end-cta h2{max-width:20ch;margin:0;font-size:clamp(1.9rem,4vw,3rem);text-shadow:0 0 18px var(--cream),0 0 2px var(--cream)}
-/* footer on a frosted panel at the foot of the artwork, so it reads over the leaves */
-.foot{position:absolute;left:0;right:0;bottom:clamp(12px,2vw,24px)}
-.foot-panel{background:color-mix(in srgb,var(--cream) 86%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:20px;padding:1rem 1.3rem;box-shadow:var(--shadow)}
+.end-cta{display:flex;flex-direction:column;align-items:center;gap:1.2rem;text-align:center;padding-top:clamp(28px,4vw,56px)}
+.end-cta h2{max-width:30ch;margin:0;font-size:clamp(1.9rem,4vw,3rem);text-shadow:0 0 18px var(--cream),0 0 2px var(--cream)}
+/* footer straight on the artwork; a soft light wash rising from the bottom keeps it readable */
+.end::after{content:"";position:absolute;left:0;right:0;bottom:0;height:150px;z-index:-1;pointer-events:none;background:linear-gradient(to top,color-mix(in srgb,var(--cream) 92%,transparent) 35%,transparent)}
+.foot{position:absolute;left:0;right:0;bottom:clamp(10px,1.6vw,20px)}
+.foot-panel{padding:0 .2rem}
 .foot-in{display:flex;justify-content:space-between;align-items:center;gap:.6rem 1rem;flex-wrap:wrap}
 .foot nav{display:flex;gap:.4rem 1.4rem;flex-wrap:wrap;font-size:.92rem}
-.foot nav a{text-decoration:none;color:var(--text2)}
+.foot nav a{text-decoration:none;color:var(--ink)}
 @media(hover:hover){.foot nav a:hover{color:var(--ink)}}
 .foot-base{display:flex;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap;margin-top:.7rem;font-size:.8rem;color:var(--text2)}
 
