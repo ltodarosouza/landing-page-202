@@ -197,8 +197,3 @@ A ordem agora é: **topo → relatório sobre a mata → você × nativo → com
   - no celular aparecem só a marca e os dois botões.
 - **Topo:** "Ver o relatório" saiu e "Entrar" entrou no lugar (botão claro).
 - **"Experimentar grátis" foi mantido** no lugar de "Experimente agora": o "grátis" é um argumento forte para quem ainda não conhece. Fácil de trocar se quiserem testar.
-
----
-
-## Rodada 11: ações de conta no rodapé
-- Na pílula do rodapé, **Entrar** e **Criar conta** viraram mini-pílulas: Entrar em branco com contorno fino, Criar conta em verde-claro com texto verde. Os links Relatório e Como funciona continuam como texto simples.
