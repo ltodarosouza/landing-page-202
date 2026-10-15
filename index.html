@@ -350,6 +350,12 @@ main{overflow-x:clip}
 .foot nav a{text-decoration:none;color:#2b4a3a}
 @media(hover:hover){.foot nav a:hover{color:var(--ink)}}
 .foot-base{font-size:.78rem;color:#2b4a3a}
+/* account actions: small pills, a step louder than the links but still quiet */
+.foot-act{display:flex;gap:.4rem}
+.foot-act a{text-decoration:none;font-size:.84rem;font-weight:600;border-radius:999px;padding:.3rem .8rem;transition:background .16s,box-shadow .16s}
+.fa-in{color:var(--ink);background:rgba(255,255,255,.7);box-shadow:inset 0 0 0 1px rgba(14,42,31,.14)}
+.fa-up{color:var(--green-deep);background:var(--tint);box-shadow:inset 0 0 0 1px rgba(31,107,69,.28)}
+@media(hover:hover){.fa-in:hover{background:#fff}.fa-up:hover{background:#d9ebdf}}
 @media(max-width:640px){.foot-panel{border-radius:20px}}
 
 /* nav hides while the demo has the stage */
@@ -611,7 +617,8 @@ AWS e observabilidade</div></div>
     <footer class="foot">
       <div class="foot-panel">
         <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="22" height="26"> <span class="wordmark">Entoa</span></a>
-        <nav aria-label="Rodapé"><a href="#relatorio">Relatório</a><a href="#demo">Como funciona</a><a href="https://englishinterview.vercel.app/login">Entrar</a><a href="https://englishinterview.vercel.app/signup">Criar conta</a></nav>
+        <nav aria-label="Rodapé"><a href="#relatorio">Relatório</a><a href="#demo">Como funciona</a></nav>
+        <div class="foot-act"><a class="fa-in" href="https://englishinterview.vercel.app/login">Entrar</a><a class="fa-up" href="https://englishinterview.vercel.app/signup">Criar conta</a></div>
         <span class="foot-base">© 2026 · Feito no Brasil, para vaga lá fora.</span>
       </div>
     </footer>
