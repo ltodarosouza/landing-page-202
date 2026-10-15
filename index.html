@@ -78,14 +78,13 @@ section{padding:clamp(44px,6vw,80px) 0}
 
 /* ===== DEMO ===== */
 main{overflow-x:clip}
-.d-wrap{margin-top:clamp(1.4rem,4vw,3.4rem);background:linear-gradient(160deg,#1f6b45,#17563a 60%,#0e2a1f);border-radius:32px;padding:clamp(12px,2.6vw,32px) clamp(12px,2.6vw,32px) clamp(14px,2vw,22px);box-shadow:0 30px 60px -34px rgba(14,42,31,.55);color:var(--cream)}
-.d-wrap .chap button{color:#b9d7c4}.d-wrap .chap button.act{color:#fff}.d-wrap .chap b{color:#9fd4b4}
-.d-wrap .scrub .tr,.d-wrap .scrub .tr i{background:rgba(243,244,238,.22)}.d-wrap .scrub .fill{background:#9fd4b4}.d-wrap .scrub .knob{background:#9fd4b4;border-color:#17563a}
-.d-wrap .win{color:var(--ink)}
-.d-wrap .icon-btn{color:var(--ink)}.d-wrap .icon-btn[aria-pressed=true]{color:#fff}
-.d-wrap .dctl p{color:#d6e6dc}.d-wrap .fine{color:#a9c6b5}
-.d-wrap .btn{background:var(--cream);color:var(--ink)}@media(hover:hover){.d-wrap .btn:hover{background:#fff}}
-/* the window grows a little while it is centred on screen (set from JS) */
+.d-band{position:relative;isolation:isolate;margin:clamp(1.4rem,4vw,3rem) calc(50% - 50vw) 0;padding:clamp(28px,4.5vw,64px) max(20px,calc(50vw - 560px))}
+.d-band-img{position:absolute;inset:0;z-index:-1;width:100%;height:100%;object-fit:cover;object-position:center 75%;opacity:.95;pointer-events:none;
+  mask-image:linear-gradient(to bottom,transparent,#000 32px,#000 calc(100% - 32px),transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 32px,#000 calc(100% - 32px),transparent)}
+.d-ctrl{margin-top:14px;background:color-mix(in srgb,var(--cream) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:20px;padding:.6rem 1rem .9rem;box-shadow:var(--shadow)}
+.d-ctrl .pbar{margin-top:0}
+.d-ctrl .fine{margin-top:.4rem}
+.d-wrap .win{box-shadow:0 2px 6px rgba(14,42,31,.12),0 40px 80px -30px rgba(14,42,31,.6)}
 .d-wrap.rv.in{transform:scale(var(--grow,1));transform-origin:50% 50%}
 .scenes{position:relative;height:clamp(520px,56vw,600px);overflow:hidden;background:var(--cream)}
 .sc{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .5s var(--ease),transform .5s var(--ease),visibility 0s .5s;overflow:hidden}
@@ -455,6 +454,8 @@ main{overflow-x:clip}
       <h2>Veja uma entrevista do começo ao fim.</h2>
     </div>
 
+    <div class="d-band">
+    <img class="d-band-img" src="assets/hero-mata.png" alt="" width="1536" height="1024" loading="lazy" aria-hidden="true">
     <div class="d-wrap rv">
       <div class="win" id="screen" role="img" aria-label="Animação do produto: a IA analisa a descrição da vaga, a sala de entrevista por voz com legendas e o relatório final">
         <div class="chrome"><i></i><i></i><i></i><span>Entoa · entrevista</span></div>
@@ -568,6 +569,7 @@ AWS e observabilidade</div></div>
           <svg class="cur" id="cur" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 2l15 7-6.5 2L9 18z" fill="#0e2a1f" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
         </div>
       </div>
+      <div class="d-ctrl">
       <div class="pbar">
         <div class="scrub" id="scrub" role="slider" tabindex="0" aria-label="Posição da animação" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
           <div class="tr" id="tr"><i style="flex:25.5"></i><i style="flex:38"></i><i style="flex:11.5"></i><span class="fill" id="fill"></span></div>
@@ -585,8 +587,8 @@ AWS e observabilidade</div></div>
         <a class="btn sm" href="https://englishinterview.vercel.app/signup" data-cta>Fazer a minha</a>
       </div>
       <p class="fine">Exemplo ilustrativo. Na entrevista real o entrevistador fala em voz alta, com áudio.</p>
-
-
+      </div>
+    </div>
     </div>
   </div>
 </section>
