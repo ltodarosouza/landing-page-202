@@ -78,7 +78,13 @@ section{padding:clamp(44px,6vw,80px) 0}
 
 /* ===== DEMO ===== */
 main{overflow-x:clip}
-.d-wrap{margin-top:clamp(1.4rem,4vw,3.4rem)}
+.d-wrap{margin-top:clamp(1.4rem,4vw,3.4rem);background:linear-gradient(160deg,#1f6b45,#17563a 60%,#0e2a1f);border-radius:32px;padding:clamp(12px,2.6vw,32px) clamp(12px,2.6vw,32px) clamp(14px,2vw,22px);box-shadow:0 30px 60px -34px rgba(14,42,31,.55);color:var(--cream)}
+.d-wrap .chap button{color:#b9d7c4}.d-wrap .chap button.act{color:#fff}.d-wrap .chap b{color:#9fd4b4}
+.d-wrap .scrub .tr,.d-wrap .scrub .tr i{background:rgba(243,244,238,.22)}.d-wrap .scrub .fill{background:#9fd4b4}.d-wrap .scrub .knob{background:#9fd4b4;border-color:#17563a}
+.d-wrap .win{color:var(--ink)}
+.d-wrap .icon-btn{color:var(--ink)}.d-wrap .icon-btn[aria-pressed=true]{color:#fff}
+.d-wrap .dctl p{color:#d6e6dc}.d-wrap .fine{color:#a9c6b5}
+.d-wrap .btn{background:var(--cream);color:var(--ink)}@media(hover:hover){.d-wrap .btn:hover{background:#fff}}
 /* the window grows a little while it is centred on screen (set from JS) */
 .d-wrap.rv.in{transform:scale(var(--grow,1));transform-origin:50% 50%}
 .scenes{position:relative;height:clamp(520px,56vw,600px);overflow:hidden;background:var(--cream)}
@@ -264,7 +270,7 @@ main{overflow-x:clip}
 .rep.in .radar .poly{transform:none;opacity:1}
 .radar .pt{transition:r .2s,fill .2s;opacity:0}
 .rep.in .radar .pt{opacity:1;transition:r .2s,fill .2s,opacity .3s 1s}
-.rep-fix{font-size:1.05rem;line-height:1.5;margin-top:.5rem}
+.rep-fix{font-family:var(--serif);font-size:1.6rem;line-height:1.3;margin-top:.4rem}
 .rep-fix s{color:var(--err);text-decoration-color:#c9694a;text-decoration-thickness:1.5px}
 .rep-fix strong{font-weight:600;color:var(--green-deep);background:rgba(31,107,69,.12);border-radius:.3em;padding:.05em .25em}
 .dims{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;padding:.75rem;background:var(--field)}
@@ -291,12 +297,12 @@ main{overflow-x:clip}
 .drow:first-child p{color:var(--text2)}
 .seg{border:0;background:none;font:inherit;color:inherit;padding:0 .1em;margin:0 -.04em;border-radius:.28em;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s}
 .drow:first-child .seg:not(.ok){color:var(--err);text-decoration:line-through;text-decoration-color:rgba(201,105,74,.55);text-decoration-thickness:1.5px}
-.drow+.drow .seg{color:var(--green-deep)}
+.drow+.drow .seg{color:#17603b;background:rgba(31,107,69,.16);box-shadow:inset 0 -2px 0 rgba(31,107,69,.45)}
 .seg.on{text-decoration-color:transparent}
 .seg.ok{text-decoration:underline dotted rgba(31,107,69,.45);text-underline-offset:.2em}
 .drow:first-child .seg.ok.on{background:var(--tint);box-shadow:inset 0 0 0 1.5px var(--green);color:var(--green-deep)}
 .drow:first-child .seg:not(.ok).on{background:var(--err-tint);box-shadow:inset 0 0 0 1.5px rgba(201,105,74,.5);text-decoration:none}
-.drow+.drow .seg.on{background:var(--surface);box-shadow:inset 0 0 0 1.5px var(--green)}
+.drow+.drow .seg.on{background:rgba(31,107,69,.26);box-shadow:inset 0 0 0 1.5px var(--green)}
 .why{display:flex;gap:.8rem;align-items:flex-start;padding:1rem 1.3rem 1.2rem;border-top:1px solid rgba(14,42,31,.08);min-height:5.2rem}
 @media(min-width:640px){.why{padding:1.1rem 2rem 1.3rem}}
 .why>b{flex:none;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);padding-top:.2rem}
@@ -418,7 +424,7 @@ main{overflow-x:clip}
         </div>
         <div>
           <p class="rep-k" style="margin-top:0">Ponto principal</p>
-          <p class="rep-fix"><s>experience on backend</s> → <strong>experience in backend</strong></p>
+          <p class="rep-fix">experience <s>on</s> <strong>in</strong> backend</p>
           <p class="rep-meta">Experiência em uma área pede <em>in</em>.</p>
         </div>
       </div>
@@ -432,7 +438,7 @@ main{overflow-x:clip}
   <div class="wrap">
     <div class="diff-head rv">
       <h2>Seu conteúdo é bom. O inglês esconde.</h2>
-      <p class="lead">Passe o mouse nas partes marcadas para ver o par.</p>
+      <p class="lead">Em vermelho, o erro. Em verde, como um nativo diria.</p>
     </div>
     <div class="diff rv" id="diff" lang="en">
       <div class="drow"><span>Você</span><p>I have five years <button class="seg" data-d="0">experience on</button> backend and I <button class="seg" data-d="1">am working</button> with Go since 2021.</p></div>
