@@ -76,16 +76,9 @@ section{padding:clamp(44px,6vw,80px) 0}
 
 /* ===== DEMO ===== */
 main{overflow-x:clip}
-.d-stage{position:relative;isolation:isolate;margin-inline:calc(50% - 50vw);padding:clamp(28px,4.5vw,72px) max(20px,calc(50vw - 560px))}
-.d-art{position:absolute;inset:0;z-index:-1;pointer-events:none;
-  mask-image:linear-gradient(to bottom,transparent,#000 32px,#000 calc(100% - 32px),transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 32px,#000 calc(100% - 32px),transparent)}
-.d-art{overflow:hidden}
-.d-art img{width:100%;height:100%;object-fit:cover;object-position:center 100%;transform:scale(1.3);transform-origin:50% 100%}
-.d-art::after{content:"";position:absolute;inset:0;background:rgba(14,42,31,.42)}
-.d-wrap{margin-top:1rem}
-.d-ctrl{margin-top:14px;background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:20px;padding:.6rem 1rem .9rem;box-shadow:var(--shadow)}
-.d-ctrl .pbar{margin-top:0}
-.d-ctrl .fine{margin-top:.4rem}
+.d-wrap{margin-top:clamp(1.4rem,4vw,3.4rem)}
+/* the window grows a little while it is centred on screen (set from JS) */
+.d-wrap.rv.in{transform:scale(var(--grow,1));transform-origin:50% 50%}
 .scenes{position:relative;height:clamp(520px,56vw,600px);overflow:hidden;background:var(--cream)}
 .sc{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .5s var(--ease),transform .5s var(--ease),visibility 0s .5s;overflow:hidden}
 .sc.on{opacity:1;visibility:visible;transform:none;transition-delay:0s}
@@ -314,6 +307,7 @@ main{overflow-x:clip}
 .dtabs button[aria-pressed=true]{background:var(--ink);color:var(--cream)}
 
 /* faq centered */
+.faq-sec{padding-top:clamp(8px,2vw,24px)}
 .faq-sec .rv:first-child{text-align:center}
 .faq{margin-inline:auto}
 
@@ -329,20 +323,32 @@ main{overflow-x:clip}
 .q-btn[aria-expanded=true]+.a{grid-template-rows:1fr}
 .q-btn[aria-expanded=true]+.a p{opacity:1;transform:none;transition-delay:.08s}
 
-/* final: full-width dark green closing, footer sits inside it */
-.final{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(to bottom,var(--cream),var(--ink) 32px);color:var(--cream);text-align:center;padding:clamp(64px,8vw,120px) 0 0}
-.final::before{content:"";position:absolute;inset:auto -10% -40% -10%;height:90%;background:radial-gradient(closest-side,rgba(31,107,69,.55),transparent);pointer-events:none;z-index:-1}
-.final h2{max-width:20ch;margin:0 auto 1.8rem}
-.final .btn{background:var(--cream);color:var(--ink);box-shadow:none}
-@media(hover:hover){.final .btn:hover{background:#fff}}
-.foot{margin-top:clamp(64px,8vw,112px);padding:1.4rem 0 1.4rem;border-top:1px solid rgba(243,244,238,.14);text-align:left}
+/* final: dark green box resting on the forest art; footer below the art */
+.final{position:relative;padding:clamp(8px,2vw,24px) 0 0;overflow:hidden}
+.cta-box{position:relative;z-index:1;overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:1.6rem;border-radius:32px;background:var(--ink);color:var(--cream);padding:clamp(2.4rem,5vw,4.6rem) 1.5rem;text-align:center;box-shadow:0 24px 48px -24px rgba(14,42,31,.5)}
+.cta-box::before{content:"";position:absolute;inset:auto -10% -60% -10%;height:90%;background:radial-gradient(closest-side,rgba(31,107,69,.55),transparent);pointer-events:none}
+.cta-box>*{position:relative}
+.cta-box h2{max-width:20ch;margin:0}
+.cta-box .btn{background:var(--cream);color:var(--ink);box-shadow:none}
+@media(hover:hover){.cta-box .btn:hover{background:#fff}}
+.cta-box :focus-visible{outline-color:var(--cream)}
+.final-art{margin-top:clamp(-120px,-8vw,-50px);line-height:0;pointer-events:none;mask-image:linear-gradient(to bottom,transparent,#000 30%);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 30%)}
+.final-art img{width:100%;height:clamp(220px,30vw,420px);object-fit:cover;object-position:center 55%;opacity:.9}
+.foot{background:var(--tint);padding:1.6rem 0 1.4rem}
 .foot-in{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-.foot .brand{color:var(--cream)}
 .foot nav{display:flex;gap:1.4rem;flex-wrap:wrap;font-size:.92rem}
-.foot nav a{text-decoration:none;color:#b9c9bf}
-@media(hover:hover){.foot nav a:hover{color:var(--cream)}}
-.foot-base{display:flex;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap;margin-top:1rem;font-size:.8rem;color:#9fb3a7}
-.final :focus-visible{outline-color:var(--cream)}
+.foot nav a{text-decoration:none;color:var(--text2)}
+@media(hover:hover){.foot nav a:hover{color:var(--ink)}}
+.foot-base{display:flex;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap;margin-top:1rem;font-size:.8rem;color:var(--text2)}
+
+/* nav hides while the demo has the stage */
+.nav{transition:transform .45s var(--ease)}
+.nav.away{transform:translateY(-100%)}
+.nav.away::after{opacity:0}
+
+/* magnetic primary buttons (set from JS) */
+[data-cta]{transform:translate(var(--mx,0px),var(--my,0px));transition:transform .35s var(--ease),background .16s}
+[data-cta].mag{transition:transform .12s linear,background .16s}
 
 /* reveal */
 .rv{opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
@@ -374,8 +380,8 @@ main{overflow-x:clip}
     <h1>Você sabe a resposta. Em inglês, ela <em>trava</em>.</h1>
     <p class="lead">Entrevista em inglês para dev brasileiro. Treine falando e veja exatamente o que corrigir.</p>
     <div class="cta-row">
-      <a class="btn" href="#relatorio">Ver o relatório <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn soft" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis</a>
+      <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn soft" href="#relatorio">Ver o relatório</a>
     </div>
   </div>
 </section>
@@ -433,8 +439,6 @@ main{overflow-x:clip}
     </div>
 
     <div class="d-wrap rv">
-      <div class="d-stage">
-      <div class="d-art" aria-hidden="true"><img src="assets/hero-mata.png" alt="" width="1536" height="1024" loading="lazy"></div>
       <div class="win" id="screen" role="img" aria-label="Animação do produto: a IA analisa a descrição da vaga, a sala de entrevista por voz com legendas e o relatório final">
         <div class="chrome"><i></i><i></i><i></i><span>Entoa · entrevista</span></div>
         <div class="scenes" id="scenes">
@@ -491,7 +495,6 @@ AWS e observabilidade</div></div>
                 <div class="avwall"><img src="assets/tucano.png" alt=""></div>
                 <p class="cap" id="cap" lang="en"></p>
                 <div class="nm"><span class="bars"><i></i><i></i><i></i></span>Entrevistador</div>
-                <span class="fu" id="fu">↪ Follow-up sobre a sua resposta</span>
               </div>
               <div class="tile me" id="tMe">
                 <span class="mglow"></span>
@@ -548,7 +551,6 @@ AWS e observabilidade</div></div>
           <svg class="cur" id="cur" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 2l15 7-6.5 2L9 18z" fill="#0e2a1f" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
         </div>
       </div>
-      <div class="d-ctrl">
       <div class="pbar">
         <div class="scrub" id="scrub" role="slider" tabindex="0" aria-label="Posição da animação" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
           <div class="tr" id="tr"><i style="flex:25.5"></i><i style="flex:38"></i><i style="flex:11.5"></i><span class="fill" id="fill"></span></div>
@@ -566,8 +568,6 @@ AWS e observabilidade</div></div>
         <a class="btn sm" href="https://englishinterview.vercel.app/signup" data-cta>Fazer a minha</a>
       </div>
       <p class="fine">Exemplo ilustrativo. Na entrevista real o entrevistador fala em voz alta, com áudio.</p>
-      </div>
-      </div>
 
 
     </div>
@@ -591,20 +591,23 @@ AWS e observabilidade</div></div>
   </div>
 </section>
 
-<!-- FINAL: closing + footer on the dark green -->
+<!-- FINAL -->
 <section class="final">
   <div class="wrap">
-    <h2 class="rv">Descubra como seu inglês soa para quem vai te contratar.</h2>
-    <a class="btn rv" href="https://englishinterview.vercel.app/signup" data-cta>Fazer entrevista grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-  </div>
-  <footer class="foot">
-    <div class="wrap foot-in">
-      <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="22" height="26"> <span class="wordmark">Entoa</span></a>
-      <nav aria-label="Rodapé"><a href="#relatorio">Relatório</a><a href="#demo">Como funciona</a><a href="https://englishinterview.vercel.app/login">Entrar</a><a href="https://englishinterview.vercel.app/signup">Criar conta</a></nav>
+    <div class="cta-box rv">
+      <h2>Descubra como seu inglês soa para quem vai te contratar.</h2>
+      <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
-    <div class="wrap foot-base"><span>Entoa © 2026</span><span>Feito no Brasil, para vaga lá fora.</span></div>
-  </footer>
+  </div>
+  <div class="final-art" aria-hidden="true"><img src="assets/footer-mata.png" alt="" width="2172" height="724" loading="lazy"></div>
 </section>
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="22" height="26"> <span class="wordmark">Entoa</span></a>
+    <nav aria-label="Rodapé"><a href="#relatorio">Relatório</a><a href="#demo">Como funciona</a><a href="https://englishinterview.vercel.app/login">Entrar</a><a href="https://englishinterview.vercel.app/signup">Criar conta</a></nav>
+  </div>
+  <div class="wrap foot-base"><span>Entoa © 2026</span><span>Feito no Brasil, para vaga lá fora.</span></div>
+</footer>
 </main>
 <script>
 (function(){
@@ -634,7 +637,7 @@ AWS e observabilidade</div></div>
   const css=(el,p,v)=>{let o=memo.get(el);if(!o){o={};memo.set(el,o)}if(o[p]!==v){el.style.setProperty(p,v);o[p]=v}};
   const txt=(el,v)=>{let o=memo.get(el);if(!o){o={};memo.set(el,o)}if(o.t!==v){el.textContent=v;o.t=v}};
   const tg=(el,c,on)=>{on=!!on;let o=memo.get(el);if(!o){o={};memo.set(el,o)}if(o['c'+c]!==on){el.classList.toggle(c,on);o['c'+c]=on}};
-  const E={};['sgMode','mAuto','revJob','ta','taTxt','cnt','bAn','bAnTxt','bClr','revRes','inpRole','sgSen','sgFoc','pf0','pf1','pf2','sgDur','bStart','tInt','tMe','cap','capMe','fu','live','rEl','rRem','rProg','bMic','bCap','bEnd','dlg','dFin','pr0','pr1','bTrain','score','mF','mP'].forEach(k=>E[k]=document.getElementById(k));
+  const E={};['sgMode','mAuto','revJob','ta','taTxt','cnt','bAn','bAnTxt','bClr','revRes','inpRole','sgSen','sgFoc','pf0','pf1','pf2','sgDur','bStart','tInt','tMe','cap','capMe','live','rEl','rRem','rProg','bMic','bCap','bEnd','dlg','dFin','pr0','pr1','bTrain','score','mF','mP'].forEach(k=>E[k]=document.getElementById(k));
   const fmt=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(Math.floor(s%60)).padStart(2,'0');
 
   /* cursor: waypoints {c: click time, el}; the pointer leaves the previous one 1.25s before the click */
@@ -647,9 +650,10 @@ AWS e observabilidade</div></div>
   const APP=1.25;
   let pgY=0;
   const SCROLLPTS=[['mAuto',2.2],['ta',3.8],['bAn',13.0],['sgFoc',17.9],['pf2',20.4],['sgDur',22.8],['bStart',24.8]];
-  function targetXY(el,box){const a=el.getBoundingClientRect();return[a.left-box.left+Math.min(a.width*.5,56),a.top-box.top+a.height*.62]}
+  const kScale=()=>scenes.getBoundingClientRect().width/scenes.offsetWidth||1;
+  function targetXY(el,box){const a=el.getBoundingClientRect(),k=kScale();return[(a.left-box.left+Math.min(a.width*.5,56))/k,(a.top-box.top+a.height*.62)/k]}
   function placeCursor(t){
-    const box=scenes.getBoundingClientRect();
+    const b0=scenes.getBoundingClientRect(),k0=kScale(),box={left:b0.left,top:b0.top,width:b0.width/k0,height:b0.height/k0};
     let i=-1;for(let k=0;k<WP.length;k++){if(t>=WP[k].c-APP)i=k}
     if(i<0||t>63.6){css(cur,'opacity','0');return}
     css(cur,'opacity','1');
@@ -687,7 +691,7 @@ AWS e observabilidade</div></div>
     for(const [id,c] of SCROLLPTS){
       const r0=c-1.8;if(t<r0)break;
       const r=getEl(id).getBoundingClientRect();
-      const need=Math.max(0,r.bottom-top+pgY+30-H);
+      const need=Math.max(0,(r.bottom-top)/kScale()+pgY+30-H);
       y+=(need-y)*ease(prog(t,r0,c-.6));
     }
     pgY=y;css(pg0,'transform',`translateY(${-y}px)`);
@@ -706,7 +710,6 @@ AWS e observabilidade</div></div>
     tg(E.tMe,'rec',rec);tg(E.bMic,'rec',rec);tg(E.live,'on',rec);
     const lvl=rec?clamp(.45+.3*Math.sin(t*7.3)+.2*Math.sin(t*13.1)):0;css(E.tMe,'--lvl',lvl.toFixed(2));
     const el=Math.max(0,t-T1+.5);txt(E.rEl,fmt(el));txt(E.rRem,fmt(Math.max(0,300-el)));css(E.rProg,'width',(el/300*100).toFixed(2)+'%');
-    tg(E.fu,'on',t>=T2);
     tg(E.dlg,'on',t>=60.8&&t<63.5);
   }
   function renderReport(t){
@@ -817,6 +820,37 @@ AWS e observabilidade</div></div>
   dPick(0);
   // cycle through the differences while the card is on screen, until the visitor touches it
   new IntersectionObserver(es=>es.forEach(e=>{clearInterval(dAuto);if(e.isIntersecting&&!dTouched&&!reduce)dAuto=setInterval(()=>dPick((dSel+1)%WHY.length),3200)}),{threshold:.5}).observe($('#diff'));
+
+  /* ================= focus on the demo: the nav slides away and the window grows a little ================= */
+  const nav=$('.nav'),screen=$('#screen'),dwrap=$('.d-wrap');
+  let focusTick=false;
+  function focusDemo(){
+    focusTick=false;
+    const r=dwrap.getBoundingClientRect(),vh=innerHeight,vw=document.documentElement.clientWidth;
+    const w=dwrap.offsetWidth,h=dwrap.offsetHeight;
+    // 1 when the window is centred, 0 when it is ~60% of a screen away from the centre
+    const p=clamp(1-Math.abs(r.top+r.height/2-vh/2)/(vh*.6));
+    const maxGrow=Math.max(1,Math.min(1.12,(vw-24)/w,(vh-24)/h));
+    const g=1+(maxGrow-1)*ease(p);
+    if(!reduce)css(dwrap,'--grow',g.toFixed(4));
+    tg(nav,'away',p>.55);
+  }
+  addEventListener('scroll',()=>{if(!focusTick){focusTick=true;requestAnimationFrame(focusDemo)}},{passive:true});
+  addEventListener('resize',focusDemo);focusDemo();
+  // "Como funciona" lands on the video itself, a little below the top of the screen
+  $$('a[href="#demo"]').forEach(a=>a.addEventListener('click',e=>{
+    e.preventDefault();const r=dwrap.getBoundingClientRect();
+    scrollTo({top:scrollY+r.top+r.height/2-innerHeight/2+24,behavior:reduce?'auto':'smooth'});
+  }));
+
+  /* ================= magnetic CTAs: the button leans toward the pointer ================= */
+  if(!reduce&&matchMedia('(hover:hover) and (pointer:fine)').matches){
+    $$('[data-cta]').forEach(b=>{
+      b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.classList.add('mag');
+        b.style.setProperty('--mx',((e.clientX-r.left-r.width/2)*.22).toFixed(1)+'px');b.style.setProperty('--my',((e.clientY-r.top-r.height/2)*.3).toFixed(1)+'px')});
+      b.addEventListener('pointerleave',()=>{b.classList.remove('mag');b.style.setProperty('--mx','0px');b.style.setProperty('--my','0px')});
+    });
+  }
 
   /* ================= faq ================= */
   $$('#faq .q-btn').forEach(b=>b.addEventListener('click',()=>{

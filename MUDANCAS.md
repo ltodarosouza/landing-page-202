@@ -130,3 +130,23 @@ A ordem agora é: **topo → relatório sobre a mata → você × nativo → com
   - por cima, um véu verde-escuro (ink a 42%), para conversar com o fechamento escuro.
 - **Fades um pouco menores:** 32 px, contra 40 px antes.
 - **Fade curto (32 px) entre as perguntas rápidas e o verde-escuro final.**
+
+---
+
+## Rodada 5: foco no vídeo, CTA mais forte, imagem de volta ao fim
+- **Topo:** "Experimentar grátis" virou o botão verde (principal), e "Ver o relatório" ficou branco.
+- **Efeito magnético:** todos os botões "Experimentar grátis" (menu, topo, "Fazer a minha" e o do fechamento) se inclinam um pouco na direção do mouse e voltam ao sair. Só vale em computador com mouse, e fica desligado com "reduzir movimento".
+- **Como funciona:**
+  - o fundo voltou a ser todo claro, sem imagem nem véu;
+  - os controles ficam embaixo da janela, como antes.
+- **Modo foco do vídeo:**
+  - ao rolar até a animação, a barra de navegação sobe e se esconde, e o bloco da animação cresce até cerca de 12%, sem passar da tela;
+  - ao continuar rolando para sair, ele volta ao tamanho normal e a barra reaparece;
+  - o cursor da animação compensa a escala, para continuar clicando no lugar certo.
+- **"Como funciona" (menu e rodapé)** leva direto ao vídeo, centralizado e um pouco abaixo do topo.
+- **Saiu o selo "↪ Follow-up sobre a sua resposta"**, que tinha perdido o estilo e aparecia mal na animação.
+- **Perguntas rápidas** mais para cima, com menos espaço acima.
+- **Fechamento:**
+  - a caixa verde-escura fica logo abaixo das perguntas, apoiada na arte da mata, como na rodada 2;
+  - o rodapé (marca, links e "Feito no Brasil…") fica abaixo da imagem;
+  - o botão da caixa agora também diz "Experimentar grátis".
