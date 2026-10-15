@@ -78,13 +78,11 @@ section{padding:clamp(44px,6vw,80px) 0}
 
 /* ===== DEMO ===== */
 main{overflow-x:clip}
-.d-band{position:relative;isolation:isolate;margin:clamp(1.4rem,4vw,3rem) calc(50% - 50vw) 0;padding:clamp(28px,4.5vw,64px) max(20px,calc(50vw - 560px))}
-.d-band-img{position:absolute;inset:0;z-index:-1;width:100%;height:100%;object-fit:cover;object-position:center 75%;opacity:.95;pointer-events:none;
-  mask-image:linear-gradient(to bottom,transparent,#000 32px,#000 calc(100% - 32px),transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 32px,#000 calc(100% - 32px),transparent)}
-.d-ctrl{margin-top:14px;background:color-mix(in srgb,var(--cream) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:20px;padding:.6rem 1rem .9rem;box-shadow:var(--shadow)}
-.d-ctrl .pbar{margin-top:0}
-.d-ctrl .fine{margin-top:.4rem}
-.d-wrap .win{box-shadow:0 2px 6px rgba(14,42,31,.12),0 40px 80px -30px rgba(14,42,31,.6)}
+.d-wrap{margin-top:clamp(1.4rem,4vw,3.4rem)}
+/* the player stands out from the cream page: brighter screen, crisp edge, deeper shadow */
+.d-wrap .win{box-shadow:0 0 0 1px rgba(14,42,31,.14),0 2px 6px rgba(14,42,31,.08),0 40px 80px -30px rgba(14,42,31,.55)}
+.d-wrap .chrome{background:#dde4d8}
+.d-wrap .scenes{background:#e8ede4}
 .d-wrap.rv.in{transform:scale(var(--grow,1));transform-origin:50% 50%}
 .scenes{position:relative;height:clamp(520px,56vw,600px);overflow:hidden;background:var(--cream)}
 .sc{position:absolute;inset:0;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .5s var(--ease),transform .5s var(--ease),visibility 0s .5s;overflow:hidden}
@@ -454,8 +452,6 @@ main{overflow-x:clip}
       <h2>Veja uma entrevista do começo ao fim.</h2>
     </div>
 
-    <div class="d-band">
-    <img class="d-band-img" src="assets/hero-mata.png" alt="" width="1536" height="1024" loading="lazy" aria-hidden="true">
     <div class="d-wrap rv">
       <div class="win" id="screen" role="img" aria-label="Animação do produto: a IA analisa a descrição da vaga, a sala de entrevista por voz com legendas e o relatório final">
         <div class="chrome"><i></i><i></i><i></i><span>Entoa · entrevista</span></div>
@@ -569,7 +565,6 @@ AWS e observabilidade</div></div>
           <svg class="cur" id="cur" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 2l15 7-6.5 2L9 18z" fill="#0e2a1f" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
         </div>
       </div>
-      <div class="d-ctrl">
       <div class="pbar">
         <div class="scrub" id="scrub" role="slider" tabindex="0" aria-label="Posição da animação" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
           <div class="tr" id="tr"><i style="flex:25.5"></i><i style="flex:38"></i><i style="flex:11.5"></i><span class="fill" id="fill"></span></div>
@@ -587,8 +582,6 @@ AWS e observabilidade</div></div>
         <a class="btn sm" href="https://englishinterview.vercel.app/signup" data-cta>Fazer a minha</a>
       </div>
       <p class="fine">Exemplo ilustrativo. Na entrevista real o entrevistador fala em voz alta, com áudio.</p>
-      </div>
-    </div>
     </div>
   </div>
 </section>
