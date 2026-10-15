@@ -172,3 +172,10 @@ A ordem agora é: **topo → relatório sobre a mata → você × nativo → com
 - O texto final está mais largo e cabe em **2 linhas**, contra 3 antes.
 - A **imagem final está mais baixa**: cerca de 40% da largura da tela, contra 52% antes.
 - **Rodapé sem a barra:** os textos ficam direto sobre a imagem, e um véu claro e suave sobe da base da arte para garantir a leitura.
+
+---
+
+## Rodada 9: rodapé em pílula
+- **Saiu o véu claro** da rodada 8, que ficou estranho.
+- **Também testei** só um halo no texto, sem fundo: sobre as folhas, os links ficavam ilegíveis.
+- **Ficou** uma pílula compacta, centralizada, em vidro fosco claro, na base da imagem: Entoa · Relatório · Como funciona · Entrar · Criar conta · "© 2026 · Feito no Brasil, para vaga lá fora.". Ela ocupa só a largura do conteúdo, não a tela toda.

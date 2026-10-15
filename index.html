@@ -338,15 +338,17 @@ main{overflow-x:clip}
 /* the closing call sits in the empty sky at the top centre of the artwork */
 .end-cta{display:flex;flex-direction:column;align-items:center;gap:1.2rem;text-align:center;padding-top:clamp(28px,4vw,56px)}
 .end-cta h2{max-width:30ch;margin:0;font-size:clamp(1.9rem,4vw,3rem);text-shadow:0 0 18px var(--cream),0 0 2px var(--cream)}
-/* footer straight on the artwork; a soft light wash rising from the bottom keeps it readable */
-.end::after{content:"";position:absolute;left:0;right:0;bottom:0;height:150px;z-index:-1;pointer-events:none;background:linear-gradient(to top,color-mix(in srgb,var(--cream) 92%,transparent) 35%,transparent)}
-.foot{position:absolute;left:0;right:0;bottom:clamp(10px,1.6vw,20px)}
-.foot-panel{padding:0 .2rem}
-.foot-in{display:flex;justify-content:space-between;align-items:center;gap:.6rem 1rem;flex-wrap:wrap}
-.foot nav{display:flex;gap:.4rem 1.4rem;flex-wrap:wrap;font-size:.92rem}
-.foot nav a{text-decoration:none;color:var(--ink)}
+/* footer: one compact frosted pill centred at the foot of the artwork (reads over the leaves without a full-width band) */
+.foot{position:absolute;left:0;right:0;bottom:clamp(12px,2vw,22px);display:flex;justify-content:center;padding-inline:16px}
+.foot-panel{display:flex;align-items:center;gap:.5rem 1.4rem;flex-wrap:wrap;justify-content:center;width:fit-content;max-width:100%;
+  background:color-mix(in srgb,var(--cream) 80%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:999px;padding:.55rem 1.3rem;box-shadow:0 1px 2px rgba(14,42,31,.06),0 6px 18px -8px rgba(14,42,31,.25)}
+.foot .wordmark{font-size:1.2rem}
+.foot .brand img{width:20px}
+.foot nav{display:flex;gap:.3rem 1.1rem;flex-wrap:wrap;justify-content:center;font-size:.86rem}
+.foot nav a{text-decoration:none;color:var(--text2)}
 @media(hover:hover){.foot nav a:hover{color:var(--ink)}}
-.foot-base{display:flex;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap;margin-top:.7rem;font-size:.8rem;color:var(--text2)}
+.foot-base{font-size:.78rem;color:var(--text2)}
+@media(max-width:640px){.foot-panel{border-radius:20px}}
 
 /* nav hides while the demo has the stage */
 .nav{transition:transform .45s var(--ease)}
@@ -605,13 +607,11 @@ AWS e observabilidade</div></div>
       <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <footer class="foot">
-      <div class="wrap"><div class="foot-panel">
-        <div class="foot-in">
-          <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="22" height="26"> <span class="wordmark">Entoa</span></a>
-          <nav aria-label="Rodapé"><a href="#relatorio">Relatório</a><a href="#demo">Como funciona</a><a href="https://englishinterview.vercel.app/login">Entrar</a><a href="https://englishinterview.vercel.app/signup">Criar conta</a></nav>
-        </div>
-        <div class="foot-base"><span>Entoa © 2026</span><span>Feito no Brasil, para vaga lá fora.</span></div>
-      </div></div>
+      <div class="foot-panel">
+        <a class="brand" href="#"><img src="assets/tucano-mark.webp" alt="" width="22" height="26"> <span class="wordmark">Entoa</span></a>
+        <nav aria-label="Rodapé"><a href="#relatorio">Relatório</a><a href="#demo">Como funciona</a><a href="https://englishinterview.vercel.app/login">Entrar</a><a href="https://englishinterview.vercel.app/signup">Criar conta</a></nav>
+        <span class="foot-base">© 2026 · Feito no Brasil, para vaga lá fora.</span>
+      </div>
     </footer>
   </div>
 </section>
