@@ -217,3 +217,14 @@ A ordem agora é: **topo → relatório sobre a mata → você × nativo → com
 ## Rodada 13: demo de volta ao fundo claro, com a janela realçada
 - Saiu a faixa de imagem atrás da demo. O fundo voltou a ser o claro da página, com os controles embaixo, como antes.
 - **Realce da janela:** a tela tem um tom verde-acinzentado (#e8ede4), diferente do creme da página, então os cartões brancos da animação se destacam. A barra do navegador está um tom mais escura, a borda é fina e a sombra, mais profunda.
+
+---
+
+## Rodada 14: celular (conferido em 360 e 390 px)
+- **Topo:** os botões "Experimentar grátis" e "Entrar" ficam empilhados, com a mesma largura (até 300 px). Abaixo de 400 px, a barra de cima mostra só a marca e "Experimentar grátis", para não apertar.
+- **Relatório sobre a mata:** no celular, a arte vira uma faixa de folhagem atrás da metade de baixo do cartão. Antes aparecia recortada torta, só nas laterais.
+- **Você × nativo:** a marcação agora inclui o sujeito ("I am working" / "I’ve been working"), para o "I" não ficar de fora do destaque.
+- **Demo:**
+  - no celular, a janela não cresce ao rolar (encostava no título e nas bordas);
+  - a sala de entrevista não vaza mais para a direita: a grade foi limitada à largura e saíram o "Microfone ativo" e o botão de pular;
+  - os botões "Foco da prática" quebram em duas linhas em vez de cortar o texto.
