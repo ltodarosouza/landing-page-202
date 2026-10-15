@@ -120,3 +120,13 @@ A ordem agora é: **topo → relatório sobre a mata → você × nativo → com
   - a seção final inteira agora é o verde-escuro, de ponta a ponta, com "Descubra como seu inglês soa para quem vai te contratar." e o botão;
   - o rodapé (marca, links e "Feito no Brasil, para vaga lá fora.") fica dentro desse verde, com texto claro;
   - a imagem final saiu.
+
+---
+
+## Rodada 4: animação em bloco fechado sobre a mata
+- **Controles por cima da imagem:** a linha do tempo, o pausar, os 3 passos e o "Fazer a minha" agora ficam dentro do bloco da imagem, num painel claro translúcido logo abaixo da janela. O bloco da animação fecha inteiro antes das perguntas rápidas.
+- **Fundo mais escuro sob a entrevista:**
+  - recorte da parte de baixo da arte, a mata mais densa;
+  - por cima, um véu verde-escuro (ink a 42%), para conversar com o fechamento escuro.
+- **Fades um pouco menores:** 32 px, contra 40 px antes.
+- **Fade curto (32 px) entre as perguntas rápidas e o verde-escuro final.**
