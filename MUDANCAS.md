@@ -197,3 +197,10 @@ A ordem agora é: **topo → relatório sobre a mata → você × nativo → com
   - no celular aparecem só a marca e os dois botões.
 - **Topo:** "Ver o relatório" saiu e "Entrar" entrou no lugar (botão claro).
 - **"Experimentar grátis" foi mantido** no lugar de "Experimente agora": o "grátis" é um argumento forte para quem ainda não conhece. Fácil de trocar se quiserem testar.
+
+---
+
+## Rodada 11: contraste
+- **Relatório, "Ponto principal":** só o erro aparece marcado: "experience ~~on~~ **in** backend", com o *on* riscado em vermelho e o *in* em verde.
+- **Você × nativo:** as correções do nativo ganharam um fundo verde e um sublinhado, para não se confundirem com o texto normal. Legenda nova: "Em vermelho, o erro. Em verde, como um nativo diria." (a anterior falava em mouse e não fazia sentido no celular).
+- **Demo:** o player inteiro (janela e controles) fica sobre um painel verde em degradê, para a janela clara não se misturar com o fundo da página. Os controles têm texto claro sobre o verde.
