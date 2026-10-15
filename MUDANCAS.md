@@ -211,3 +211,9 @@ A ordem agora é: **topo → relatório sobre a mata → você × nativo → com
 - Saiu o painel verde atrás do player.
 - No lugar, uma **faixa com a arte da mata cobrindo toda a largura da página**, com fade curto (32 px) em cima e embaixo. A janela da entrevista fica sobre ela, com sombra mais forte para se destacar.
 - Os controles (linha do tempo, pausar, passos e "Fazer a minha") ficam num painel claro translúcido logo abaixo da janela, ainda sobre a arte, para continuarem legíveis.
+
+---
+
+## Rodada 13: demo de volta ao fundo claro, com a janela realçada
+- Saiu a faixa de imagem atrás da demo. O fundo voltou a ser o claro da página, com os controles embaixo, como antes.
+- **Realce da janela:** a tela tem um tom verde-acinzentado (#e8ede4), diferente do creme da página, então os cartões brancos da animação se destacam. A barra do navegador está um tom mais escura, a borda é fina e a sombra, mais profunda.
