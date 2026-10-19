@@ -374,6 +374,115 @@ main{overflow-x:clip}
 /* reveal */
 .rv{opacity:0;transform:translateY(14px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
 .rv.in{opacity:1;transform:none}
+/* ===== scroll + hover motion ===== */
+.sp{position:fixed;inset:0 0 auto 0;height:3px;z-index:30;pointer-events:none}
+.sp i{display:block;height:100%;background:var(--green);transform-origin:0 50%;transform:scaleX(var(--sp,0))}
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1.5px;background:var(--green);transform:scaleX(0);transform-origin:0 50%;transition:transform .35s var(--ease)}
+@media(hover:hover){.nav-links a:hover::after{transform:scaleX(1)}}
+.brand img{transition:transform .45s var(--ease)}
+@media(hover:hover){.brand:hover img{transform:rotate(-10deg) translateY(-2px)}.btn:not([data-cta]):hover{transform:translateY(-2px)}}
+.cta-box .qa{transition:transform .3s var(--ease),box-shadow .3s}
+@media(hover:hover){.cta-box .qa:hover{transform:translateY(-2px)}}
+
+/* hero: written on load */
+.hero h1 em{position:relative}
+.sw{position:absolute;left:0;right:0;bottom:-.06em;width:100%;height:.28em;overflow:visible;pointer-events:none}
+.sw path{fill:none;stroke:var(--green);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:0}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.fx .sw path{stroke-dashoffset:1;animation:draw 1.1s .7s var(--ease) forwards}
+.fx .hero h1{animation:up .9s var(--ease) both}
+.fx .hero .lead{animation:up .9s .12s var(--ease) both}
+.fx .hero .cta-row{animation:up .9s .24s var(--ease) both}
+.fx .hero .trust{animation:up .9s .36s var(--ease) both}
+.trust{margin:1.1rem auto 0;display:flex;flex-wrap:wrap;gap:.3rem 1.1rem;justify-content:center;font-size:.86rem;color:var(--text2)}
+.trust span{display:inline-flex;align-items:center;gap:.4rem}
+.trust span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
+
+/* letters that form while scrolling, things that fly into place, strokes that draw */
+.fx .ch{display:inline-block;opacity:var(--q,0);transform:translateY(calc((1 - var(--q,0)) * .5em))}
+.w{display:inline-block;white-space:nowrap}
+.fx [data-fly]{opacity:var(--fo,0);transform:translate3d(var(--fx,0px),var(--fy,0px),0)}
+[data-draw]{stroke-dasharray:1;stroke-dashoffset:0}
+.fx [data-draw]{stroke-dashoffset:1}
+.under{position:relative;display:inline-block;color:var(--green);font-style:italic}
+.under svg{position:absolute;left:0;right:0;bottom:-.14em;width:100%;height:.3em;overflow:visible;pointer-events:none}
+.under path{fill:none;stroke:var(--green);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}
+
+.sec-head{text-align:center;max-width:780px;margin:0 auto}
+.sec-head h2{margin-inline:auto;max-width:22ch}
+.sec-head .lead{margin:.6rem auto 0;max-width:46ch}
+
+/* three steps: the line fills as you scroll and each node lights up when reached */
+.steps{position:relative;list-style:none;padding:0;margin:2.6rem 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
+.steps::before,.steps::after{content:"";position:absolute;top:22px;left:16.66%;right:16.66%;height:2px;border-radius:2px}
+.steps::before{background:var(--track)}
+.steps::after{background:var(--green);transform-origin:0 50%;transform:scaleX(var(--p,1))}
+.steps li{position:relative;text-align:center;padding:0 .5rem}
+.node{position:relative;z-index:1;display:grid;place-items:center;width:46px;height:46px;margin:0 auto 1rem;border-radius:50%;background:var(--surface);color:var(--text2);font-weight:700;box-shadow:var(--shadow),inset 0 0 0 2px var(--track);transition:background .45s var(--ease),color .45s,box-shadow .45s,transform .35s var(--ease)}
+.steps li.on .node,html:not(.fx) .node{background:var(--green);color:var(--cream);box-shadow:var(--shadow)}
+@media(hover:hover){.steps li:hover .node{transform:scale(1.1)}}
+.steps h3{font-size:1.65rem;margin-bottom:.4rem}
+.steps p{color:var(--text2);max-width:30ch;margin:0 auto}
+@media(max-width:700px){
+  .steps{grid-template-columns:1fr;gap:1.8rem}
+  .steps::before,.steps::after{top:23px;bottom:23px;left:22px;right:auto;width:2px;height:auto}
+  .steps::after{transform-origin:50% 0;transform:scaleY(var(--p,1))}
+  .steps li{text-align:left;display:grid;grid-template-columns:46px 1fr;column-gap:1rem;padding:0}
+  .node{margin:0;grid-row:1/3}
+  .steps h3{font-size:1.45rem}
+  .steps p{margin:0;max-width:none}
+}
+
+/* who it is for: cards lean toward the pointer */
+.who{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin-top:2.2rem}
+.who>div{min-width:0}
+@media(max-width:700px){.who{grid-template-columns:1fr}}
+.card{position:relative;height:100%;padding:1.5rem 1.5rem 1.7rem;background:var(--surface);border-radius:22px;box-shadow:var(--shadow);overflow:hidden}
+.card h3{font-size:1.7rem;margin-bottom:.45rem}
+.card p{color:var(--text2)}
+.tilt{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .3s var(--ease),box-shadow .35s}
+.glow::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(280px circle at var(--mx,50%) var(--my,0%),rgba(31,107,69,.16),transparent 70%);opacity:0;transition:opacity .35s;pointer-events:none}
+@media(hover:hover){.tilt:hover{box-shadow:var(--shadow),0 28px 44px -26px rgba(14,42,31,.45)}.glow:hover::after{opacity:1}}
+
+/* cursinho comparison: the two columns slide toward each other */
+.vs-head{text-align:center}
+.vs-head h2{max-width:20ch;margin-inline:auto}
+.vs-head .lead{margin-inline:auto;max-width:44ch}
+.vs-wrap{width:min(860px,100%);margin:1.8rem auto 0;background:var(--surface);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+.vs{width:100%;border-collapse:separate;border-spacing:0;text-align:left}
+.vs caption,.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.vs th,.vs td{padding:1.05rem 1.3rem;vertical-align:top;font-size:1rem;line-height:1.45;transition:background .3s}
+.vs thead th{font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text2);padding-block:1rem .8rem}
+.vs thead th:last-child{color:var(--green-deep)}
+.vs tbody th{width:26%;font-weight:600;color:var(--ink)}
+.vs td{color:var(--text2)}
+.vs td:last-child{background:var(--tint);color:var(--ink)}
+.vs tbody tr+tr>*{border-top:1px solid rgba(14,42,31,.07)}
+@media(hover:hover){.vs tbody tr:hover th,.vs tbody tr:hover td:nth-child(2){background:rgba(31,107,69,.06)}.vs tbody tr:hover td:last-child{background:#d8eadf}}
+.vs-note{max-width:860px;margin:.9rem auto 0;text-align:center}
+@media(max-width:640px){
+  .vs,.vs tbody,.vs tr,.vs th,.vs td{display:block}
+  .vs thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .vs tbody th{width:auto;padding:1.1rem 1.2rem .2rem}
+  .vs td{padding:.2rem 1.2rem .7rem}
+  .vs td::before{content:attr(data-l);display:block;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text2)}
+  .vs td:last-child{padding-bottom:1.1rem}
+  .vs td:last-child::before{color:var(--green-deep)}
+  .vs tbody tr+tr>*{border-top:0}
+  .vs tbody tr+tr>th{border-top:1px solid rgba(14,42,31,.07)}
+}
+
+/* voice and data: ticks that draw themselves */
+.priv{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(1.5rem,5vw,4rem);align-items:center}
+.priv h2{max-width:14ch;margin-bottom:0}
+.priv ul{list-style:none;padding:0;display:grid;gap:1.3rem}
+.priv li{display:grid;grid-template-columns:34px 1fr;gap:.9rem;align-items:start}
+.priv li svg{width:34px;height:34px;overflow:visible}
+.priv li h3{font-family:var(--sans);font-size:1.08rem;font-weight:600;letter-spacing:0;line-height:1.3}
+.priv li p{color:var(--text2);font-size:.98rem;margin-top:.15rem}
+@media(max-width:800px){.priv{grid-template-columns:1fr}.priv h2{max-width:20ch}}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .rv{opacity:1;transform:none}html{scroll-behavior:auto}
@@ -381,6 +490,7 @@ main{overflow-x:clip}
 </style>
 </head>
 <body>
+<div class="sp" aria-hidden="true"><i></i></div>
 
 <header class="nav">
   <div class="wrap">
@@ -400,12 +510,13 @@ main{overflow-x:clip}
 <!-- HERO -->
 <section class="hero">
   <div class="wrap hero-inner">
-    <h1>Você sabe a resposta. Em inglês, ela <em>trava</em>.</h1>
+    <h1>Você sabe a resposta. Em inglês, ela <em>trava<svg class="sw" viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 8 C 28 2, 62 12, 118 4"/></svg></em>.</h1>
     <p class="lead">Entrevista em inglês para dev brasileiro. Treine falando e veja exatamente o que corrigir.</p>
     <div class="cta-row">
       <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn soft" href="https://englishinterview.vercel.app/login">Entrar</a>
     </div>
+    <p class="trust"><span>Grátis por enquanto</span><span>O áudio não é salvo</span><span>Não avalia seu sotaque</span></p>
   </div>
 </section>
 
@@ -441,7 +552,7 @@ main{overflow-x:clip}
 <section id="diferenca" class="compact">
   <div class="wrap">
     <div class="diff-head rv">
-      <h2>Seu conteúdo é bom. O inglês esconde.</h2>
+      <h2 data-split>Seu conteúdo é bom. O inglês esconde.</h2>
       <p class="lead">Em vermelho, o erro. Em verde, como um nativo diria.</p>
     </div>
     <div class="diff rv" id="diff" lang="en">
@@ -451,12 +562,27 @@ main{overflow-x:clip}
   </div>
 </section>
 
+<!-- TRÊS PASSOS -->
+<section id="passos" class="compact">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-split>Três passos, uma entrevista.</h2>
+      <p class="lead rv">Da descrição da vaga ao relatório do que corrigir.</p>
+    </div>
+    <ol class="steps" id="steps">
+      <li data-fly="up" data-i="0"><span class="node">1</span><h3>Cole a vaga</h3><p>A IA lê a descrição e monta a entrevista para o seu cargo e a sua senioridade.</p></li>
+      <li data-fly="up" data-i="1"><span class="node">2</span><h3>Responda falando</h3><p>Um entrevistador simulado pergunta e você responde por voz, de 5 a 25 minutos.</p></li>
+      <li data-fly="up" data-i="2"><span class="node">3</span><h3>Corrija o que errou</h3><p>O relatório mostra cada erro, a frase certa e a regra. Depois você treina só os seus erros.</p></li>
+    </ol>
+  </div>
+</section>
+
 <!-- DEMO -->
 <section id="demo">
   <div class="wrap">
     <div class="rv">
       <span class="eyebrow">Como funciona</span>
-      <h2>Veja uma entrevista do começo ao fim.</h2>
+      <h2 data-split>Veja uma entrevista do começo ao fim.</h2>
     </div>
 
     <div class="d-wrap rv">
@@ -593,13 +719,64 @@ AWS e observabilidade</div></div>
   </div>
 </section>
 
+<!-- PARA QUEM É -->
+<section id="paraquem" class="compact">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-split>Feito para quem tem entrevista <span class="under">na gringa<svg viewBox="0 0 120 12" preserveAspectRatio="none" aria-hidden="true"><path data-draw pathLength="1" d="M2 7 C 30 1, 64 12, 118 4"/></svg></span>.</h2>
+    </div>
+    <div class="who">
+      <div data-fly="left" data-i="0"><article class="card tilt glow"><h3>Você sabe o conteúdo</h3><p>Na hora de explicar em inglês, o raciocínio trava. Aqui você treina isso falando, não lendo.</p></article></div>
+      <div data-fly="right" data-i="0"><article class="card tilt glow"><h3>Erros que o português causa</h3><p>Preposição, tempo verbal: o relatório mostra o erro, a frase corrigida e a regra.</p></article></div>
+      <div data-fly="left" data-i="1"><article class="card tilt glow"><h3>Sua vaga, não um roteiro genérico</h3><p>Cole a descrição e o entrevistador pergunta sobre o seu cargo e a sua senioridade.</p></article></div>
+      <div data-fly="right" data-i="1"><article class="card tilt glow"><h3>Treino sob pressão</h3><p>Você responde em voz alta, com o tempo correndo, como na entrevista real.</p></article></div>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUE NÃO UM CURSINHO -->
+<section id="cursinho" class="alt compact">
+  <div class="wrap">
+    <div class="vs-head">
+      <h2 data-split>Por que não um cursinho de inglês?</h2>
+      <p class="lead rv">Cursinho ensina inglês. Aqui você ensaia a sua entrevista.</p>
+    </div>
+    <div class="vs-wrap">
+    <table class="vs">
+      <caption>Comparação entre um cursinho de inglês e o Entoa</caption>
+      <thead><tr><th scope="col"><span class="sr">Critério</span></th><th scope="col">Cursinho</th><th scope="col">Entoa</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">O que você treina</th><td data-fly="left" data-l="Cursinho">Inglês em geral, o mesmo conteúdo para toda a turma.</td><td data-fly="right" data-l="Entoa">A entrevista da sua vaga, com perguntas sobre o seu cargo.</td></tr>
+        <tr><th scope="row">Quando</th><td data-fly="left" data-i="1" data-l="Cursinho">No horário da turma.</td><td data-fly="right" data-i="1" data-l="Entoa">Quando você quiser, em 5 a 25 minutos.</td></tr>
+        <tr><th scope="row">Feedback</th><td data-fly="left" data-i="2" data-l="Cursinho">Depende de o professor ter tempo para cada aluno.</td><td data-fly="right" data-i="2" data-l="Entoa">Relatório com cada erro seu, a frase corrigida e a regra.</td></tr>
+        <tr><th scope="row">Depois</th><td data-fly="left" data-i="3" data-l="Cursinho">Você segue o cronograma do curso.</td><td data-fly="right" data-i="3" data-l="Entoa">Você treina só o que errou, sem repetir o que já sabe.</td></tr>
+        <tr><th scope="row">Custo</th><td data-fly="left" data-i="4" data-l="Cursinho">Mensalidade.</td><td data-fly="right" data-i="4" data-l="Entoa">Grátis por enquanto.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="sm vs-note rv">Se o seu inglês ainda está no começo, um curso ajuda. Se a entrevista já tem data, treine com ela.</p>
+  </div>
+</section>
+
+<!-- VOZ E DADOS -->
+<section id="dados" class="compact">
+  <div class="wrap priv">
+    <h2 data-split>O que acontece com a sua voz?</h2>
+    <ul>
+      <li data-fly="right" data-i="0"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="var(--tint)"/><path data-draw pathLength="1" d="M10 17.5l5 5 9-10" fill="none" stroke="var(--green)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><h3>O áudio não é salvo.</h3><p>As respostas por voz são transcritas e o áudio não fica guardado.</p></div></li>
+      <li data-fly="right" data-i="1"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="var(--tint)"/><path data-draw pathLength="1" d="M10 17.5l5 5 9-10" fill="none" stroke="var(--green)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><h3>A vaga que você cola não fica guardada.</h3><p>O texto vai ao provedor de IA para análise e não é salvo pelo app.</p></div></li>
+      <li data-fly="right" data-i="2"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="16" fill="var(--tint)"/><path data-draw pathLength="1" d="M10 17.5l5 5 9-10" fill="none" stroke="var(--green)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><div><h3>Seu sotaque não entra na nota.</h3><p>A análise não avalia seu sotaque. Sotaque brasileiro não é defeito.</p></div></li>
+    </ul>
+  </div>
+</section>
+
 <!-- FINAL: FAQ in the dark green block; closing call and footer on the forest art -->
 <section class="final">
   <div class="wrap">
     <div class="cta-box">
       <div class="faq-sec rv">
         <span class="eyebrow">Perguntas rápidas</span>
-        <h2>Antes de começar.</h2>
+        <h2 data-split>Antes de começar.</h2>
       </div>
       <div class="faq rv" id="faq">
         <div class="qa"><button class="q-btn" aria-expanded="false" aria-controls="a1" id="b1">Preciso falar inglês perfeito?</button><div class="a" id="a1" role="region" aria-labelledby="b1"><div><p>Não. O objetivo é ser entendido com clareza e confiança. Sotaque brasileiro não é defeito.</p></div></div></div>
@@ -613,7 +790,7 @@ AWS e observabilidade</div></div>
   <div class="endart">
     <img class="end-img" src="assets/footer-mata.png" alt="" width="2172" height="724" loading="lazy">
     <div class="wrap end-cta rv">
-      <h2>Descubra como seu inglês soa para quem vai te contratar.</h2>
+      <h2 data-split>Descubra como seu inglês soa para quem vai te contratar.</h2>
       <a class="btn" href="https://englishinterview.vercel.app/signup" data-cta>Experimentar grátis <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <footer class="foot">
@@ -861,6 +1038,90 @@ AWS e observabilidade</div></div>
     $$('#faq .q-btn').forEach(x=>x.setAttribute('aria-expanded','false'));
     b.setAttribute('aria-expanded',String(!open));
   }));
+})();
+(function(){
+  /* ===== scroll + hover motion: progress is read from the scroll position, so everything runs backwards when you scroll up ===== */
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const root=document.documentElement;root.classList.add('fx');
+  const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+  const ease=x=>1-Math.pow(1-x,3);
+
+  /* headings split into letters (words stay unbroken; screen readers get the plain text) */
+  function split(h){
+    h.setAttribute('aria-label',h.textContent.replace(/\s+/g,' ').trim());
+    const chars=[];
+    (function walk(n){
+      [...n.childNodes].forEach(c=>{
+        if(c.nodeType===3){
+          const f=document.createDocumentFragment();
+          c.textContent.split(/(\s+)/).forEach(t=>{
+            if(!t)return;
+            if(/^\s+$/.test(t)){f.appendChild(document.createTextNode(' '));return}
+            const w=document.createElement('span');w.className='w';w.setAttribute('aria-hidden','true');
+            [...t].forEach(ch=>{const k=document.createElement('span');k.className='ch';k.textContent=ch;w.appendChild(k);chars.push(k)});
+            f.appendChild(w);
+          });
+          n.replaceChild(f,c);
+        }else if(c.nodeType===1&&c.tagName!=='svg')walk(c);
+      });
+    })(h);
+    return chars;
+  }
+  const items=[];
+  $$('[data-split]').forEach(h=>items.push({k:'split',el:h,ch:split(h),last:-1}));
+  $$('[data-fly]').forEach(el=>items.push({k:'fly',el,last:-1}));
+  $$('[data-draw]').forEach(el=>items.push({k:'draw',el,box:el.closest('svg'),last:-1}));
+  const steps=$('#steps');
+  if(steps)items.push({k:'steps',el:steps,li:$$('li',steps),last:-1});
+  function $(s){return document.querySelector(s)}
+
+  const bar=$('.sp i');
+  let vh=innerHeight,tick=false;
+  const p=(top,start,end)=>clamp((vh*start-top)/(vh*(start-end)));
+  function update(){
+    tick=false;vh=innerHeight;
+    root.style.setProperty('--sp',clamp(scrollY/Math.max(1,root.scrollHeight-vh)).toFixed(4));
+    const narrow=innerWidth<640;
+    const rects=items.map(it=>(it.box||it.el).getBoundingClientRect());      /* read */
+    items.forEach((it,i)=>{                                                  /* write */
+      const r=rects[i],off=(+it.el.dataset.i||0)*.05;
+      if(it.k==='split'){
+        const v=p(r.top,.92,.5),n=it.ch.length,key=Math.round(v*1000);
+        if(key===it.last)return;it.last=key;
+        it.ch.forEach((c,j)=>c.style.setProperty('--q',(clamp(v*(n+6)-j,0,6)/6).toFixed(3)));
+      }else if(it.k==='fly'){
+        const v=ease(p(r.top,.97-off,.66-off)),key=Math.round(v*1000);
+        if(key===it.last)return;it.last=key;
+        const d=it.el.dataset.fly,m=narrow?.4:1,rem=(1-v);
+        it.el.style.setProperty('--fo',v.toFixed(3));
+        it.el.style.setProperty('--fx',(d==='left'?-64*m*rem:d==='right'?64*m*rem:0).toFixed(1)+'px');
+        it.el.style.setProperty('--fy',(d==='up'?44*rem:0).toFixed(1)+'px');
+      }else if(it.k==='draw'){
+        const v=ease(p(r.top,.92-off,.58-off)),key=Math.round(v*1000);
+        if(key===it.last)return;it.last=key;
+        it.el.style.strokeDashoffset=(1-v).toFixed(3);
+      }else if(it.k==='steps'){
+        const range=Math.max(r.height,vh*.35),v=clamp((vh*.78-r.top)/range),key=Math.round(v*1000);
+        if(key===it.last)return;it.last=key;
+        it.el.style.setProperty('--p',v.toFixed(3));
+        it.li.forEach((l,j)=>l.classList.toggle('on',v>=j/(it.li.length-1)-.001));
+      }
+    });
+  }
+  const req=()=>{if(!tick){tick=true;requestAnimationFrame(update)}};
+  addEventListener('scroll',req,{passive:true});addEventListener('resize',req);addEventListener('load',req);
+  update();
+
+  /* cards lean toward the pointer, with a soft spotlight under it */
+  if(matchMedia('(hover:hover)').matches)$$('.tilt').forEach(c=>{
+    c.addEventListener('pointermove',e=>{
+      const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      c.style.setProperty('--ry',((x-.5)*6).toFixed(2)+'deg');c.style.setProperty('--rx',((.5-y)*6).toFixed(2)+'deg');
+      c.style.setProperty('--mx',(x*100).toFixed(1)+'%');c.style.setProperty('--my',(y*100).toFixed(1)+'%');
+    });
+    c.addEventListener('pointerleave',()=>{c.style.setProperty('--rx','0deg');c.style.setProperty('--ry','0deg')});
+  });
 })();
 </script>
 </body>
